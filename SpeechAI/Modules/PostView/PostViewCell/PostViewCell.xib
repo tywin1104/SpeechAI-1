@@ -32,10 +32,16 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kZ-T4-H4U">
                         <rect key="frame" x="131" y="77" width="30" height="30"/>
                         <state key="normal" title="Play"/>
+                        <connections>
+                            <action selector="playSound:" destination="zod-sf-4P9" eventType="touchUpInside" id="lRa-Dq-pag"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOs-JL-TrA">
                         <rect key="frame" x="204" y="77" width="32" height="30"/>
                         <state key="normal" title="Stop"/>
+                        <connections>
+                            <action selector="stopSound:" destination="zod-sf-4P9" eventType="touchUpInside" id="W2E-Wn-nFb"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1c-Fw-eus">
                         <rect key="frame" x="282" y="77" width="67" height="30"/>

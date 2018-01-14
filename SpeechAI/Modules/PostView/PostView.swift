@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AVFoundation
 class PostView: UIView, UITableViewDelegate, UITableViewDataSource {
 
 
@@ -24,6 +24,25 @@ class PostView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.register(nib_name, forCellReuseIdentifier: "PostViewCell")
         let cell = self.tableview.dequeueReusableCell(withIdentifier: "PostViewCell", for: indexPath) as! PostViewCell
         cell.posterName.text = listOfPosts[indexPath.row].userName
+
+        let url = URL.init(string: listOfPosts[indexPath.row].audioURL)
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if let err = error {
+                print("\(err)")
+                return
+            }
+
+            DispatchQueue.main.async {
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    cell.player = try AVAudioPlayer(data: data!)
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+
+            }.resume()
 
         return cell
     }
