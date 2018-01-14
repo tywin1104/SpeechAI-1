@@ -94,7 +94,7 @@
                                     <constraint firstAttribute="height" constant="120" id="jvo-Zj-5Z5"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mfW-up-elA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mfW-up-elA">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -239,7 +239,6 @@
                                                                             <state key="normal" image="shuffle"/>
                                                                             <connections>
                                                                                 <action selector="shuffle" destination="Ndl-on-Vx6" eventType="touchUpInside" id="CrM-GJ-CZg"/>
-                                                                                <action selector="submitPressed" destination="Ndl-on-Vx6" eventType="touchUpInside" id="Pmd-CP-TrE"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajQ-wS-0CK">
@@ -281,6 +280,7 @@
                                             <outlet property="bubbleView" destination="wgd-MN-M5m" id="2xA-sV-s0g"/>
                                             <outlet property="messageLabel" destination="DL9-pf-eXx" id="IW0-zC-3g3"/>
                                             <outlet property="recordButton" destination="ajQ-wS-0CK" id="sfF-Kj-wsl"/>
+                                            <outlet property="shuffleButton" destination="1TC-Ug-2Jv" id="348-h3-3F2"/>
                                             <outlet property="textView" destination="NJM-e8-U9w" id="ExF-zh-d3e"/>
                                         </connections>
                                     </tableViewCell>
@@ -415,18 +415,18 @@
                                             <outlet property="optionsLabel" destination="YiL-8v-dsC" id="yFW-Yx-MhY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="126" id="6VN-gp-d6k">
-                                        <rect key="frame" x="0.0" y="973" width="375" height="126"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EllipsesTableCell" rowHeight="95" id="6VN-gp-d6k" customClass="EllipsesTableCell" customModule="SpeechAI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="973" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6VN-gp-d6k" id="fJl-2Q-dLR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svU-6k-lmM">
-                                                    <rect key="frame" x="30" y="11" width="102" height="104"/>
+                                                    <rect key="frame" x="30" y="11" width="102" height="54"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipses" translatesAutoresizingMaskIntoConstraints="NO" id="quX-Ca-sH7">
-                                                            <rect key="frame" x="25" y="47" width="52" height="10"/>
+                                                            <rect key="frame" x="25" y="22" width="52" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="52" id="F3j-wc-JKR"/>
                                                                 <constraint firstAttribute="height" constant="10" id="fbo-8j-X59"/>
@@ -438,6 +438,7 @@
                                                         <constraint firstAttribute="width" constant="102" id="18D-7v-mpQ"/>
                                                         <constraint firstItem="quX-Ca-sH7" firstAttribute="centerY" secondItem="svU-6k-lmM" secondAttribute="centerY" id="D9Q-Gt-S90"/>
                                                         <constraint firstItem="quX-Ca-sH7" firstAttribute="centerX" secondItem="svU-6k-lmM" secondAttribute="centerX" id="jb7-4R-JIU"/>
+                                                        <constraint firstAttribute="height" constant="54" id="nz7-YF-XqI"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -446,8 +447,14 @@
                                                 <constraint firstItem="svU-6k-lmM" firstAttribute="leading" secondItem="fJl-2Q-dLR" secondAttribute="leading" constant="30" id="E7i-uh-G9A"/>
                                                 <constraint firstItem="svU-6k-lmM" firstAttribute="bottom" secondItem="fJl-2Q-dLR" secondAttribute="bottomMargin" id="LjL-tR-RlN"/>
                                                 <constraint firstItem="svU-6k-lmM" firstAttribute="top" secondItem="fJl-2Q-dLR" secondAttribute="topMargin" id="MRe-vn-Wqe"/>
+                                                <constraint firstItem="svU-6k-lmM" firstAttribute="bottom" secondItem="fJl-2Q-dLR" secondAttribute="bottomMargin" id="U3F-1H-jj2"/>
+                                                <constraint firstItem="svU-6k-lmM" firstAttribute="top" secondItem="fJl-2Q-dLR" secondAttribute="topMargin" id="Uel-3I-FdH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="bubbleView" destination="svU-6k-lmM" id="twd-Co-DJ6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

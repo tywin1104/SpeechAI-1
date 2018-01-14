@@ -10,10 +10,17 @@ import UIKit
 
 class EllipsesTableCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  @IBOutlet weak var bubbleView: UIView!
+
+  weak var delegate: ChatInputTableCellDelegate?
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    bubbleView.layer.cornerRadius = 21
+    bubbleView.layer.borderColor = #colorLiteral(red: 0.8274509804, green: 0.8274509804, blue: 0.8274509804, alpha: 1)
+    bubbleView.layer.borderWidth = 0.5
+    backgroundColor = UIColor.clear
+  }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
