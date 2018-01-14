@@ -17,6 +17,14 @@ class Feedback {
     var loudness = ""
     var score = 0.0
     var pastData = PastFeedback()
+
+    var StartingSent = ""
+    var WPMSent = ""
+    var SimSent = ""
+    var LoudSent = ""
+    var PausSent = ""
+    var overallSent = ""
+
     init(){
 
     }

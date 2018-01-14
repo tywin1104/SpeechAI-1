@@ -158,33 +158,33 @@ extension DataManager {
         var negativeWords = ["difficult", "hard", "not easy"]
 
         if (feedback.wpm < 120) {
-            WPMSent = "Your Words Per Minute (WPM) was \(feedback.wpm). I would suggest talking faster and increasing your pace!"
+            WPMSent = "Your Words Per Minute (WPM) was \(feedback.wpm). I would suggest talking faster and increasing your pace! "
         } else if (feedback.wpm > 180) {
-            WPMSent = "Your Words Per Minute (WPM) was \(feedback.wpm). I would suggest talking slower in your speech."
+            WPMSent = "Your Words Per Minute (WPM) was \(feedback.wpm). I would suggest talking slower in your speech. "
         }
 
         if (feedback.similarity) > 0.85 {
             let randomIndex = Int(arc4random_uniform(UInt32(positiveWords.count)))
-            SimSent = "I was able to understand \(feedback.similarity*100)% of the words you spoke. You were extremely clear. \(positiveWords[randomIndex]) job!"
+            SimSent = "I was able to understand \(feedback.similarity*100)% of the words you spoke. You were extremely clear. \(positiveWords[randomIndex]) job! "
         } else {
-            SimSent = "It seems that you were either talking too fast or slurring words. I was only able to understand \(feedback.similarity*100)%. I would suggest talking slower and focusing on pronunciation."
+            SimSent = "It seems that you were either talking too fast or slurring words. I was only able to understand \(feedback.similarity*100)%. I would suggest talking slower and focusing on pronunciation. "
         }
 
         if (feedback.loudness == "loud") {
             let randomIndex = Int(arc4random_uniform(UInt32(positiveWords.count)))
-            LoudSent = "\(positiveWords[randomIndex]) volume! You had a strong voice that carried across the room."
+            LoudSent = "\(positiveWords[randomIndex]) volume! You had a strong voice that carried across the room. "
         } else {
             let randomIndex = Int(arc4random_uniform(UInt32(negativeWords.count)))
-            LoudSent = "Hmmm. I noticed that you spoke quietly. It was \(negativeWords[randomIndex]) for me to hear you. Try speaking louder next time!"
+            LoudSent = "Hmmm. I noticed that you spoke quietly. It was \(negativeWords[randomIndex]) for me to hear you. Try speaking louder next time! "
         }
 
         if (feedback.pausing) == "good" {
             let randomIndex = Int(arc4random_uniform(UInt32(positiveWords.count)))
-            PausSent = "\(positiveWords[randomIndex]) job with your pausing! The breaks in your speech made your speech quite effective."
+            PausSent = "\(positiveWords[randomIndex]) job with your pausing! The breaks in your speech made your speech quite effective. "
         } else if feedback.pausing == "fast" {
-            PausSent = "One last thing, you spoke too fast in your speech. There was a noticeable lack of pauses that could've made your speech a lot more effective"
+            PausSent = "One last thing, you spoke too fast in your speech. There was a noticeable lack of pauses that could've made your speech a lot more effective. "
         } else {
-            PausSent = "In your speech, there were too many pauses! You need to talk a bit faster and convey more information in the time given to better engage your audience."
+            PausSent = "In your speech, there were too many pauses! You need to talk a bit faster and convey more information in the time given to better engage your audience. "
         }
 
         overallSent = "Overall, the final score I give your speech is \(feedback.score). Good job! "
@@ -200,6 +200,13 @@ extension DataManager {
         } else if feedback.pastData.similarity == true {
             overallSent.append("You enunciated more clearly from your last speech.")
         }
+
+        feedback.StartingSent = StartingSent
+        feedback.WPMSent = WPMSent
+        feedback.SimSent = SimSent
+        feedback.LoudSent = LoudSent
+        feedback.PausSent = PausSent
+        feedback.overallSent = overallSent
 
         print(StartingSent + WPMSent + SimSent + LoudSent + PausSent + overallSent)
 
