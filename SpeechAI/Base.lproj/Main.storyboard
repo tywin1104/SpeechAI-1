@@ -190,8 +190,62 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="192" id="rBE-7P-QIE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="record" rowHeight="192" id="L3U-h3-Bso" customClass="RecordTableViewCell" customModule="SpeechAI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="346" width="375" height="192"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L3U-h3-Bso" id="fRI-zd-vAp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="191.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11s-J8-cL8">
+                                                    <rect key="frame" x="30" y="11" width="305" height="170"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get started! Tap the record button to begin recording your speech!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysL-fO-Xcb">
+                                                            <rect key="frame" x="20" y="16" width="265" height="61"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="61" id="dal-lO-E1B"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                            <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuy-vc-fbX">
+                                                            <rect key="frame" x="119" y="106" width="66" height="56"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="66" id="JIQ-qd-ikk"/>
+                                                            </constraints>
+                                                            <state key="normal" backgroundImage="microphone.png"/>
+                                                            <connections>
+                                                                <action selector="beginRecording:" destination="L3U-h3-Bso" eventType="touchUpInside" id="nBj-9z-OIL"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="xuy-vc-fbX" firstAttribute="centerX" secondItem="11s-J8-cL8" secondAttribute="centerX" id="1ep-D0-jPM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ysL-fO-Xcb" secondAttribute="trailing" constant="20" id="4ct-7q-ixY"/>
+                                                        <constraint firstItem="ysL-fO-Xcb" firstAttribute="top" secondItem="11s-J8-cL8" secondAttribute="top" constant="16" id="Rbk-Uq-dih"/>
+                                                        <constraint firstAttribute="bottom" secondItem="xuy-vc-fbX" secondAttribute="bottom" constant="8" id="cwZ-0V-0KL"/>
+                                                        <constraint firstItem="ysL-fO-Xcb" firstAttribute="leading" secondItem="11s-J8-cL8" secondAttribute="leading" constant="20" id="ms3-qe-D2b"/>
+                                                        <constraint firstItem="xuy-vc-fbX" firstAttribute="top" secondItem="ysL-fO-Xcb" secondAttribute="bottom" constant="29" id="nwa-8G-v0e"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="11s-J8-cL8" firstAttribute="leading" secondItem="fRI-zd-vAp" secondAttribute="leading" constant="30" id="DP1-GQ-d5D"/>
+                                                <constraint firstItem="11s-J8-cL8" firstAttribute="bottom" secondItem="fRI-zd-vAp" secondAttribute="bottomMargin" id="mWZ-fw-f3U"/>
+                                                <constraint firstAttribute="trailing" secondItem="11s-J8-cL8" secondAttribute="trailing" constant="40" id="y0i-yz-s85"/>
+                                                <constraint firstItem="11s-J8-cL8" firstAttribute="top" secondItem="fRI-zd-vAp" secondAttribute="topMargin" id="y8e-Ju-g7X"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelText" destination="ysL-fO-Xcb" id="ZR3-8t-avN"/>
+                                            <outlet property="recordButton" destination="xuy-vc-fbX" id="r7R-w9-hWG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="192" id="rBE-7P-QIE">
+                                        <rect key="frame" x="0.0" y="538" width="375" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBE-7P-QIE" id="ts8-u2-xfd">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="191.5"/>
@@ -252,7 +306,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="126" id="6VN-gp-d6k">
-                                        <rect key="frame" x="0.0" y="538" width="375" height="126"/>
+                                        <rect key="frame" x="0.0" y="730" width="375" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6VN-gp-d6k" id="fJl-2Q-dLR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
@@ -324,6 +378,7 @@
         <image name="arrow" width="34" height="33"/>
         <image name="avatar" width="256" height="256"/>
         <image name="ellipses" width="52" height="10"/>
+        <image name="microphone.png" width="256" height="256"/>
         <image name="random" width="512" height="512"/>
         <image name="start" width="225" height="225"/>
     </resources>

@@ -51,20 +51,28 @@ final class ChatViewController: UIViewController {
   }
 
   enum PreRecordingState: Int {
-    case options
+    case options, speechInput, recording
 
     var message: String {
       switch self {
       case .options:
         return "To practice public speaking we can a large collection of speeches to use or you can use your own."
+      case .speechInput:
+        return "Hit next when you've selected your speech"
+      case .recording:
+        return "Record when you're ready!"
       }
+        
     }
 
     var options: [String] {
       switch self {
       case .options:
         return ["Use yours", "Use my own"]
+      default:
+        return []
       }
+    
     }
 
     static var totalCells: Int = 1
