@@ -75,7 +75,7 @@ final class ChatViewController: UIViewController {
     
     }
 
-    static var totalCells: Int = 1
+    static var totalCells: Int = 3
   }
 
   enum PostRecordingState: Int {
@@ -234,6 +234,10 @@ extension ChatViewController: UITableViewDataSource {
       }
     case .record:
       guard let cell = tableView.dequeueReusableCell(withIdentifier: IntroState.greeting.identifier) as? ChatTextTableCell else { fatalError() }
+      switch PreRecordingState {
+      case .options:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: , for: <#T##IndexPath#>)
+      }
       cell.configure(text: IntroState.greeting.message)
       return cell
 

@@ -11,6 +11,13 @@ import UIKit
 
 class ChatOptionsTableCell: UITableViewCell {
 
+    @IBOutlet weak var optionsLabel: UILabel!
+    
+    @IBAction func buttonOnePress(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var buttonTwoPress: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

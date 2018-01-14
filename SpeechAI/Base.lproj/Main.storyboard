@@ -156,13 +156,17 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nJT-4G-EOQ">
                                                             <rect key="frame" x="20" y="87" width="265" height="68"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name here." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVJ-IN-Mjc">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name here." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVJ-IN-Mjc">
                                                                     <rect key="frame" x="0.0" y="0.0" width="221" height="68"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="68" id="M4D-k4-HGK"/>
+                                                                        <constraint firstAttribute="width" constant="221" id="j04-hv-P5C"/>
+                                                                    </constraints>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsk-cq-iaF">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsk-cq-iaF">
                                                                     <rect key="frame" x="231" y="0.0" width="34" height="68"/>
                                                                     <state key="normal" image="arrow"/>
                                                                 </button>
@@ -244,7 +248,7 @@
                                             <outlet property="recordButton" destination="xuy-vc-fbX" id="r7R-w9-hWG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="192" id="rBE-7P-QIE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="options" rowHeight="192" id="rBE-7P-QIE" customClass="ChatOptionsTableCell" customModule="SpeechAI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="538" width="375" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBE-7P-QIE" id="ts8-u2-xfd">
@@ -264,24 +268,26 @@
                                                             <rect key="frame" x="20" y="122" width="265" height="33"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXx-UG-YUu">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="33"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="33"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <state key="normal" title="Button">
                                                                         <color key="titleColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="buttonOnePress:" destination="rBE-7P-QIE" eventType="touchUpInside" id="LfH-aW-tHp"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gw-e9-HYE">
-                                                                    <rect key="frame" x="140.5" y="0.0" width="124.5" height="33"/>
+                                                                    <rect key="frame" x="140" y="0.0" width="125" height="33"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="125" id="LMv-fc-W06"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <state key="normal" title="Button">
                                                                         <color key="titleColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </state>
                                                                 </button>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="gXx-UG-YUu" firstAttribute="width" secondItem="5SH-ze-wVI" secondAttribute="width" multiplier="0.5" id="62V-nZ-4uB"/>
-                                                                <constraint firstItem="5Gw-e9-HYE" firstAttribute="width" secondItem="5SH-ze-wVI" secondAttribute="width" multiplier="0.5" id="kvl-Mb-Qs9"/>
-                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -304,6 +310,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="Eak-SU-poT" secondAttribute="trailing" constant="40" id="tep-HJ-fqf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buttonTwoPress" destination="5Gw-e9-HYE" id="G7m-Mh-8uu"/>
+                                            <outlet property="optionsLabel" destination="YiL-8v-dsC" id="yFW-Yx-MhY"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="126" id="6VN-gp-d6k">
                                         <rect key="frame" x="0.0" y="730" width="375" height="126"/>
