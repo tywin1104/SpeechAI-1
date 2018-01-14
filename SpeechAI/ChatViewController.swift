@@ -112,16 +112,22 @@ final class ChatViewController: UIViewController {
   }
 
   enum FeedbackState: Int {
-    case tone
+    case starting, wpm, accuracy, volume, pauses, overall
 
     var message: String {
       switch self {
       case .tone:
         return "You have a very disgusting tone lol."
+      case .wpm:
+        return
+      case .accuracy:
+      case .volume:
+      case .pauses:
+      case .overall:
       }
     }
 
-    static var totalCells: Int = 1
+    static var totalCells: Int = 6
   }
 
   var currentState: ChatState = .empty

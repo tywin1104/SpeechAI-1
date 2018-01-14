@@ -11,6 +11,7 @@ import UIKit
 
 protocol ChatViewRecordCellDelegate: class {
   func uploadDidStart()
+  func responseReceived()
 }
 
 class ChatViewRecordCell: UITableViewCell {
