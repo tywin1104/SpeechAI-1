@@ -8,9 +8,9 @@
 
 import UIKit
 import AVFoundation
+import ChameleonFramework
+
 class PostView: UIView, UITableViewDelegate, UITableViewDataSource {
-
-
 
     @IBOutlet weak var tableview: UITableView!
 
@@ -23,6 +23,7 @@ class PostView: UIView, UITableViewDelegate, UITableViewDataSource {
         let nib_name = UINib(nibName: "PostViewCell", bundle:nil)
         tableView.register(nib_name, forCellReuseIdentifier: "PostViewCell")
         let cell = self.tableview.dequeueReusableCell(withIdentifier: "PostViewCell", for: indexPath) as! PostViewCell
+        cell.postBackground.layer.cornerRadius = 10.0
         cell.posterName.text = listOfPosts[indexPath.row].userName
         cell.speechID = listOfPosts[indexPath.row].speechID
         cell.numOfLikes.text = String(listOfPosts[indexPath.row].numOfLikes)
@@ -55,9 +56,8 @@ class PostView: UIView, UITableViewDelegate, UITableViewDataSource {
         view.tableview.delegate = view
         view.tableview.dataSource = view
         view.tableview.separatorStyle = UITableViewCellSeparatorStyle.none
-        view.tableview.backgroundColor = UIColor.clear
-        view.tableview.isOpaque = false
-
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [#colorLiteral(red: 0.1647058824, green: 0.9607843137, blue: 0.5960784314, alpha: 1), #colorLiteral(red: 0.03137254902, green: 0.6823529412, blue: 0.9176470588, alpha: 1)])
+        
         return view
     }
 

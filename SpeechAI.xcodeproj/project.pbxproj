@@ -36,8 +36,6 @@
 		D027B16B200B36E400E3F896 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16A200B36E400E3F896 /* Feedback.swift */; };
 		D027B170200B584400E3F896 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16F200B584400E3F896 /* Post.swift */; };
 		D027B172200B656900E3F896 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B171200B656800E3F896 /* FeedsViewController.swift */; };
-		D062437D200B7F14001A4379 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D062437C200B7F14001A4379 /* microphone.png */; };
-		D0624380200B7F2C001A4379 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = D062437F200B7F2C001A4379 /* stop.png */; };
 		D0F82782200B674400E8E9E3 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82781200B674400E8E9E3 /* PostView.xib */; };
 		D0F82784200B677B00E8E9E3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F82783200B677B00E8E9E3 /* PostView.swift */; };
 		D0F82787200B68B200E8E9E3 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82786200B68B200E8E9E3 /* PostViewCell.xib */; };
@@ -103,9 +101,7 @@
 		D027B16A200B36E400E3F896 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		D027B16F200B584400E3F896 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D027B171200B656800E3F896 /* FeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
-		D062437C200B7F14001A4379 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = microphone.png; path = ../../Downloads/microphone.png; sourceTree = "<group>"; };
 		D062437E200B7F16001A4379 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
-		D062437F200B7F2C001A4379 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop.png; path = ../../../../Downloads/stop.png; sourceTree = "<group>"; };
 		D0624381200B7F2F001A4379 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		D0F82781200B674400E8E9E3 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		D0F82783200B677B00E8E9E3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -146,7 +142,6 @@
 		527487EB200AD0840084FB00 = {
 			isa = PBXGroup;
 			children = (
-				D062437C200B7F14001A4379 /* microphone.png */,
 				527487F6200AD0840084FB00 /* SpeechAI */,
 				5274880B200AD0840084FB00 /* SpeechAITests */,
 				52748816200AD0840084FB00 /* SpeechAIUITests */,
@@ -244,7 +239,6 @@
 		52748839200AEC4C0084FB00 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D062437F200B7F2C001A4379 /* stop.png */,
 				D0F82780200B673400E8E9E3 /* PostView */,
 				5274883A200AEC5C0084FB00 /* Welcome */,
 				52748827200AD2DE0084FB00 /* RecordSpeech */,
@@ -420,10 +414,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				52748802200AD0840084FB00 /* LaunchScreen.storyboard in Resources */,
-				D0624380200B7F2C001A4379 /* stop.png in Resources */,
 				527487FF200AD0840084FB00 /* Assets.xcassets in Resources */,
 				D0F82787200B68B200E8E9E3 /* PostViewCell.xib in Resources */,
-				D062437D200B7F14001A4379 /* microphone.png in Resources */,
 				52748838200AE1FF0084FB00 /* GoogleService-Info.plist in Resources */,
 				D0F82782200B674400E8E9E3 /* PostView.xib in Resources */,
 				527487FD200AD0840084FB00 /* Main.storyboard in Resources */,

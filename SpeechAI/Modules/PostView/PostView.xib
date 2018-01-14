@@ -16,19 +16,29 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ajE-WU-P7H">
-                    <rect key="frame" x="0.0" y="75" width="375" height="592"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="375" id="y2t-vt-cqU"/>
-                    </constraints>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ajE-WU-P7H">
+                    <rect key="frame" x="0.0" y="123" width="375" height="544"/>
+                    <color key="backgroundColor" red="0.42101126909999997" green="0.74160355330000005" blue="0.99996477370000003" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMMUNITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn1-Fm-bne">
+                    <rect key="frame" x="82" y="67" width="211" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="211" id="6l5-uU-iF1"/>
+                        <constraint firstAttribute="height" constant="37" id="Vmm-d8-Shj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ajE-WU-P7H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3AH-pP-kje"/>
-                <constraint firstItem="ajE-WU-P7H" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="55" id="S92-3P-VrF"/>
-                <constraint firstItem="ajE-WU-P7H" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ZhK-IS-ZHr"/>
+                <constraint firstItem="Tn1-Fm-bne" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="GAD-6r-icv"/>
+                <constraint firstItem="ajE-WU-P7H" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Me3-mO-MtG"/>
+                <constraint firstItem="Tn1-Fm-bne" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="47" id="T2I-WK-Oki"/>
+                <constraint firstItem="ajE-WU-P7H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fdv-sp-9Tk"/>
+                <constraint firstItem="ajE-WU-P7H" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="103" id="owI-XD-lPI"/>
+                <constraint firstAttribute="trailing" secondItem="ajE-WU-P7H" secondAttribute="trailing" id="zpk-wD-bce"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
