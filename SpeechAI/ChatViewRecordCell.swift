@@ -58,7 +58,7 @@ class ChatViewRecordCell: UITableViewCell {
       delegate?.uploadDidStart()
       if let audioURL = audioFileURL,
         let audioName = audioFileName {
-        dataManager.uploadAudio(audioURL: audioURL, audioName: audioName, speechText: "") { result in
+        dataManager.uploadAudio(audioURL: audioURL, audioName: audioName, speechText: textView.text ?? "") { result in
           switch result {
           case .success:
             return
