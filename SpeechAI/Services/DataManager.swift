@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 internal typealias JSON = [String: Any]
 internal typealias JSONArray = [JSON]
@@ -55,12 +56,35 @@ extension DataManager {
         }
         self.currentUser = newUser
         self.firebaseManager.saveSpeechURL(user: newUser, speech: speech)
-        completion(.success(()))
+        self.updateToNetwork(userId: newUser.id, speechUrl: speech.urlString, completion: { (result) in
+            switch result {
+            case .success:
+                completion(.success(()))
+                return
+            case .failure(let message):
+                print(message)
+            }
+        })
+
       case .failure(let message):
         print(message)
       }
     }
   }
+
+
+    func updateToNetwork(userId: String, speechUrl: String, completion: @escaping ((Result<Void>) -> Void)) {
+        let requestString = "http://127.0.0.1:5000/api"
+        let params =  ["userId": userId, "speechId": speechUrl ] as Parameters
+        Alamofire.request(requestString, method: .post, parameters: params, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { (response) in
+            print(response.request)
+            print(response.response)
+            print(response.data)
+            print(response.result)
+
+            completion(.success(()))
+        }
+    }
 
   func createUser(name: String) {
     let user = User(id: UUID().uuidString, name: name, speeches: [])
