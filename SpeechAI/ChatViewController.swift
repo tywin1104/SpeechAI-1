@@ -22,17 +22,17 @@ final class ChatViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
 
   enum ChatState: Int {
-    case intro, record, doneRecording, feedback
+    case empty, intro, record, doneRecording, feedback
 
-//    var numberOfSections: Int {
-//      switch self {
-//      case .intro:
-//        return 1
-//      case .record:
-//      case .doneRecording:
-//      case .feedback:
-//      }
-//    }
+    //    var numberOfSections: Int {
+    //      switch self {
+    //      case .intro:
+    //        return 1
+    //      case .record:
+    //      case .doneRecording:
+    //      case .feedback:
+    //      }
+    //    }
   }
 
   enum IntroState: Int {
@@ -46,9 +46,20 @@ final class ChatViewController: UIViewController {
         return "Before we get started, what is your name?"
       }
     }
+
+    var identifier: String {
+      switch self {
+      case .greeting:
+        return "ChatTextTableCell"
+      case .name:
+        return "ChatTextTableCell"
+      }
+    }
+
+    static var totalCells: Int = 2
   }
 
-  enum PreRecording: Int {
+  enum PreRecordingState: Int {
     case options
 
     var message: String {
@@ -64,9 +75,11 @@ final class ChatViewController: UIViewController {
         return ["Use yours", "Use my own"]
       }
     }
+
+    static var totalCells: Int = 1
   }
 
-  enum PostRecording: Int {
+  enum PostRecordingState: Int {
     case analyzing, ellipses
 
     var message: String {
@@ -77,9 +90,11 @@ final class ChatViewController: UIViewController {
         return ""
       }
     }
+
+    static var totalCells: Int = 2
   }
 
-  enum Feedback: Int {
+  enum FeedbackState: Int {
     case tone
 
     var message: String {
@@ -88,13 +103,16 @@ final class ChatViewController: UIViewController {
         return "You have a very disgusting tone lol."
       }
     }
+
+    static var totalCells: Int = 1
   }
 
-  var currentState: ChatState = .intro
+  var currentState: ChatState = .empty
+  var currentRow: Int = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
-//    tableView.dataSource = self
+    tableView.dataSource = self
     tableView.separatorStyle = .none
 
     tableView.isHidden = true
@@ -105,35 +123,136 @@ final class ChatViewController: UIViewController {
   }
 
   override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     UIView.animate(withDuration: 0.8, animations: {
       self.welcomeView.alpha = 1
-    }) { _ in
+    }) { completed in
       UIView.animate(withDuration: 0.8, delay: 2.0, animations: {
         self.welcomeView.alpha = 0
         self.welcomeView.center.y -= 20
       }, completion: { _ in
         self.welcomeView.isHidden = true
         self.tableView.isHidden = false
-        self.tableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+          self.advance()
+          DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.advance()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+              self.advance()
+            })
+          })
+        })
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+//          self.currentState = .intro
+//          self.currentRow = 0
+//          self.tableView.beginUpdates()
+//          self.tableView.insertSections(IndexSet(integer: ChatState.intro.rawValue), with: .bottom)
+//          self.tableView.insertRows(at: [IndexPath.init(row: IntroState.greeting.rawValue, section: ChatState.intro.rawValue)], with: .automatic)
+//          self.tableView.endUpdates()
+//        })
       })
     }
   }
 
-
+  func advance() {
+      switch self.currentState {
+      case .intro:
+        if self.currentRow == 0 {
+          self.currentRow = 1
+          self.tableView.beginUpdates()
+          self.tableView.insertRows(at: [IndexPath.init(row: IntroState.name.rawValue, section: ChatState.intro.rawValue)], with: .bottom)
+          self.tableView.endUpdates()
+        } else if self.currentRow == 1 {
+          self.currentState = .record
+          self.currentRow = 0
+          self.tableView.beginUpdates()
+          self.tableView.insertSections(IndexSet(integer: ChatState.record.rawValue), with: .bottom)
+          self.tableView.insertRows(at: [IndexPath.init(row: PreRecordingState.options.rawValue, section: ChatState.record.rawValue)], with: .bottom)
+          self.tableView.endUpdates()
+        }
+      case .record:
+        self.currentState = .doneRecording
+        self.currentRow = 0
+        self.tableView.beginUpdates()
+        self.tableView.insertSections(IndexSet(integer: ChatState.doneRecording.rawValue), with: .bottom)
+        self.tableView.insertRows(at: [IndexPath.init(row: PostRecordingState.analyzing.rawValue, section: ChatState.doneRecording.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      case .doneRecording:
+        if self.currentRow == 0 {
+          self.currentRow = 1
+          self.tableView.beginUpdates()
+          self.tableView.insertRows(at: [IndexPath.init(row: PostRecordingState.ellipses.rawValue, section: ChatState.doneRecording.rawValue)], with: .automatic)
+          self.tableView.endUpdates()
+        } else if self.currentRow == 1 {
+          self.currentState = .feedback
+          self.currentRow = 0
+          self.tableView.beginUpdates()
+          self.tableView.insertSections(IndexSet(integer: ChatState.feedback.rawValue), with: .bottom)
+          self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.tone.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
+          self.tableView.endUpdates()
+        }
+      case .feedback:
+        return
+      case .empty:
+        self.currentState = .intro
+        self.currentRow = 0
+        self.tableView.beginUpdates()
+        self.tableView.insertSections(IndexSet(integer: ChatState.intro.rawValue), with: .bottom)
+        self.tableView.insertRows(at: [IndexPath.init(row: IntroState.greeting.rawValue, section: ChatState.intro.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      }
+  }
 
 }
 
 extension ChatViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+    guard let chatState = ChatState(rawValue: section) else { fatalError() }
+    switch chatState {
+    case .intro:
+      return chatState == currentState ? currentRow + 1 : IntroState.totalCells
+    case .record:
+      return chatState == currentState ? currentRow + 1 : PreRecordingState.totalCells
+    case .doneRecording:
+      return chatState == currentState ? currentRow + 1 : PostRecordingState.totalCells
+    case .feedback:
+      return chatState == currentState ? currentRow + 1 : FeedbackState.totalCells
+    case .empty:
+      return 0
+    }
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    <#code#>
+    guard let chatState = ChatState(rawValue: indexPath.section) else { fatalError() }
+    switch chatState {
+    case .empty:
+      fatalError()
+    case .intro:
+      guard let introState: IntroState = IntroState(rawValue: indexPath.row) else { fatalError() }
+      switch introState {
+      case .greeting:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: introState.identifier) as? ChatTextTableCell else { fatalError() }
+        cell.configure(text: introState.message)
+        return cell
+      case .name:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: introState.identifier) as? ChatTextTableCell else { fatalError() }
+        cell.configure(text: introState.message)
+        return cell
+      }
+    case .record:
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: IntroState.greeting.identifier) as? ChatTextTableCell else { fatalError() }
+      cell.configure(text: IntroState.greeting.message)
+      return cell
+
+    case .doneRecording:
+      return UITableViewCell()
+    case .feedback:
+      return UITableViewCell()
+    }
   }
 
   func numberOfSections(in tableView: UITableView) -> Int {
-    <#code#>
+    return currentState.rawValue + 1
   }
 }
 
