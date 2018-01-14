@@ -18,6 +18,7 @@ final class ChatViewController: UIViewController {
     return vc
   }
 
+  @IBOutlet weak var communityButton: UIButton!
   @IBOutlet weak var welcomeView: UIStackView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var avatarTopImage: UIImageView!
@@ -53,18 +54,16 @@ final class ChatViewController: UIViewController {
   }
 
   enum PreRecordingState: Int {
-    case options, speechInput, recording
+    case options, speechInput
 
     var message: String {
       switch self {
       case .options:
         return "To practice public speaking we can a large collection of speeches to use or you can use your own."
       case .speechInput:
-        return "Hit next when you've selected your speech"
-      case .recording:
         return "Record when you're ready!"
       }
-        
+
     }
 
     var options: [String] {
@@ -81,13 +80,11 @@ final class ChatViewController: UIViewController {
       case .options:
         return "ChatOptionsTableCell"
       case .speechInput:
-        return "ChatInputTableCell"
-      case .recording:
-        return "ChatOptionsTableCell"
+        return "ChatViewRecordCell"
       }
     }
 
-    static var totalCells: Int = 3
+    static var totalCells: Int = 2
   }
 
   enum PostRecordingState: Int {
@@ -132,6 +129,7 @@ final class ChatViewController: UIViewController {
     welcomeView.isHidden = false
     welcomeView.alpha = 0
     avatarTopImage.alpha = 0
+    communityButton.alpha = 0
 
     self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [#colorLiteral(red: 0.1647058824, green: 0.9607843137, blue: 0.5960784314, alpha: 1), #colorLiteral(red: 0.03137254902, green: 0.6823529412, blue: 0.9176470588, alpha: 1)])
   }
@@ -145,6 +143,7 @@ final class ChatViewController: UIViewController {
         self.welcomeView.alpha = 0
         self.welcomeView.center.y -= 20
         self.avatarTopImage.alpha = 1
+        self.communityButton.alpha = 1
       }, completion: { _ in
         self.welcomeView.isHidden = true
         self.tableView.isHidden = false
@@ -159,52 +158,59 @@ final class ChatViewController: UIViewController {
   }
 
   func advance() {
-      switch self.currentState {
-      case .intro:
-        if self.currentRow == 0 {
-          self.currentRow = 1
-          self.tableView.beginUpdates()
-          self.tableView.insertRows(at: [IndexPath.init(row: IntroState.name.rawValue, section: ChatState.intro.rawValue)], with: .bottom)
-          self.tableView.endUpdates()
-        } else if self.currentRow == 1 {
-          self.currentState = .record
-          self.currentRow = 0
-          self.tableView.beginUpdates()
-          self.tableView.insertSections(IndexSet(integer: ChatState.record.rawValue), with: .bottom)
-          self.tableView.insertRows(at: [IndexPath.init(row: PreRecordingState.options.rawValue, section: ChatState.record.rawValue)], with: .bottom)
-          self.tableView.endUpdates()
-        }
-      case .record:
+    switch self.currentState {
+    case .intro:
+      if self.currentRow == 0 {
+        self.currentRow = 1
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: IntroState.name.rawValue, section: ChatState.intro.rawValue)], with: .bottom)
+        self.tableView.endUpdates()
+      } else if self.currentRow == 1 {
+        self.currentState = .record
+        self.currentRow = 0
+        self.tableView.beginUpdates()
+        self.tableView.insertSections(IndexSet(integer: ChatState.record.rawValue), with: .bottom)
+        self.tableView.insertRows(at: [IndexPath.init(row: PreRecordingState.options.rawValue, section: ChatState.record.rawValue)], with: .bottom)
+        self.tableView.endUpdates()
+      }
+    case .record:
+      if self.currentRow == 0 {
+        self.currentRow = 1
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: PreRecordingState.speechInput.rawValue, section: ChatState.record.rawValue)], with: .bottom)
+        self.tableView.endUpdates()
+      } else {
         self.currentState = .doneRecording
         self.currentRow = 0
         self.tableView.beginUpdates()
         self.tableView.insertSections(IndexSet(integer: ChatState.doneRecording.rawValue), with: .bottom)
         self.tableView.insertRows(at: [IndexPath.init(row: PostRecordingState.analyzing.rawValue, section: ChatState.doneRecording.rawValue)], with: .automatic)
         self.tableView.endUpdates()
-      case .doneRecording:
-        if self.currentRow == 0 {
-          self.currentRow = 1
-          self.tableView.beginUpdates()
-          self.tableView.insertRows(at: [IndexPath.init(row: PostRecordingState.ellipses.rawValue, section: ChatState.doneRecording.rawValue)], with: .automatic)
-          self.tableView.endUpdates()
-        } else if self.currentRow == 1 {
-          self.currentState = .feedback
-          self.currentRow = 0
-          self.tableView.beginUpdates()
-          self.tableView.insertSections(IndexSet(integer: ChatState.feedback.rawValue), with: .bottom)
-          self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.tone.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
-          self.tableView.endUpdates()
-        }
-      case .feedback:
-        return
-      case .empty:
-        self.currentState = .intro
+      }
+    case .doneRecording:
+      if self.currentRow == 0 {
+        self.currentRow = 1
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: PostRecordingState.ellipses.rawValue, section: ChatState.doneRecording.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      } else if self.currentRow == 1 {
+        self.currentState = .feedback
         self.currentRow = 0
         self.tableView.beginUpdates()
-        self.tableView.insertSections(IndexSet(integer: ChatState.intro.rawValue), with: .bottom)
-        self.tableView.insertRows(at: [IndexPath.init(row: IntroState.greeting.rawValue, section: ChatState.intro.rawValue)], with: .automatic)
+        self.tableView.insertSections(IndexSet(integer: ChatState.feedback.rawValue), with: .bottom)
+        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.tone.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
         self.tableView.endUpdates()
       }
+    case .feedback:
+      return
+    case .empty:
+      self.currentState = .intro
+      self.currentRow = 0
+      self.tableView.beginUpdates()
+      self.tableView.insertSections(IndexSet(integer: ChatState.intro.rawValue), with: .bottom)
+      self.tableView.insertRows(at: [IndexPath.init(row: IntroState.greeting.rawValue, section: ChatState.intro.rawValue)], with: .automatic)
+      self.tableView.endUpdates()
+    }
   }
 
 }
@@ -253,12 +259,11 @@ extension ChatViewController: UITableViewDataSource {
         cell.delegate = self
         return cell
       case .speechInput:
-        return UITableViewCell()
-
-      case .recording:
-        return UITableViewCell()
-
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: preRecordingState.identifier) as? ChatViewRecordCell,
+          let selectedOption = self.selectedRecordingOption
+          else { fatalError() }
+        cell.isShuffle = selectedOption == 0
+        return cell
       }
 
     case .doneRecording:
@@ -286,5 +291,8 @@ extension ChatViewController: ChatInputTableCellDelegate {
 extension ChatViewController: ChatOptionsTableCellDelegate {
   func optionPressed(optionNumber: Int) {
     selectedRecordingOption = optionNumber
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+      self.advance()
+    })
   }
 }

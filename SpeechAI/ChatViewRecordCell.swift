@@ -28,6 +28,20 @@ class ChatViewRecordCell: UITableViewCell {
     }
 
 
+  @IBOutlet weak var messageLabel: UILabel!
+  @IBOutlet weak var bubbleView: UIView!
+
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    bubbleView.layer.cornerRadius = 21
+    bubbleView.layer.borderColor = #colorLiteral(red: 0.8274509804, green: 0.8274509804, blue: 0.8274509804, alpha: 1)
+    bubbleView.layer.borderWidth = 0.5
+    backgroundColor = UIColor.clear
+  }
+
+
+
     @IBAction func record() {
 
         requestAudioPermission()
@@ -48,17 +62,9 @@ class ChatViewRecordCell: UITableViewCell {
             }
         } else {
             startRecording()
-            recordButton.setBackgroundImage(UIImage(named: "stop.png"), for: UIControlState.normal)
+            recordButton.setImage(#imageLiteral(resourceName: "arrow"), for: .normal)
         }
-    }
-
-
-
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  }
 
     var isShuffle = true
     func requestAudioPermission() {
