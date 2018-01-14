@@ -7,15 +7,30 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+  override init() {
+    FirebaseApp.configure()
+  }
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+
+    if DataManager.default.isNewUser() {
+      let welcomeVC = WelcomeViewController.viewController()
+      self.window?.makeKeyAndVisible()
+      self.window?.rootViewController = welcomeVC
+    } else {
+      DataManager.default.fetchCurrentUser()
+      let recordVC = RecordSpeechViewController.viewController()
+      self.window?.makeKeyAndVisible()
+      self.window?.rootViewController = recordVC
+    }
+
     return true
   }
 

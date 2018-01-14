@@ -14,6 +14,18 @@
 		52748802200AD0840084FB00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52748800200AD0840084FB00 /* LaunchScreen.storyboard */; };
 		5274880D200AD0840084FB00 /* SpeechAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274880C200AD0840084FB00 /* SpeechAITests.swift */; };
 		52748818200AD0840084FB00 /* SpeechAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748817200AD0840084FB00 /* SpeechAIUITests.swift */; };
+		52748826200AD2550084FB00 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52748825200AD2550084FB00 /* Record.storyboard */; };
+		52748829200AD3000084FB00 /* RecordSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748828200AD3000084FB00 /* RecordSpeechViewController.swift */; };
+		5274882D200ADAD60084FB00 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274882C200ADAD60084FB00 /* DataManager.swift */; };
+		52748833200ADB240084FB00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748832200ADB240084FB00 /* User.swift */; };
+		52748836200ADB470084FB00 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748835200ADB470084FB00 /* FirebaseManager.swift */; };
+		52748838200AE1FF0084FB00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52748837200AE1FF0084FB00 /* GoogleService-Info.plist */; };
+		5274883C200AEC6A0084FB00 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274883B200AEC6A0084FB00 /* WelcomeViewController.swift */; };
+		5274883E200AEC7B0084FB00 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5274883D200AEC7B0084FB00 /* Welcome.storyboard */; };
+		52748841200AEF0E0084FB00 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748840200AEF0E0084FB00 /* Result.swift */; };
+		52748843200AFC630084FB00 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748842200AFC630084FB00 /* Speech.swift */; };
+		52748845200B04780084FB00 /* UserParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748844200B04780084FB00 /* UserParser.swift */; };
+		52748847200B05190084FB00 /* SpeechParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748846200B05190084FB00 /* SpeechParser.swift */; };
 		6F08D7B9EE08F185C59B6A91 /* Pods_SpeechAIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */; };
 		C9FBCD1E163C1E7229351361 /* Pods_SpeechAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */; };
 		D99D08766D5CD75DCC573EFD /* Pods_SpeechAITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BE6EAE26789E3F7AB23AEC /* Pods_SpeechAITests.framework */; };
@@ -52,6 +64,18 @@
 		52748813200AD0840084FB00 /* SpeechAIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechAIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52748817200AD0840084FB00 /* SpeechAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechAIUITests.swift; sourceTree = "<group>"; };
 		52748819200AD0840084FB00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52748825200AD2550084FB00 /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
+		52748828200AD3000084FB00 /* RecordSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSpeechViewController.swift; sourceTree = "<group>"; };
+		5274882C200ADAD60084FB00 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		52748832200ADB240084FB00 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		52748835200ADB470084FB00 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		52748837200AE1FF0084FB00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5274883B200AEC6A0084FB00 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		5274883D200AEC7B0084FB00 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		52748840200AEF0E0084FB00 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		52748842200AFC630084FB00 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
+		52748844200B04780084FB00 /* UserParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParser.swift; sourceTree = "<group>"; };
+		52748846200B05190084FB00 /* SpeechParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechParser.swift; sourceTree = "<group>"; };
 		5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechAI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		534550AD3A0609C40F970F72 /* Pods-SpeechAIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAIUITests/Pods-SpeechAIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		705BC7C01CD4AD97CE9CF42E /* Pods-SpeechAIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAIUITests/Pods-SpeechAIUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,12 +138,17 @@
 		527487F6200AD0840084FB00 /* SpeechAI */ = {
 			isa = PBXGroup;
 			children = (
+				52748839200AEC4C0084FB00 /* Modules */,
 				527487F7200AD0840084FB00 /* AppDelegate.swift */,
 				527487F9200AD0840084FB00 /* ViewController.swift */,
 				527487FB200AD0840084FB00 /* Main.storyboard */,
+				52748834200ADB280084FB00 /* Models */,
+				52748831200ADB170084FB00 /* Services */,
 				527487FE200AD0840084FB00 /* Assets.xcassets */,
 				52748800200AD0840084FB00 /* LaunchScreen.storyboard */,
 				52748803200AD0840084FB00 /* Info.plist */,
+				52748837200AE1FF0084FB00 /* GoogleService-Info.plist */,
+				52748840200AEF0E0084FB00 /* Result.swift */,
 			);
 			path = SpeechAI;
 			sourceTree = "<group>";
@@ -140,6 +169,53 @@
 				52748819200AD0840084FB00 /* Info.plist */,
 			);
 			path = SpeechAIUITests;
+			sourceTree = "<group>";
+		};
+		52748827200AD2DE0084FB00 /* RecordSpeech */ = {
+			isa = PBXGroup;
+			children = (
+				52748825200AD2550084FB00 /* Record.storyboard */,
+				52748828200AD3000084FB00 /* RecordSpeechViewController.swift */,
+			);
+			path = RecordSpeech;
+			sourceTree = "<group>";
+		};
+		52748831200ADB170084FB00 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5274882C200ADAD60084FB00 /* DataManager.swift */,
+				52748835200ADB470084FB00 /* FirebaseManager.swift */,
+				52748844200B04780084FB00 /* UserParser.swift */,
+				52748846200B05190084FB00 /* SpeechParser.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		52748834200ADB280084FB00 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				52748832200ADB240084FB00 /* User.swift */,
+				52748842200AFC630084FB00 /* Speech.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		52748839200AEC4C0084FB00 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5274883A200AEC5C0084FB00 /* Welcome */,
+				52748827200AD2DE0084FB00 /* RecordSpeech */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5274883A200AEC5C0084FB00 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				5274883B200AEC6A0084FB00 /* WelcomeViewController.swift */,
+				5274883D200AEC7B0084FB00 /* Welcome.storyboard */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		7FF21F30A1DAE776BFB42266 /* Pods */ = {
@@ -283,7 +359,10 @@
 			files = (
 				52748802200AD0840084FB00 /* LaunchScreen.storyboard in Resources */,
 				527487FF200AD0840084FB00 /* Assets.xcassets in Resources */,
+				52748838200AE1FF0084FB00 /* GoogleService-Info.plist in Resources */,
 				527487FD200AD0840084FB00 /* Main.storyboard in Resources */,
+				52748826200AD2550084FB00 /* Record.storyboard in Resources */,
+				5274883E200AEC7B0084FB00 /* Welcome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,8 +543,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52748843200AFC630084FB00 /* Speech.swift in Sources */,
+				52748845200B04780084FB00 /* UserParser.swift in Sources */,
+				52748836200ADB470084FB00 /* FirebaseManager.swift in Sources */,
+				52748829200AD3000084FB00 /* RecordSpeechViewController.swift in Sources */,
+				52748847200B05190084FB00 /* SpeechParser.swift in Sources */,
+				5274882D200ADAD60084FB00 /* DataManager.swift in Sources */,
 				527487FA200AD0840084FB00 /* ViewController.swift in Sources */,
+				52748833200ADB240084FB00 /* User.swift in Sources */,
 				527487F8200AD0840084FB00 /* AppDelegate.swift in Sources */,
+				52748841200AEF0E0084FB00 /* Result.swift in Sources */,
+				5274883C200AEC6A0084FB00 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +721,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AX2D84BZ47;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAI;
@@ -648,6 +737,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AX2D84BZ47;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAI;
