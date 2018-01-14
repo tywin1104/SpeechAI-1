@@ -47,6 +47,7 @@ internal class FirebaseManager {
         "text": speech.text
       ]
     )
+    
   }
 
   func fetchUser(with userID: String, completion: @escaping ((Result<User>) -> Void)) {
