@@ -74,25 +74,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nPe-jo-kDg">
-                                <rect key="frame" x="30" y="312" width="242" height="62"/>
+                                <rect key="frame" x="30" y="283" width="315" height="120"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="NTF-SV-jMM">
-                                        <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="NTF-SV-jMM">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="62" id="3bW-cC-f3h"/>
                                             <constraint firstAttribute="height" constant="62" id="Bp6-dz-1PC"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there! 👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pk9-AO-seQ">
-                                        <rect key="frame" x="82" y="0.0" width="160" height="62"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there! My name is Talky 👋" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pk9-AO-seQ">
+                                        <rect key="frame" x="82" y="0.0" width="233" height="120"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="jvo-Zj-5Z5"/>
+                                </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mfW-up-elA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTextTableCell" rowHeight="126" id="shz-wT-4uD" customClass="ChatTextTableCell" customModule="SpeechAI" customModuleProvider="target">
@@ -284,13 +287,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="EGh-Lx-ZA3">
+                                <rect key="frame" x="156.5" y="38" width="62" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="Z7E-lW-ZrI"/>
+                                    <constraint firstAttribute="width" constant="62" id="eVr-GL-3zm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="EGh-Lx-ZA3" firstAttribute="centerX" secondItem="2Gx-qp-vyA" secondAttribute="centerX" id="3Wr-vR-371"/>
+                            <constraint firstItem="EGh-Lx-ZA3" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="18" id="F4X-Eb-RYa"/>
+                            <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="EGh-Lx-ZA3" secondAttribute="bottom" constant="20" id="GAC-6Z-mHP"/>
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="bottom" secondItem="mfW-up-elA" secondAttribute="bottom" id="MK4-YK-Bpz"/>
-                            <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nPe-jo-kDg" secondAttribute="trailing" constant="30" id="ao0-du-jB9"/>
+                            <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" secondItem="nPe-jo-kDg" secondAttribute="trailing" constant="30" id="ao0-du-jB9"/>
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" secondItem="mfW-up-elA" secondAttribute="trailing" id="ddv-Zw-biq"/>
-                            <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" id="g2X-3I-btR"/>
                             <constraint firstItem="mfW-up-elA" firstAttribute="leading" secondItem="2Gx-qp-vyA" secondAttribute="leading" id="pCl-jW-oRt"/>
                             <constraint firstItem="nPe-jo-kDg" firstAttribute="leading" secondItem="2Gx-qp-vyA" secondAttribute="leading" constant="30" id="pLu-j0-ckC"/>
                             <constraint firstItem="nPe-jo-kDg" firstAttribute="centerY" secondItem="2Gx-qp-vyA" secondAttribute="centerY" id="s04-1H-FaO"/>
@@ -298,6 +310,7 @@
                         <viewLayoutGuide key="safeArea" id="2Gx-qp-vyA"/>
                     </view>
                     <connections>
+                        <outlet property="avatarTopImage" destination="EGh-Lx-ZA3" id="4Oh-rJ-221"/>
                         <outlet property="tableView" destination="mfW-up-elA" id="2dy-nq-8fu"/>
                         <outlet property="welcomeView" destination="nPe-jo-kDg" id="IgQ-eI-htI"/>
                     </connections>
@@ -309,7 +322,7 @@
     </scenes>
     <resources>
         <image name="arrow" width="34" height="33"/>
-        <image name="avatar" width="62" height="62"/>
+        <image name="avatar" width="256" height="256"/>
         <image name="ellipses" width="52" height="10"/>
         <image name="random" width="512" height="512"/>
         <image name="start" width="225" height="225"/>

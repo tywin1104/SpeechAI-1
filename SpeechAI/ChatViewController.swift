@@ -20,19 +20,10 @@ final class ChatViewController: UIViewController {
 
   @IBOutlet weak var welcomeView: UIStackView!
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var avatarTopImage: UIImageView!
 
   enum ChatState: Int {
     case empty, intro, record, doneRecording, feedback
-
-    //    var numberOfSections: Int {
-    //      switch self {
-    //      case .intro:
-    //        return 1
-    //      case .record:
-    //      case .doneRecording:
-    //      case .feedback:
-    //      }
-    //    }
   }
 
   enum IntroState: Int {
@@ -41,7 +32,7 @@ final class ChatViewController: UIViewController {
     var message: String {
       switch self {
       case .greeting:
-        return "Welcome to _____! This is just some filler data on what this app actaully does!"
+        return "Welcome to SpeechAI! This is just some filler data on what this app actaully does!"
       case .name:
         return "Before we get started, what is your name?"
       }
@@ -118,6 +109,7 @@ final class ChatViewController: UIViewController {
     tableView.isHidden = true
     welcomeView.isHidden = false
     welcomeView.alpha = 0
+    avatarTopImage.alpha = 0
 
     self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [#colorLiteral(red: 0.1647058824, green: 0.9607843137, blue: 0.5960784314, alpha: 1), #colorLiteral(red: 0.03137254902, green: 0.6823529412, blue: 0.9176470588, alpha: 1)])
   }
@@ -130,6 +122,7 @@ final class ChatViewController: UIViewController {
       UIView.animate(withDuration: 0.8, delay: 2.0, animations: {
         self.welcomeView.alpha = 0
         self.welcomeView.center.y -= 20
+        self.avatarTopImage.alpha = 1
       }, completion: { _ in
         self.welcomeView.isHidden = true
         self.tableView.isHidden = false
@@ -142,14 +135,6 @@ final class ChatViewController: UIViewController {
             })
           })
         })
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-//          self.currentState = .intro
-//          self.currentRow = 0
-//          self.tableView.beginUpdates()
-//          self.tableView.insertSections(IndexSet(integer: ChatState.intro.rawValue), with: .bottom)
-//          self.tableView.insertRows(at: [IndexPath.init(row: IntroState.greeting.rawValue, section: ChatState.intro.rawValue)], with: .automatic)
-//          self.tableView.endUpdates()
-//        })
       })
     }
   }
