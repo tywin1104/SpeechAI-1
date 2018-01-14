@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     } else {
       let mainVC = ViewController.viewController()
       self.window?.makeKeyAndVisible()
-      self.window?.rootViewController = recordVC
+      self.window?.rootViewController = mainVC
     }
 
     return true
