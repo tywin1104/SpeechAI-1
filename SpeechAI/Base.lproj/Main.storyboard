@@ -95,7 +95,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mfW-up-elA">
-                                <rect key="frame" x="0.0" y="120" width="375" height="517"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTextTableCell" rowHeight="126" id="shz-wT-4uD" customClass="ChatTextTableCell" customModule="SpeechAI" customModuleProvider="target">
@@ -482,7 +482,7 @@
                             <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="c8A-eA-7go" secondAttribute="bottom" constant="34" id="Ei3-cu-117"/>
                             <constraint firstItem="EGh-Lx-ZA3" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="15" id="F4X-Eb-RYa"/>
                             <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="EGh-Lx-ZA3" secondAttribute="bottom" constant="23" id="GAC-6Z-mHP"/>
-                            <constraint firstItem="2Gx-qp-vyA" firstAttribute="bottom" secondItem="mfW-up-elA" secondAttribute="bottom" constant="30" id="MK4-YK-Bpz"/>
+                            <constraint firstItem="2Gx-qp-vyA" firstAttribute="bottom" secondItem="mfW-up-elA" secondAttribute="bottom" id="MK4-YK-Bpz"/>
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" secondItem="nPe-jo-kDg" secondAttribute="trailing" constant="30" id="ao0-du-jB9"/>
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" secondItem="mfW-up-elA" secondAttribute="trailing" id="ddv-Zw-biq"/>
                             <constraint firstItem="mfW-up-elA" firstAttribute="leading" secondItem="2Gx-qp-vyA" secondAttribute="leading" id="pCl-jW-oRt"/>
