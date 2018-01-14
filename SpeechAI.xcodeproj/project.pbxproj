@@ -27,6 +27,7 @@
 		52748845200B04780084FB00 /* UserParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748844200B04780084FB00 /* UserParser.swift */; };
 		52748847200B05190084FB00 /* SpeechParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748846200B05190084FB00 /* SpeechParser.swift */; };
 		6F08D7B9EE08F185C59B6A91 /* Pods_SpeechAIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */; };
+		C25FCBFA200B52F500D411BA /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25FCBF9200B52F500D411BA /* FeedsViewController.swift */; };
 		C9FBCD1E163C1E7229351361 /* Pods_SpeechAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */; };
 		D027B16B200B36E400E3F896 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16A200B36E400E3F896 /* Feedback.swift */; };
 		D027B170200B584400E3F896 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16F200B584400E3F896 /* Post.swift */; };
@@ -83,6 +84,7 @@
 		705BC7C01CD4AD97CE9CF42E /* Pods-SpeechAIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAIUITests/Pods-SpeechAIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		737000CC56222DF38E33FF10 /* Pods-SpeechAITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAITests/Pods-SpeechAITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A8E998FD375854665E3FAAB /* Pods-SpeechAITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAITests/Pods-SpeechAITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C25FCBF9200B52F500D411BA /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedsViewController.swift; path = /Users/tianyizhang/Desktop/SpeechAI/SpeechAI/FeedsViewController.swift; sourceTree = "<absolute>"; };
 		D027B16A200B36E400E3F896 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		D027B16F200B584400E3F896 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E4745B37130922834AF78067 /* Pods-SpeechAI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAI/Pods-SpeechAI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				52748839200AEC4C0084FB00 /* Modules */,
 				527487F7200AD0840084FB00 /* AppDelegate.swift */,
+				C25FCBF9200B52F500D411BA /* FeedsViewController.swift */,
 				527487F9200AD0840084FB00 /* ViewController.swift */,
 				527487FB200AD0840084FB00 /* Main.storyboard */,
 				52748834200ADB280084FB00 /* Models */,
@@ -563,6 +566,7 @@
 				52748833200ADB240084FB00 /* User.swift in Sources */,
 				527487F8200AD0840084FB00 /* AppDelegate.swift in Sources */,
 				52748841200AEF0E0084FB00 /* Result.swift in Sources */,
+				C25FCBFA200B52F500D411BA /* FeedsViewController.swift in Sources */,
 				5274883C200AEC6A0084FB00 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,11 +735,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = 967F8TXBMX;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAI;
+				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAI123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -748,11 +752,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = 967F8TXBMX;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAI;
+				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAI123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
