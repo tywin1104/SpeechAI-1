@@ -78,6 +78,19 @@ internal class FirebaseManager {
     }
 
 
+    private func addInitialPastData(userID: String) {
+        self.ref.child("users").child(userID).child("lastData").setValue(
+            [
+                "wpm" : "pass",
+                "pausing" : "pass",
+                "similarity": "pass",
+                "loudness": "pass"
+
+        ]
+        )
+
+    }
+
     func retrievePosts (completion: @escaping ((Result<Post>) -> Void)) {
         self.ref.child("posts").observe(DataEventType.childAdded) { snapshot in
 
@@ -134,5 +147,6 @@ internal class FirebaseManager {
 
   func createUser(user: User) {
     self.ref.child("users").child(user.id).setValue(["name": user.name])
+    addInitialPastData(userID: user.id)
   }
 }

@@ -51,7 +51,7 @@ extension DataManager {
     firebaseManager.uploadAudio(audioURL: audioURL, audioName: audioName) { result in
       switch result {
       case .success(let url):
-        let speech = Speech(id: UUID().uuidString, urlString: url, text: "HELLO MY NAMES IS JAMES")
+        let speech = Speech(id: UUID().uuidString, urlString: url, text: speechText)
         guard let newUser = self.currentUser?.addSpeech(speech: speech) else {
           completion(.failure(message: "No current user"))
           return
