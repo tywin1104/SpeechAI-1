@@ -20,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-    if DataManager.default.isNewUser() {
-      let welcomeVC = WelcomeViewController.viewController()
-      self.window?.makeKeyAndVisible()
-      self.window?.rootViewController = welcomeVC
-    } else {
-      let mainVC = ViewController.viewController()
+//    if DataManager.default.isNewUser() {
+//      let welcomeVC = WelcomeViewController.viewController()
+//      self.window?.makeKeyAndVisible()
+//      self.window?.rootViewController = welcomeVC
+//    } else {
+      let mainVC = ChatViewController.viewController()
       self.window?.makeKeyAndVisible()
       self.window?.rootViewController = mainVC
-    }
+//    }
 
     return true
   }

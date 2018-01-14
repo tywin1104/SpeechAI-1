@@ -30,7 +30,6 @@ extension WelcomeViewController {
   @IBAction func submitPressed() {
     guard let name = textField.text else { return }
     dataManager.createUser(name: name)
-    let recordVC = RecordSpeechViewController.viewController()
-    present(recordVC, animated: true, completion: nil)
+   
   }
 }
