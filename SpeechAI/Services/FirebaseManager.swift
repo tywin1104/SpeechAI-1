@@ -50,13 +50,54 @@ internal class FirebaseManager {
 
     self.ref.child("posts").child(speech.id).setValue(
     [
-        "user": user.id,
+        "user": user.name,
         "url": speech.urlString,
-        "text": speech.text
-        ]
+        "text": speech.text,
+        "likes": 0
+    ]
     )
     
   }
+
+
+    func retrievePosts (completion: @escaping ((Result<[Post]>) -> Void)) {
+        self.ref.child("posts").observe(DataEventType.childAdded) { snapshot in
+
+            guard let dicData = snapshot.value as? NSDictionary else {
+                completion(.failure(message: "sdfadsf"))
+                return
+            }
+
+            var newPosts = [Post]()
+            for (_, value) in dicData  {
+                var post = Post()
+
+                guard let subDicData = value as? NSDictionary else {
+                    continue
+                }
+
+                guard let userName = subDicData["user"] as? String  else {
+                    continue
+                }
+
+                guard let audioURL = subDicData["url"] as? String else {
+                    continue
+                }
+
+                guard let likes = subDicData["likes"] as? Int else {
+                    continue
+                }
+
+
+                post.audioURL = audioURL
+                post.userName = userName
+                post.numOfLikes = likes
+
+                newPosts.append(post)
+            }
+            completion(.success(newPosts))
+        }
+    }
 
   func fetchUser(with userID: String, completion: @escaping ((Result<User>) -> Void)) {
     self.ref.child("users").child(userID).observeSingleEvent(of: .value, with: { snapshot in

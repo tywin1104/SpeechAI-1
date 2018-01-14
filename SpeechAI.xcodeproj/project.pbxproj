@@ -29,6 +29,7 @@
 		6F08D7B9EE08F185C59B6A91 /* Pods_SpeechAIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */; };
 		C9FBCD1E163C1E7229351361 /* Pods_SpeechAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */; };
 		D027B16B200B36E400E3F896 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16A200B36E400E3F896 /* Feedback.swift */; };
+		D027B170200B584400E3F896 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16F200B584400E3F896 /* Post.swift */; };
 		D99D08766D5CD75DCC573EFD /* Pods_SpeechAITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BE6EAE26789E3F7AB23AEC /* Pods_SpeechAITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		737000CC56222DF38E33FF10 /* Pods-SpeechAITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAITests/Pods-SpeechAITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A8E998FD375854665E3FAAB /* Pods-SpeechAITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAITests/Pods-SpeechAITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D027B16A200B36E400E3F896 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		D027B16F200B584400E3F896 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E4745B37130922834AF78067 /* Pods-SpeechAI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAI/Pods-SpeechAI.debug.xcconfig"; sourceTree = "<group>"; };
 		F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechAIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -199,6 +201,7 @@
 				52748832200ADB240084FB00 /* User.swift */,
 				52748842200AFC630084FB00 /* Speech.swift */,
 				D027B16A200B36E400E3F896 /* Feedback.swift */,
+				D027B16F200B584400E3F896 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				52748845200B04780084FB00 /* UserParser.swift in Sources */,
 				D027B16B200B36E400E3F896 /* Feedback.swift in Sources */,
 				52748836200ADB470084FB00 /* FirebaseManager.swift in Sources */,
+				D027B170200B584400E3F896 /* Post.swift in Sources */,
 				52748829200AD3000084FB00 /* RecordSpeechViewController.swift in Sources */,
 				52748847200B05190084FB00 /* SpeechParser.swift in Sources */,
 				5274882D200ADAD60084FB00 /* DataManager.swift in Sources */,
