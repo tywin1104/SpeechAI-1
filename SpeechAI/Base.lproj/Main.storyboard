@@ -36,9 +36,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmU-le-Xc4">
                                         <rect key="frame" x="167.5" y="0.0" width="167.5" height="200"/>
                                         <state key="normal" title="Button" image="start"/>
-                                        <connections>
-                                            <segue destination="07R-Wb-Kjx" kind="show" id="kHe-bP-zTV"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -48,12 +45,21 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="kN4-r4-cSL"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBT-gB-UMr">
+                                <rect key="frame" x="287" y="344" width="49" height="30"/>
+                                <state key="normal" title="BUtton"/>
+                                <connections>
+                                    <segue destination="2ua-El-jks" kind="show" id="Ir7-6n-jPY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lvm-t6-RgV" secondAttribute="trailing" constant="20" id="3JJ-qp-OdS"/>
+                            <constraint firstItem="YmU-le-Xc4" firstAttribute="top" secondItem="lBT-gB-UMr" secondAttribute="bottom" constant="63" id="3NF-rD-ez4"/>
                             <constraint firstItem="lvm-t6-RgV" firstAttribute="leading" secondItem="TgH-ns-bR7" secondAttribute="leading" constant="20" id="6k3-qK-0zV"/>
                             <constraint firstItem="Y9k-2K-wJS" firstAttribute="top" secondItem="KfY-j5-5kc" secondAttribute="top" constant="35" id="7en-4T-565"/>
+                            <constraint firstItem="KfY-j5-5kc" firstAttribute="trailing" secondItem="lBT-gB-UMr" secondAttribute="trailing" constant="39" id="Gy1-VK-y1G"/>
                             <constraint firstItem="Y9k-2K-wJS" firstAttribute="leading" secondItem="KfY-j5-5kc" secondAttribute="leading" constant="30" id="IRh-Yk-37j"/>
                             <constraint firstItem="Y9k-2K-wJS" firstAttribute="centerX" secondItem="KfY-j5-5kc" secondAttribute="centerX" id="JEh-l6-sg6"/>
                             <constraint firstItem="lvm-t6-RgV" firstAttribute="top" secondItem="Y9k-2K-wJS" secondAttribute="bottom" constant="50" id="RHH-JE-Hyu"/>
@@ -65,7 +71,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vty-JD-ggN" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-70" y="13"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LgA-uC-a15">
+            <objects>
+                <navigationController id="2ua-El-jks" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tks-oi-2k4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="07R-Wb-Kjx" kind="relationship" relationship="rootViewController" id="7jz-ns-QEO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9LW-cM-Qv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="27"/>
         </scene>
         <!--Feeds View Controller-->
         <scene sceneID="vVB-hk-feh">
@@ -74,71 +96,14 @@
                     <view key="view" contentMode="scaleToFill" id="eqE-V2-q6a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nCb-pV-9ru">
-                                <rect key="frame" x="0.0" y="-10" width="375" height="677"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Iqk-m1-Pf3" customClass="CustomTableViewCell" customModule="SpeechAI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iqk-m1-Pf3" id="s4T-ML-keY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rp6-Tg-kDQ">
-                                                    <rect key="frame" x="65" y="33" width="45" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Like it!"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXD-Iv-89C">
-                                                    <rect key="frame" x="162" y="33" width="40" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Play"/>
-                                                    <connections>
-                                                        <action selector="playAudio:" destination="07R-Wb-Kjx" eventType="touchUpInside" id="xWv-KQ-Xom"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ha-r6-mAT">
-                                                    <rect key="frame" x="233" y="33" width="67" height="30"/>
-                                                    <state key="normal" title="Comment"/>
-                                                    <connections>
-                                                        <action selector="commentPressed:" destination="07R-Wb-Kjx" eventType="touchUpInside" id="NtW-Bw-DVO"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ys1-oT-hnq">
-                                                    <rect key="frame" x="23" y="0.0" width="337" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="9ha-r6-mAT" secondAttribute="trailing" constant="75" id="5OC-zw-cXu"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="commentButton" destination="9ha-r6-mAT" id="47G-Hu-G0h"/>
-                                            <outlet property="label" destination="Ys1-oT-hnq" id="9NS-ta-hbF"/>
-                                            <outlet property="likeButton" destination="Rp6-Tg-kDQ" id="sAh-QX-1x4"/>
-                                            <outlet property="playButton" destination="hXD-Iv-89C" id="Zng-8D-A2j"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="exo-i4-usa"/>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="nCb-pV-9ru" id="dqS-wk-4Gv"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="3RC-N7-ds0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBe-gL-FnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1415" y="119"/>
         </scene>
     </scenes>
     <resources>

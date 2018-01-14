@@ -8,55 +8,21 @@
 import UIKit
 import AVFoundation
 
-class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var audioPlayer: AVAudioPlayer?
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    var posts = [Post]()
+class FeedsViewController: UIViewController{
+    var container: PostView?
 
-    @IBAction func playAudio(_ sender: Any) {
-        let path = Bundle.main.path(forResource: "example.mp3", ofType:nil)!
-        let url = URL(fileURLWithPath: path)
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
-        } catch {
-            print("Error!!!")
-        }
-        
-    }
-    @IBAction func commentPressed(_ sender: Any) {
-        
-    }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell" ) as! CustomTableViewCell
-        cell.textLabel?.text = posts[indexPath.row].userName
-        
-        return cell
-    }
-    
-    
-    
+
+    var posts = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        addContainerToViewController()
         let fmanager = FirebaseManager()
-        
         fmanager.retrievePosts { (result) in
             switch result {
             case .success(let post):
-                self.posts.append(post)
-                self.tableView.reloadData()
+                self.container?.listOfPosts.append(post)
+                self.container?.tableview.reloadData()
                 return
             case .failure(let message):
                 print(message)
@@ -66,6 +32,12 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         // Do any additional setup after loading the view.
     }
+
+    func addContainerToViewController() {
+        container = PostView.instanceFromNib(frame: CGRect(x:0,y:0,  width:view.bounds.width, height:view.bounds.height))
+        self.view.addSubview(container!)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
