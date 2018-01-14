@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gfs-Aq-Pts">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,33 +19,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speech AI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnH-Oa-iBb">
-                                <rect key="frame" x="87" y="14" width="200" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="23" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7p-Q4-rpO">
-                                <rect key="frame" x="33" y="54" width="308" height="409"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">We have also come to this hallowed spot to remind America of the fierce urgency of Now. This is no time to engage in the luxury of cooling off or to take the tranquilizing drug of gradualism. Now is the time to make real the promises of democracy. Now is the time to rise from the dark and desolate valley of segregation to the sunlit path of racial justice. Now is the time to lift our nation from the quicksands of racial injustice to the solid rock of brotherhood. Now is the time to make justice a reality for all of God's children.</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.30359053940000003" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmU-le-Xc4">
-                                <rect key="frame" x="141" y="537" width="93" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="start"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wZ-Hy-CHw">
-                                <rect key="frame" x="159" y="449" width="57" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="random"/>
-                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y9k-2K-wJS">
+                                <rect key="frame" x="30" y="55" width="315" height="332"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvm-t6-RgV">
+                                <rect key="frame" x="20" y="437" width="335" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wZ-Hy-CHw">
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="200"/>
+                                        <state key="normal" title="Button" image="random"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmU-le-Xc4">
+                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="200"/>
+                                        <state key="normal" title="Button" image="start"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5wZ-Hy-CHw" firstAttribute="width" secondItem="lvm-t6-RgV" secondAttribute="width" multiplier="0.5" id="3g0-iu-K4F"/>
+                                    <constraint firstAttribute="height" constant="200" id="gMg-Jl-ME1"/>
+                                    <constraint firstItem="YmU-le-Xc4" firstAttribute="width" secondItem="lvm-t6-RgV" secondAttribute="width" multiplier="0.5" id="shz-gA-V3u"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="kN4-r4-cSL"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lvm-t6-RgV" secondAttribute="trailing" constant="20" id="3JJ-qp-OdS"/>
+                            <constraint firstItem="lvm-t6-RgV" firstAttribute="leading" secondItem="TgH-ns-bR7" secondAttribute="leading" constant="20" id="6k3-qK-0zV"/>
+                            <constraint firstItem="Y9k-2K-wJS" firstAttribute="top" secondItem="KfY-j5-5kc" secondAttribute="top" constant="35" id="7en-4T-565"/>
+                            <constraint firstItem="Y9k-2K-wJS" firstAttribute="leading" secondItem="KfY-j5-5kc" secondAttribute="leading" constant="30" id="IRh-Yk-37j"/>
+                            <constraint firstItem="Y9k-2K-wJS" firstAttribute="centerX" secondItem="KfY-j5-5kc" secondAttribute="centerX" id="JEh-l6-sg6"/>
+                            <constraint firstItem="lvm-t6-RgV" firstAttribute="top" secondItem="Y9k-2K-wJS" secondAttribute="bottom" constant="50" id="RHH-JE-Hyu"/>
+                            <constraint firstItem="KfY-j5-5kc" firstAttribute="bottom" secondItem="lvm-t6-RgV" secondAttribute="bottom" constant="30" id="dOS-vI-VIg"/>
+                            <constraint firstItem="KfY-j5-5kc" firstAttribute="trailing" secondItem="Y9k-2K-wJS" secondAttribute="trailing" constant="30" id="qeY-pc-JEw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KfY-j5-5kc"/>
                     </view>
                 </viewController>

@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.window?.makeKeyAndVisible()
       self.window?.rootViewController = welcomeVC
     } else {
-      DataManager.default.fetchCurrentUser()
-      let recordVC = RecordSpeechViewController.viewController()
+      let mainVC = ViewController.viewController()
       self.window?.makeKeyAndVisible()
       self.window?.rootViewController = recordVC
     }

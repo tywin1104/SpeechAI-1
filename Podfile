@@ -7,6 +7,7 @@ target 'SpeechAI' do
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   # Pods for SpeechAI
 
   target 'SpeechAITests' do
