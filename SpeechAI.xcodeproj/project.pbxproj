@@ -28,6 +28,7 @@
 		52748847200B05190084FB00 /* SpeechParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748846200B05190084FB00 /* SpeechParser.swift */; };
 		6F08D7B9EE08F185C59B6A91 /* Pods_SpeechAIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */; };
 		C25FCBFA200B52F500D411BA /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25FCBF9200B52F500D411BA /* FeedsViewController.swift */; };
+		C25FCBFC200B614300D411BA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25FCBFB200B614300D411BA /* CustomTableViewCell.swift */; };
 		C9FBCD1E163C1E7229351361 /* Pods_SpeechAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */; };
 		D027B16B200B36E400E3F896 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16A200B36E400E3F896 /* Feedback.swift */; };
 		D027B170200B584400E3F896 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16F200B584400E3F896 /* Post.swift */; };
@@ -85,6 +86,7 @@
 		737000CC56222DF38E33FF10 /* Pods-SpeechAITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAITests/Pods-SpeechAITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A8E998FD375854665E3FAAB /* Pods-SpeechAITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAITests/Pods-SpeechAITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C25FCBF9200B52F500D411BA /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedsViewController.swift; path = /Users/tianyizhang/Desktop/SpeechAI/SpeechAI/FeedsViewController.swift; sourceTree = "<absolute>"; };
+		C25FCBFB200B614300D411BA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		D027B16A200B36E400E3F896 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		D027B16F200B584400E3F896 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E4745B37130922834AF78067 /* Pods-SpeechAI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAI/Pods-SpeechAI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				C25FCBF9200B52F500D411BA /* FeedsViewController.swift */,
 				527487F9200AD0840084FB00 /* ViewController.swift */,
 				527487FB200AD0840084FB00 /* Main.storyboard */,
+				C25FCBFB200B614300D411BA /* CustomTableViewCell.swift */,
 				52748834200ADB280084FB00 /* Models */,
 				52748831200ADB170084FB00 /* Services */,
 				527487FE200AD0840084FB00 /* Assets.xcassets */,
@@ -560,6 +563,7 @@
 				52748836200ADB470084FB00 /* FirebaseManager.swift in Sources */,
 				D027B170200B584400E3F896 /* Post.swift in Sources */,
 				52748829200AD3000084FB00 /* RecordSpeechViewController.swift in Sources */,
+				C25FCBFC200B614300D411BA /* CustomTableViewCell.swift in Sources */,
 				52748847200B05190084FB00 /* SpeechParser.swift in Sources */,
 				5274882D200ADAD60084FB00 /* DataManager.swift in Sources */,
 				527487FA200AD0840084FB00 /* ViewController.swift in Sources */,

@@ -60,42 +60,43 @@ internal class FirebaseManager {
   }
 
 
-    func retrievePosts (completion: @escaping ((Result<[Post]>) -> Void)) {
+    func retrievePosts (completion: @escaping ((Result<Post>) -> Void)) {
         self.ref.child("posts").observe(DataEventType.childAdded) { snapshot in
 
             guard let dicData = snapshot.value as? NSDictionary else {
                 completion(.failure(message: "sdfadsf"))
                 return
             }
+            var post = Post()
 
-            var newPosts = [Post]()
-            for (_, value) in dicData  {
-                var post = Post()
+    
 
-                guard let subDicData = value as? NSDictionary else {
-                    continue
-                }
+            guard let userName = dicData["user"] as? String  else {
+                completion(.failure(message: "sdfadsf"))
 
-                guard let userName = subDicData["user"] as? String  else {
-                    continue
-                }
-
-                guard let audioURL = subDicData["url"] as? String else {
-                    continue
-                }
-
-                guard let likes = subDicData["likes"] as? Int else {
-                    continue
-                }
-
-
-                post.audioURL = audioURL
-                post.userName = userName
-                post.numOfLikes = likes
-
-                newPosts.append(post)
+                return
             }
-            completion(.success(newPosts))
+
+            guard let audioURL = dicData["url"] as? String else {
+                completion(.failure(message: "sdfadsf"))
+
+                return
+            }
+
+            guard let likes = dicData["likes"] as? Int else {
+                completion(.failure(message: "sdfadsf"))
+
+                return
+            }
+
+
+            post.audioURL = audioURL
+            post.userName = userName
+            post.numOfLikes = likes
+
+    
+            
+            completion(.success(post))
         }
     }
 
