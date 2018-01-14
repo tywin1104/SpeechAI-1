@@ -13,8 +13,6 @@
 		52748802200AD0840084FB00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52748800200AD0840084FB00 /* LaunchScreen.storyboard */; };
 		5274880D200AD0840084FB00 /* SpeechAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274880C200AD0840084FB00 /* SpeechAITests.swift */; };
 		52748818200AD0840084FB00 /* SpeechAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748817200AD0840084FB00 /* SpeechAIUITests.swift */; };
-		52748826200AD2550084FB00 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52748825200AD2550084FB00 /* Record.storyboard */; };
-		52748829200AD3000084FB00 /* RecordSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748828200AD3000084FB00 /* RecordSpeechViewController.swift */; };
 		5274882D200ADAD60084FB00 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274882C200ADAD60084FB00 /* DataManager.swift */; };
 		52748833200ADB240084FB00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748832200ADB240084FB00 /* User.swift */; };
 		52748836200ADB470084FB00 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748835200ADB470084FB00 /* FirebaseManager.swift */; };
@@ -36,8 +34,8 @@
 		D027B16B200B36E400E3F896 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16A200B36E400E3F896 /* Feedback.swift */; };
 		D027B170200B584400E3F896 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16F200B584400E3F896 /* Post.swift */; };
 		D027B172200B656900E3F896 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B171200B656800E3F896 /* FeedsViewController.swift */; };
-		D062437D200B7F14001A4379 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D062437C200B7F14001A4379 /* microphone.png */; };
 		D0624380200B7F2C001A4379 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = D062437F200B7F2C001A4379 /* stop.png */; };
+		D0624383200B858C001A4379 /* ChatViewRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0624382200B858C001A4379 /* ChatViewRecordCell.swift */; };
 		D0F82782200B674400E8E9E3 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82781200B674400E8E9E3 /* PostView.xib */; };
 		D0F82784200B677B00E8E9E3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F82783200B677B00E8E9E3 /* PostView.swift */; };
 		D0F82787200B68B200E8E9E3 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82786200B68B200E8E9E3 /* PostViewCell.xib */; };
@@ -77,8 +75,6 @@
 		52748813200AD0840084FB00 /* SpeechAIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechAIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52748817200AD0840084FB00 /* SpeechAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechAIUITests.swift; sourceTree = "<group>"; };
 		52748819200AD0840084FB00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52748825200AD2550084FB00 /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
-		52748828200AD3000084FB00 /* RecordSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSpeechViewController.swift; sourceTree = "<group>"; };
 		5274882C200ADAD60084FB00 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		52748832200ADB240084FB00 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		52748835200ADB470084FB00 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -103,10 +99,10 @@
 		D027B16A200B36E400E3F896 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		D027B16F200B584400E3F896 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D027B171200B656800E3F896 /* FeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
-		D062437C200B7F14001A4379 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = microphone.png; path = ../../Downloads/microphone.png; sourceTree = "<group>"; };
 		D062437E200B7F16001A4379 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
 		D062437F200B7F2C001A4379 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop.png; path = ../../../../Downloads/stop.png; sourceTree = "<group>"; };
 		D0624381200B7F2F001A4379 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		D0624382200B858C001A4379 /* ChatViewRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewRecordCell.swift; sourceTree = "<group>"; };
 		D0F82781200B674400E8E9E3 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		D0F82783200B677B00E8E9E3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		D0F82786200B68B200E8E9E3 /* PostViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
@@ -146,7 +142,6 @@
 		527487EB200AD0840084FB00 = {
 			isa = PBXGroup;
 			children = (
-				D062437C200B7F14001A4379 /* microphone.png */,
 				527487F6200AD0840084FB00 /* SpeechAI */,
 				5274880B200AD0840084FB00 /* SpeechAITests */,
 				52748816200AD0840084FB00 /* SpeechAIUITests */,
@@ -174,6 +169,7 @@
 				D027B171200B656800E3F896 /* FeedsViewController.swift */,
 				527487FB200AD0840084FB00 /* Main.storyboard */,
 				C25FCBFB200B614300D411BA /* CustomTableViewCell.swift */,
+				D0624382200B858C001A4379 /* ChatViewRecordCell.swift */,
 				52748848200B19E30084FB00 /* ChatViewController.swift */,
 				5274884C200B4D630084FB00 /* ChatInputTableCell.swift */,
 				52748850200B4D870084FB00 /* ChatOptionsTableCell.swift */,
@@ -210,15 +206,6 @@
 			path = SpeechAIUITests;
 			sourceTree = "<group>";
 		};
-		52748827200AD2DE0084FB00 /* RecordSpeech */ = {
-			isa = PBXGroup;
-			children = (
-				52748825200AD2550084FB00 /* Record.storyboard */,
-				52748828200AD3000084FB00 /* RecordSpeechViewController.swift */,
-			);
-			path = RecordSpeech;
-			sourceTree = "<group>";
-		};
 		52748831200ADB170084FB00 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +234,6 @@
 				D062437F200B7F2C001A4379 /* stop.png */,
 				D0F82780200B673400E8E9E3 /* PostView */,
 				5274883A200AEC5C0084FB00 /* Welcome */,
-				52748827200AD2DE0084FB00 /* RecordSpeech */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -423,11 +409,9 @@
 				D0624380200B7F2C001A4379 /* stop.png in Resources */,
 				527487FF200AD0840084FB00 /* Assets.xcassets in Resources */,
 				D0F82787200B68B200E8E9E3 /* PostViewCell.xib in Resources */,
-				D062437D200B7F14001A4379 /* microphone.png in Resources */,
 				52748838200AE1FF0084FB00 /* GoogleService-Info.plist in Resources */,
 				D0F82782200B674400E8E9E3 /* PostView.xib in Resources */,
 				527487FD200AD0840084FB00 /* Main.storyboard in Resources */,
-				52748826200AD2550084FB00 /* Record.storyboard in Resources */,
 				5274883E200AEC7B0084FB00 /* Welcome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,10 +602,10 @@
 				D027B16B200B36E400E3F896 /* Feedback.swift in Sources */,
 				52748836200ADB470084FB00 /* FirebaseManager.swift in Sources */,
 				D027B170200B584400E3F896 /* Post.swift in Sources */,
-				52748829200AD3000084FB00 /* RecordSpeechViewController.swift in Sources */,
 				C25FCBFC200B614300D411BA /* CustomTableViewCell.swift in Sources */,
 				52748847200B05190084FB00 /* SpeechParser.swift in Sources */,
 				5274884F200B4D780084FB00 /* ChatTextTableCell.swift in Sources */,
+				D0624383200B858C001A4379 /* ChatViewRecordCell.swift in Sources */,
 				5274882D200ADAD60084FB00 /* DataManager.swift in Sources */,
 				52748851200B4D870084FB00 /* ChatOptionsTableCell.swift in Sources */,
 				D0F82784200B677B00E8E9E3 /* PostView.swift in Sources */,
