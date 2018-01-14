@@ -15,6 +15,8 @@ internal typealias JSONArray = [JSON]
 internal final class DataManager {
   static var `default` = DataManager()
   var currentUser: User?
+  var feedback = Feedback()
+
 
   fileprivate let firebaseManager: FirebaseManager
   fileprivate let defaults = UserDefaults.standard
@@ -49,14 +51,14 @@ extension DataManager {
     firebaseManager.uploadAudio(audioURL: audioURL, audioName: audioName) { result in
       switch result {
       case .success(let url):
-        let speech = Speech(id: UUID().uuidString, urlString: url, text: speechText)
+        let speech = Speech(id: UUID().uuidString, urlString: url, text: "HELLO MY NAMES IS JAMES")
         guard let newUser = self.currentUser?.addSpeech(speech: speech) else {
           completion(.failure(message: "No current user"))
           return
         }
         self.currentUser = newUser
         self.firebaseManager.saveSpeechURL(user: newUser, speech: speech)
-        self.updateToNetwork(userId: newUser.id, speechUrl: speech.urlString, completion: { (result) in
+        self.updateToNetwork(userId: newUser.id, speechId: speech.id, completion: { (result) in
             switch result {
             case .success:
                 completion(.success(()))
@@ -72,15 +74,32 @@ extension DataManager {
     }
   }
 
+    func updateToNetwork(userId: String, speechId: String, completion: @escaping ((Result<Void>) -> Void)) {
+        let requestString = "https://thawing-waters-31085.herokuapp.com/api"
 
-    func updateToNetwork(userId: String, speechUrl: String, completion: @escaping ((Result<Void>) -> Void)) {
-        let requestString = "http://127.0.0.1:5000/api"
-        let params =  ["userId": userId, "speechId": speechUrl ] as Parameters
-        Alamofire.request(requestString, method: .post, parameters: params, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { (response) in
-            print(response.request)
-            print(response.response)
-            print(response.data)
-            print(response.result)
+          let params =  ["userId": userId, "speechId": speechId ] as Parameters
+
+
+        Alamofire.request(requestString, method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { (response) in
+
+            guard let status = response.response?.statusCode else {
+                completion(.failure(message: ("unable to get status code")))
+                return
+            }
+
+            if status != 200   {
+                completion(.failure(message: ("Staus: \(status)")))
+            }
+
+            guard let result = response.result.value, let json = result as? NSDictionary else {
+
+                completion(.failure(message: ("failed to get the response")))
+                return
+            }
+
+            self.feedback.wpm = json["wpm"] as! Double
+            self.feedback.pausing = json["pausing"] as! String
+            self.feedback.similarity = json["similarity"] as! Double
 
             completion(.success(()))
         }
