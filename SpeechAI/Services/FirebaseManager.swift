@@ -60,42 +60,60 @@ internal class FirebaseManager {
   }
 
 
-    func retrievePosts (completion: @escaping ((Result<[Post]>) -> Void)) {
+    func addALike(to speechId:String, completion: @escaping ((Result<Int>) -> Void) ) {
+        self.ref.child("posts").child(speechId).child("likes").runTransactionBlock( { (currentData) -> TransactionResult in
+            guard let value = currentData.value as? Double else {
+                return TransactionResult.success(withValue: currentData)
+            }
+
+            guard value >= 0.0 else {
+                return TransactionResult.success(withValue: currentData)
+            }
+
+            currentData.value = value + 1
+            let retnVale = currentData.value as! Int
+            completion(.success(( retnVale)))
+            return TransactionResult.success(withValue: currentData)
+        })
+    }
+
+
+    func retrievePosts (completion: @escaping ((Result<Post>) -> Void)) {
         self.ref.child("posts").observe(DataEventType.childAdded) { snapshot in
 
             guard let dicData = snapshot.value as? NSDictionary else {
                 completion(.failure(message: "sdfadsf"))
                 return
             }
-
-            var newPosts = [Post]()
-            for (_, value) in dicData  {
-                var post = Post()
-
-                guard let subDicData = value as? NSDictionary else {
-                    continue
-                }
-
-                guard let userName = subDicData["user"] as? String  else {
-                    continue
-                }
-
-                guard let audioURL = subDicData["url"] as? String else {
-                    continue
-                }
-
-                guard let likes = subDicData["likes"] as? Int else {
-                    continue
-                }
+            var post = Post()
 
 
-                post.audioURL = audioURL
-                post.userName = userName
-                post.numOfLikes = likes
+            guard let userName = dicData["user"] as? String  else {
+                completion(.failure(message: "sdfadsf"))
 
-                newPosts.append(post)
+                return
             }
-            completion(.success(newPosts))
+
+            guard let audioURL = dicData["url"] as? String else {
+                completion(.failure(message: "sdfadsf"))
+
+                return
+            }
+
+            guard let likes = dicData["likes"] as? Int else {
+                completion(.failure(message: "sdfadsf"))
+
+                return
+            }
+
+            post.speechID = snapshot.key
+            post.audioURL = audioURL
+            post.userName = userName
+            post.numOfLikes = likes
+
+    
+            
+            completion(.success(post))
         }
     }
 
