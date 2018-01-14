@@ -18,7 +18,24 @@ class PostViewCell: UITableViewCell {
     
     @IBOutlet weak var posterName: UILabel!
     var player: AVAudioPlayer?
-    var speechID = ""
+    var speechID = "" {
+        didSet {
+            let fmanager = FirebaseManager()
+
+            fmanager.observeChangedLikes(from: self.speechID) { (result) in
+                switch result {
+                case .success(let likes):
+                      DispatchQueue.main.async {
+                        self.numOfLikes.text = String(likes)
+                      }
+                    return
+                case .failure(let message):
+                    print(message)
+                    return
+                }
+            }
+        }
+    }
 
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var numOfLikes: UILabel!
@@ -64,8 +81,11 @@ class PostViewCell: UITableViewCell {
         player.stop()
         playButton.setImage(UIImage(named:"whiteplay"), for: UIControlState.normal)
     }
+
     override func awakeFromNib() {
         super.awakeFromNib()
+
+
         // Initialization code
         
     }

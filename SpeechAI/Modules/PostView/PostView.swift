@@ -10,13 +10,21 @@ import UIKit
 import AVFoundation
 import ChameleonFramework
 
+protocol PostViewDelegate {
+    func segueBackToViews()
+}
+
 class PostView: UIView, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableview: UITableView!
-
+    var delegate:PostViewDelegate?
     var listOfPosts = [Post]()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listOfPosts.count
+    }
+
+    @IBAction func goBack(_ sender: Any) {
+        delegate?.segueBackToViews()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
