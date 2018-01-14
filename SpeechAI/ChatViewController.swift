@@ -17,7 +17,7 @@ final class ChatViewController: UIViewController {
     guard let vc = storyboard.instantiateInitialViewController() as? ChatViewController else { fatalError() }
     return vc
   }
-
+    
   @IBOutlet weak var welcomeView: UIStackView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var avatarTopImage: UIImageView!
@@ -88,6 +88,15 @@ final class ChatViewController: UIViewController {
       case .ellipses:
         return ""
       }
+    }
+    
+    var identifier : String {
+        switch self {
+        case .analyzing :
+            return "ChatTextTableCell"
+        case .ellipses:
+            return "EllipsesTableCell"
+        }
     }
 
     static var totalCells: Int = 2
@@ -224,7 +233,8 @@ extension ChatViewController: UITableViewDataSource {
       guard let introState: IntroState = IntroState(rawValue: indexPath.row) else { fatalError() }
       switch introState {
       case .greeting:
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: introState.identifier) as? ChatTextTableCell else { fatalError() }
+        guard let cell =
+        tableView.dequeueReusableCell(withIdentifier: introState.identifier) as? ChatTextTableCell else { fatalError() }
         cell.configure(text: introState.message)
         return cell
       case .name:
@@ -242,9 +252,26 @@ extension ChatViewController: UITableViewDataSource {
       return cell
 
     case .doneRecording:
-      return UITableViewCell()
+        guard let postRecordingState: PostRecordingState = PostRecordingState(rawValue: indexPath.row) else { fatalError() }
+        switch postRecordingState {
+        case .analyzing:
+            guard let cell =
+                tableView.dequeueReusableCell(withIdentifier: postRecordingState.identifier) as? ChatTextTableCell else { fatalError() }
+            cell.configure(text: postRecordingState.message)
+            return cell
+        case .ellipses:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: postRecordingState.identifier) as? EllipsesTableCell else { fatalError() }
+            cell.configure(text: postRecordingState.message)
+            return cell
+        }
     case .feedback:
-      return UITableViewCell()
+        guard let feedbackState : FeedbackState = FeedbackState(rawValue: indexPath.row) else {fatalError()}
+        switch feedbackState {
+        case .tone:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTextTableCell") as? ChatTextTableCell else {fatalError()}
+        cell.configure(text: feedbackState.message)
+        return cell
+        }
     }
   }
 
