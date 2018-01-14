@@ -47,6 +47,14 @@ internal class FirebaseManager {
         "text": speech.text
       ]
     )
+
+    self.ref.child("posts").child(speech.id).setValue(
+    [
+        "user": user.id,
+        "url": speech.urlString,
+        "text": speech.text
+        ]
+    )
     
   }
 
