@@ -234,10 +234,10 @@ extension ChatViewController: UITableViewDataSource {
       }
     case .record:
       guard let cell = tableView.dequeueReusableCell(withIdentifier: IntroState.greeting.identifier) as? ChatTextTableCell else { fatalError() }
-      switch PreRecordingState {
-      case .options:
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: , for: <#T##IndexPath#>)
-      }
+//      switch PreRecordingState {
+//      case .options:
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: , for: <#T##IndexPath#>)
+//      }
       cell.configure(text: IntroState.greeting.message)
       return cell
 

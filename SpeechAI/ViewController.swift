@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
   static func viewController() -> ViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    guard let vc = storyboard.instantiateInitialViewController() as? ViewController else { fatalError() }
+    guard let vc = storyboard.instantiateInitialViewController() as? ViewController else {
+        fatalError()
+        
+    }
     return vc
   }
 

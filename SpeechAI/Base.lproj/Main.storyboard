@@ -46,12 +46,21 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="kN4-r4-cSL"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBT-gB-UMr">
+                                <rect key="frame" x="287" y="344" width="49" height="30"/>
+                                <state key="normal" title="BUtton"/>
+                                <connections>
+                                    <segue destination="2ua-El-jks" kind="show" id="Ir7-6n-jPY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lvm-t6-RgV" secondAttribute="trailing" constant="20" id="3JJ-qp-OdS"/>
+                            <constraint firstItem="YmU-le-Xc4" firstAttribute="top" secondItem="lBT-gB-UMr" secondAttribute="bottom" constant="63" id="3NF-rD-ez4"/>
                             <constraint firstItem="lvm-t6-RgV" firstAttribute="leading" secondItem="TgH-ns-bR7" secondAttribute="leading" constant="20" id="6k3-qK-0zV"/>
                             <constraint firstItem="Y9k-2K-wJS" firstAttribute="top" secondItem="KfY-j5-5kc" secondAttribute="top" constant="35" id="7en-4T-565"/>
+                            <constraint firstItem="KfY-j5-5kc" firstAttribute="trailing" secondItem="lBT-gB-UMr" secondAttribute="trailing" constant="39" id="Gy1-VK-y1G"/>
                             <constraint firstItem="Y9k-2K-wJS" firstAttribute="leading" secondItem="KfY-j5-5kc" secondAttribute="leading" constant="30" id="IRh-Yk-37j"/>
                             <constraint firstItem="Y9k-2K-wJS" firstAttribute="centerX" secondItem="KfY-j5-5kc" secondAttribute="centerX" id="JEh-l6-sg6"/>
                             <constraint firstItem="lvm-t6-RgV" firstAttribute="top" secondItem="Y9k-2K-wJS" secondAttribute="bottom" constant="50" id="RHH-JE-Hyu"/>
@@ -63,7 +72,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vty-JD-ggN" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-70" y="13"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LgA-uC-a15">
+            <objects>
+                <navigationController id="2ua-El-jks" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tks-oi-2k4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="07R-Wb-Kjx" kind="relationship" relationship="rootViewController" id="7jz-ns-QEO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9LW-cM-Qv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="27"/>
+        </scene>
+        <!--Feeds View Controller-->
+        <scene sceneID="vVB-hk-feh">
+            <objects>
+                <viewController id="07R-Wb-Kjx" customClass="FeedsViewController" customModule="SpeechAI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eqE-V2-q6a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="exo-i4-usa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3RC-N7-ds0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CBe-gL-FnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1415" y="119"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="9zc-Tt-iss">
