@@ -26,6 +26,11 @@
 		52748843200AFC630084FB00 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748842200AFC630084FB00 /* Speech.swift */; };
 		52748845200B04780084FB00 /* UserParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748844200B04780084FB00 /* UserParser.swift */; };
 		52748847200B05190084FB00 /* SpeechParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748846200B05190084FB00 /* SpeechParser.swift */; };
+		52748849200B19E30084FB00 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748848200B19E30084FB00 /* ChatViewController.swift */; };
+		5274884D200B4D630084FB00 /* ChatInputTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274884C200B4D630084FB00 /* ChatInputTableCell.swift */; };
+		5274884F200B4D780084FB00 /* ChatTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274884E200B4D780084FB00 /* ChatTextTableCell.swift */; };
+		52748851200B4D870084FB00 /* ChatOptionsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748850200B4D870084FB00 /* ChatOptionsTableCell.swift */; };
+		52748853200B4D990084FB00 /* EllipsesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748852200B4D990084FB00 /* EllipsesTableCell.swift */; };
 		6F08D7B9EE08F185C59B6A91 /* Pods_SpeechAIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */; };
 		C9FBCD1E163C1E7229351361 /* Pods_SpeechAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */; };
 		D027B16B200B36E400E3F896 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16A200B36E400E3F896 /* Feedback.swift */; };
@@ -78,6 +83,11 @@
 		52748842200AFC630084FB00 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		52748844200B04780084FB00 /* UserParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParser.swift; sourceTree = "<group>"; };
 		52748846200B05190084FB00 /* SpeechParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechParser.swift; sourceTree = "<group>"; };
+		52748848200B19E30084FB00 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		5274884C200B4D630084FB00 /* ChatInputTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputTableCell.swift; sourceTree = "<group>"; };
+		5274884E200B4D780084FB00 /* ChatTextTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextTableCell.swift; sourceTree = "<group>"; };
+		52748850200B4D870084FB00 /* ChatOptionsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOptionsTableCell.swift; sourceTree = "<group>"; };
+		52748852200B4D990084FB00 /* EllipsesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipsesTableCell.swift; sourceTree = "<group>"; };
 		5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechAI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		534550AD3A0609C40F970F72 /* Pods-SpeechAIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAIUITests/Pods-SpeechAIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		705BC7C01CD4AD97CE9CF42E /* Pods-SpeechAIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAIUITests/Pods-SpeechAIUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +156,11 @@
 				527487F7200AD0840084FB00 /* AppDelegate.swift */,
 				527487F9200AD0840084FB00 /* ViewController.swift */,
 				527487FB200AD0840084FB00 /* Main.storyboard */,
+				52748848200B19E30084FB00 /* ChatViewController.swift */,
+				5274884C200B4D630084FB00 /* ChatInputTableCell.swift */,
+				52748850200B4D870084FB00 /* ChatOptionsTableCell.swift */,
+				52748852200B4D990084FB00 /* EllipsesTableCell.swift */,
+				5274884E200B4D780084FB00 /* ChatTextTableCell.swift */,
 				52748834200ADB280084FB00 /* Models */,
 				52748831200ADB170084FB00 /* Services */,
 				527487FE200AD0840084FB00 /* Assets.xcassets */,
@@ -552,17 +567,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				52748843200AFC630084FB00 /* Speech.swift in Sources */,
+				5274884D200B4D630084FB00 /* ChatInputTableCell.swift in Sources */,
 				52748845200B04780084FB00 /* UserParser.swift in Sources */,
 				D027B16B200B36E400E3F896 /* Feedback.swift in Sources */,
 				52748836200ADB470084FB00 /* FirebaseManager.swift in Sources */,
 				D027B170200B584400E3F896 /* Post.swift in Sources */,
 				52748829200AD3000084FB00 /* RecordSpeechViewController.swift in Sources */,
 				52748847200B05190084FB00 /* SpeechParser.swift in Sources */,
+				5274884F200B4D780084FB00 /* ChatTextTableCell.swift in Sources */,
 				5274882D200ADAD60084FB00 /* DataManager.swift in Sources */,
+				52748851200B4D870084FB00 /* ChatOptionsTableCell.swift in Sources */,
 				527487FA200AD0840084FB00 /* ViewController.swift in Sources */,
 				52748833200ADB240084FB00 /* User.swift in Sources */,
 				527487F8200AD0840084FB00 /* AppDelegate.swift in Sources */,
+				52748853200B4D990084FB00 /* EllipsesTableCell.swift in Sources */,
 				52748841200AEF0E0084FB00 /* Result.swift in Sources */,
+				52748849200B19E30084FB00 /* ChatViewController.swift in Sources */,
 				5274883C200AEC6A0084FB00 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,7 +751,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = AX2D84BZ47;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -748,7 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = AX2D84BZ47;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
