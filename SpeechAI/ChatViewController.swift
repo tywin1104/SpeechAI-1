@@ -35,7 +35,7 @@ final class ChatViewController: UIViewController {
     var message: String {
       switch self {
       case .greeting:
-        return "Welcome to SpeechAI! This is just some filler data on what this app actaully does!"
+        return "Welcome to SpeechAI! I'm Talky and my mission is to make you a better public speaker!"
       case .name:
         return "Before we get started, what is your name?"
       }
@@ -56,12 +56,12 @@ final class ChatViewController: UIViewController {
   enum PreRecordingState: Int {
     case options, speechInput
 
-    var message: String {
+    func message(name: String) -> String {
       switch self {
       case .options:
-        return "To practice public speaking we can a large collection of speeches to use or you can use your own."
+        return "Hi \(name), let's get started! Do you want me to give you a speech or do you want to enter your own?"
       case .speechInput:
-        return "Record when you're ready!"
+        return "Tap the record button when you're ready to make your speech!"
       }
 
     }
@@ -69,7 +69,7 @@ final class ChatViewController: UIViewController {
     var options: [String] {
       switch self {
       case .options:
-        return ["Use yours", "Use my own"]
+        return ["Give me", "Enter my own"]
       default:
         return []
       }
@@ -96,6 +96,15 @@ final class ChatViewController: UIViewController {
         return "Awesome! I will start analyzing your speech."
       case .ellipses:
         return ""
+      }
+    }
+
+    var identifier: String {
+      switch self {
+      case .analyzing:
+        return "ChatTextTableCell"
+      case .ellipses:
+        return "EllipsesTableCell"
       }
     }
 
@@ -254,20 +263,32 @@ extension ChatViewController: UITableViewDataSource {
       guard let preRecordingState: PreRecordingState = PreRecordingState(rawValue: indexPath.row) else { fatalError() }
       switch preRecordingState {
       case .options:
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: preRecordingState.identifier) as? ChatOptionsTableCell else { fatalError() }
-        cell.configure(text: preRecordingState.message, options: preRecordingState.options)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: preRecordingState.identifier) as? ChatOptionsTableCell,
+          let currentUserName = dataManager.currentUser?.name else { fatalError() }
+
+        cell.configure(text: preRecordingState.message(name: currentUserName), options: preRecordingState.options)
         cell.delegate = self
         return cell
       case .speechInput:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: preRecordingState.identifier) as? ChatViewRecordCell,
           let selectedOption = self.selectedRecordingOption
           else { fatalError() }
-        cell.isShuffle = selectedOption == 0
+        cell.configure(isShuffle: selectedOption == 0)
+        cell.delegate = self
         return cell
       }
 
     case .doneRecording:
-      return UITableViewCell()
+      guard let postRecordingState: PostRecordingState = PostRecordingState(rawValue: indexPath.row) else { fatalError() }
+      switch postRecordingState {
+      case .analyzing:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: postRecordingState.identifier) as? ChatTextTableCell else { fatalError() }
+        cell.configure(text: postRecordingState.message)
+        return cell
+      case .ellipses:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: postRecordingState.identifier) as? EllipsesTableCell else { fatalError() }
+        return cell
+      }
 
     case .feedback:
       return UITableViewCell()
@@ -293,6 +314,17 @@ extension ChatViewController: ChatOptionsTableCellDelegate {
     selectedRecordingOption = optionNumber
     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
       self.advance()
+    })
+  }
+}
+
+extension ChatViewController: ChatViewRecordCellDelegate {
+  func uploadDidStart() {
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+      self.advance()
+      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+        self.advance()
+      })
     })
   }
 }
