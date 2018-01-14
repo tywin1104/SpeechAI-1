@@ -97,9 +97,21 @@ extension DataManager {
                 return
             }
 
-            self.feedback.wpm = json["wpm"] as! Double
-            self.feedback.pausing = json["pausing"] as! String
-            self.feedback.similarity = json["similarity"] as! Double
+            if let wpm = json["wpm"] as? Double {
+                self.feedback.wpm = wpm
+            }
+
+            if let pausing = json["pausing"] as? String {
+                self.feedback.pausing = pausing
+            }
+
+            if  let similarity = json["similarity"] as? Double {
+                 self.feedback.similarity = similarity
+            }
+
+            if let loudness = json["loudness"]  as? String {
+                self.feedback.loudness = loudness
+            }
 
             completion(.success(()))
         }

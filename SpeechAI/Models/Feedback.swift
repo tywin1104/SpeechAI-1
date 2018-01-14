@@ -14,6 +14,7 @@ struct Feedback {
     var wpm = 0.0
     var similarity = 0.0
     var pausing = ""
+    var loudness = ""
 
     init(){
 
