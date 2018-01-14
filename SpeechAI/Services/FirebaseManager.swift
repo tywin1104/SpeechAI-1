@@ -60,6 +60,24 @@ internal class FirebaseManager {
   }
 
 
+    func addALike(to speechId:String, completion: @escaping ((Result<Int>) -> Void) ) {
+        self.ref.child("posts").child(speechId).child("likes").runTransactionBlock( { (currentData) -> TransactionResult in
+            guard let value = currentData.value as? Double else {
+                return TransactionResult.success(withValue: currentData)
+            }
+
+            guard value >= 0.0 else {
+                return TransactionResult.success(withValue: currentData)
+            }
+
+            currentData.value = value + 1
+            let retnVale = currentData.value as! Int
+            completion(.success(( retnVale)))
+            return TransactionResult.success(withValue: currentData)
+        })
+    }
+
+
     func retrievePosts (completion: @escaping ((Result<Post>) -> Void)) {
         self.ref.child("posts").observe(DataEventType.childAdded) { snapshot in
 
@@ -69,7 +87,6 @@ internal class FirebaseManager {
             }
             var post = Post()
 
-    
 
             guard let userName = dicData["user"] as? String  else {
                 completion(.failure(message: "sdfadsf"))
@@ -89,7 +106,7 @@ internal class FirebaseManager {
                 return
             }
 
-
+            post.speechID = snapshot.key
             post.audioURL = audioURL
             post.userName = userName
             post.numOfLikes = likes

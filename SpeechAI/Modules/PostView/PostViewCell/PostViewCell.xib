@@ -22,6 +22,9 @@
                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="255" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IT-3C-HD2">
                         <rect key="frame" x="41" y="77" width="32" height="30"/>
                         <state key="normal" title="Like "/>
+                        <connections>
+                            <action selector="like:" destination="zod-sf-4P9" eventType="touchUpInside" id="fCb-Rx-1WC"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUp-9K-rjd">
                         <rect key="frame" x="95" y="82" width="11" height="21"/>
@@ -72,6 +75,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="numOfLikes" destination="cUp-9K-rjd" id="GqS-Zi-fgE"/>
                 <outlet property="posterName" destination="O0A-0q-b9Q" id="l0Q-BT-xsF"/>
             </connections>
             <point key="canvasLocation" x="-14.5" y="-19"/>

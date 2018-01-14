@@ -9,11 +9,12 @@
 import Foundation
 
 
-struct Post {
+class Post {
 
     var audioURL = ""
     var userName = ""
     var numOfLikes = 0
+    var speechID = ""
 
     init() {}
 }

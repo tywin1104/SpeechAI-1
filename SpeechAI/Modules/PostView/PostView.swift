@@ -24,14 +24,15 @@ class PostView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.register(nib_name, forCellReuseIdentifier: "PostViewCell")
         let cell = self.tableview.dequeueReusableCell(withIdentifier: "PostViewCell", for: indexPath) as! PostViewCell
         cell.posterName.text = listOfPosts[indexPath.row].userName
-
+        cell.speechID = listOfPosts[indexPath.row].speechID
+        cell.numOfLikes.text = String(listOfPosts[indexPath.row].numOfLikes)
         let url = URL.init(string: listOfPosts[indexPath.row].audioURL)
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if let err = error {
                 print("\(err)")
                 return
             }
-
+            
             DispatchQueue.main.async {
                 do {
                     try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
