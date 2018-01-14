@@ -26,6 +26,7 @@
 		52748843200AFC630084FB00 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748842200AFC630084FB00 /* Speech.swift */; };
 		52748845200B04780084FB00 /* UserParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748844200B04780084FB00 /* UserParser.swift */; };
 		52748847200B05190084FB00 /* SpeechParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748846200B05190084FB00 /* SpeechParser.swift */; };
+		52748849200B19E30084FB00 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52748848200B19E30084FB00 /* ChatViewController.swift */; };
 		6F08D7B9EE08F185C59B6A91 /* Pods_SpeechAIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */; };
 		C9FBCD1E163C1E7229351361 /* Pods_SpeechAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */; };
 		D99D08766D5CD75DCC573EFD /* Pods_SpeechAITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BE6EAE26789E3F7AB23AEC /* Pods_SpeechAITests.framework */; };
@@ -76,6 +77,7 @@
 		52748842200AFC630084FB00 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		52748844200B04780084FB00 /* UserParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParser.swift; sourceTree = "<group>"; };
 		52748846200B05190084FB00 /* SpeechParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechParser.swift; sourceTree = "<group>"; };
+		52748848200B19E30084FB00 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		5337537DBC1435480B8AF376 /* Pods_SpeechAI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechAI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		534550AD3A0609C40F970F72 /* Pods-SpeechAIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAIUITests/Pods-SpeechAIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		705BC7C01CD4AD97CE9CF42E /* Pods-SpeechAIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAIUITests/Pods-SpeechAIUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				527487F7200AD0840084FB00 /* AppDelegate.swift */,
 				527487F9200AD0840084FB00 /* ViewController.swift */,
 				527487FB200AD0840084FB00 /* Main.storyboard */,
+				52748848200B19E30084FB00 /* ChatViewController.swift */,
 				52748834200ADB280084FB00 /* Models */,
 				52748831200ADB170084FB00 /* Services */,
 				527487FE200AD0840084FB00 /* Assets.xcassets */,
@@ -555,6 +558,7 @@
 				52748833200ADB240084FB00 /* User.swift in Sources */,
 				527487F8200AD0840084FB00 /* AppDelegate.swift in Sources */,
 				52748841200AEF0E0084FB00 /* Result.swift in Sources */,
+				52748849200B19E30084FB00 /* ChatViewController.swift in Sources */,
 				5274883C200AEC6A0084FB00 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
