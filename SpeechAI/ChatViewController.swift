@@ -114,17 +114,8 @@ final class ChatViewController: UIViewController {
   enum FeedbackState: Int {
     case starting, wpm, accuracy, volume, pauses, overall
 
-    var message: String {
-      switch self {
-      case .tone:
-        return "You have a very disgusting tone lol."
-      case .wpm:
-        return
-      case .accuracy:
-      case .volume:
-      case .pauses:
-      case .overall:
-      }
+    var identifier: String {
+      return "ChatTextTableCell"
     }
 
     static var totalCells: Int = 6
@@ -132,6 +123,8 @@ final class ChatViewController: UIViewController {
 
   var currentState: ChatState = .empty
   var currentRow: Int = 0
+
+  var feedback: Feedback?
 
   var selectedRecordingOption: Int?
 
@@ -213,11 +206,38 @@ final class ChatViewController: UIViewController {
         self.currentRow = 0
         self.tableView.beginUpdates()
         self.tableView.insertSections(IndexSet(integer: ChatState.feedback.rawValue), with: .bottom)
-        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.tone.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
+        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.starting.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
         self.tableView.endUpdates()
       }
     case .feedback:
-      return
+      if self.currentRow == 0 {
+        self.currentRow = 1
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.wpm.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      } else if self.currentRow == 1 {
+        self.currentRow = 2
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.accuracy.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      } else if self.currentRow == 2 {
+        self.currentRow = 3
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.volume.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      } else if self.currentRow == 3 {
+        self.currentRow = 4
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.pauses.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      } else if self.currentRow == 4 {
+        self.currentRow = 5
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.overall.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      } else if self.currentRow == 5 {
+
+      }
     case .empty:
       self.currentState = .intro
       self.currentRow = 0
@@ -295,9 +315,31 @@ extension ChatViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: postRecordingState.identifier) as? EllipsesTableCell else { fatalError() }
         return cell
       }
-
+      
     case .feedback:
-      return UITableViewCell()
+      guard let feedbackState: FeedbackState = FeedbackState(rawValue: indexPath.row),
+        let speechFeedback = feedback else { fatalError() }
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatTextTableCell else { fatalError() }
+      switch feedbackState {
+      case .starting:
+        cell.configure(text: speechFeedback.StartingSent)
+        return cell
+      case .wpm:
+        cell.configure(text: speechFeedback.WPMSent)
+        return cell
+      case .accuracy:
+        cell.configure(text: speechFeedback.SimSent)
+        return cell
+      case .volume:
+        cell.configure(text: speechFeedback.LoudSent)
+        return cell
+      case .pauses:
+        cell.configure(text: speechFeedback.PausSent)
+        return cell
+      case .overall:
+        cell.configure(text: speechFeedback.overallSent)
+        return cell
+      }
     }
   }
 
@@ -330,6 +372,28 @@ extension ChatViewController: ChatViewRecordCellDelegate {
       self.advance()
       DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
         self.advance()
+      })
+    })
+  }
+
+  func responseReceived(feedback: Feedback) {
+    self.feedback = feedback
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+      self.advance()
+      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+        self.advance()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+          self.advance()
+          DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.advance()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+              self.advance()
+              DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.advance()
+              })
+            })
+          })
+        })
       })
     })
   }

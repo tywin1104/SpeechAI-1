@@ -47,7 +47,7 @@ extension DataManager {
     return documentsDirectory
   }
 
-  func uploadAudio(audioURL: URL, audioName: String, speechText: String, completion: @escaping ((Result<Void>) -> Void)) {
+  func uploadAudio(audioURL: URL, audioName: String, speechText: String, completion: @escaping ((Result<Feedback>) -> Void)) {
     firebaseManager.uploadAudio(audioURL: audioURL, audioName: audioName) { result in
       switch result {
       case .success(let url):
@@ -61,7 +61,7 @@ extension DataManager {
         self.updateToNetwork(userId: newUser.id, speechId: speech.id, completion: { (result) in
           switch result {
           case .success:
-            completion(.success(()))
+            completion(.success(self.feedback))
             return
           case .failure(let message):
             print(message)
@@ -142,10 +142,6 @@ extension DataManager {
     }
   }
 
-
-
-
-
   func displayFeedackMessage() {
 
     let StartingSent = "Here are your results!"
@@ -201,8 +197,12 @@ extension DataManager {
       overallSent.append("You enunciated more clearly from your last speech.")
     }
 
-    return [StartingSent, WPMSent, SimSent, LoudSent, PausSent, overallSent]
-
+    feedback.StartingSent = StartingSent
+    feedback.WPMSent = WPMSent
+    feedback.SimSent = SimSent
+    feedback.LoudSent = LoudSent
+    feedback.PausSent = PausSent
+    feedback.overallSent = overallSent
   }
 
   func createUser(name: String) {

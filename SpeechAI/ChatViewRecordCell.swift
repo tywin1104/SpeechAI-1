@@ -11,7 +11,7 @@ import UIKit
 
 protocol ChatViewRecordCellDelegate: class {
   func uploadDidStart()
-  func responseReceived()
+  func responseReceived(feedback: Feedback)
 }
 
 class ChatViewRecordCell: UITableViewCell {
@@ -32,7 +32,6 @@ class ChatViewRecordCell: UITableViewCell {
     if isShuffle {
       textView.text = speechGenerator()
     }
-
   }
 
 
@@ -57,11 +56,13 @@ class ChatViewRecordCell: UITableViewCell {
     if audioRecorder != nil {
       finishRecording(success: true)
       delegate?.uploadDidStart()
+      textView.resignFirstResponder()
       if let audioURL = audioFileURL,
         let audioName = audioFileName {
         dataManager.uploadAudio(audioURL: audioURL, audioName: audioName, speechText: textView.text ?? "") { result in
           switch result {
-          case .success:
+          case .success(let feedback):
+            self.delegate?.responseReceived(feedback: feedback)
             return
           case .failure(let message):
             print(message)
@@ -131,12 +132,13 @@ class ChatViewRecordCell: UITableViewCell {
 
 
   func speechGenerator() -> String {
-    var speeches = ["We have also come to this hallowed spot to remind America of the fierce urgency of Now. This is no time to engage in the luxury of cooling off or to take the tranquilizing drug of gradualism. Now is the time to make real the promises of democracy. Now is the time to rise from the dark and desolate valley of segregation to the sunlit path of racial justice. Now is the time to lift our nation from the quicksands of racial injustice to the solid rock of brotherhood. Now is the time to make justice a reality for all of God's children.",
-                    "But there is something that I must say to my people, who stand on the warm threshold which leads into the palace of justice: In the process of gaining our rightful place, we must not be guilty of wrongful deeds. Let us not seek to satisfy our thirst for freedom by drinking from the cup of bitterness and hatred. We must forever conduct our struggle on the high plane of dignity and discipline. We must not allow our creative protest to degenerate into physical violence. Again and again, we must rise to the majestic heights of meeting physical force with soul force.",
-                    "The marvelous new militancy which has engulfed the Negro community must not lead us to a distrust of all white people, for many of our white brothers, as evidenced by their presence here today, have come to realize that their destiny is tied up with our destiny. And they have come to realize that their freedom is inextricably bound to our freedom.",
-                    "On behalf of the great Empire State and the whole family of New York, let me thank you for the great privilege of being able to address this convention. Please allow me to skip the stories and the poetry and the temptation to deal in nice but vague rhetoric. Let me instead use this valuable opportunity to deal immediately with the questions that should determine this election and that we all know are vital to the American people.",
-                    "But the hard truth is that not everyone is sharing in this city's splendor and glory. A shining city is perhaps all the President sees from the portico of the White House and the veranda of his ranch, where everyone seems to be doing well. But there's another city; there's another part to the shining the city; the part where some people can't pay their mortgages, and most young people can't afford one; where students can't afford the education they need, and middle-class parents watch the dreams they hold for their children evaporate.",
-                    "On the third of February last I officially laid before you the extraordinary announcement of the Imperial German Government that on and after the first day of February it was its purpose to put aside all restraints of law or of humanity and use its submarines to sink every vessel that sought to approach either the ports of Great Britain and Ireland or the western coasts of Europe or any of the ports controlled by the enemies of Germany within the Mediterranean."]
+    var speeches = ["We have also come to this hallowed spot to remind America of the fierce urgency of Now. This is no time to engage in the luxury of cooling off or to take the tranquilizing drug of gradualism.",
+    "But there is something that I must say to my people, who stand on the warm threshold which leads into the palace of justice: In the process of gaining our rightful place, we must not be guilty of wrongful deeds.",
+    "The marvelous new militancy which has engulfed the Negro community must not lead us to a distrust of all white people, for many of our white brothers, as evidenced by their presence here today.",
+    "On behalf of the great Empire State and the whole family of New York, let me thank you for the great privilege of being able to address this convention.",
+    "But the hard truth is that not everyone is sharing in this city s splendor and glory.A shining city is perhaps all the President sees from the portico of the White House and the veranda of his ranch, where everyone seems to be doing well. ",
+    "On the third of February last I officially laid before you the extraordinary announcement of the Imperial German Government that on and after the first day of February it was its purpose to put aside all restraints of law or of humanity."]
+
     let randomIndex = Int(arc4random_uniform(UInt32(speeches.count)))
     return speeches[randomIndex]
   }
