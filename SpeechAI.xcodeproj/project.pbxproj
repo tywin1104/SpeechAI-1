@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		527487F8200AD0840084FB00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527487F7200AD0840084FB00 /* AppDelegate.swift */; };
-		527487FA200AD0840084FB00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527487F9200AD0840084FB00 /* ViewController.swift */; };
 		527487FD200AD0840084FB00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 527487FB200AD0840084FB00 /* Main.storyboard */; };
 		527487FF200AD0840084FB00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527487FE200AD0840084FB00 /* Assets.xcassets */; };
 		52748802200AD0840084FB00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52748800200AD0840084FB00 /* LaunchScreen.storyboard */; };
@@ -68,7 +67,6 @@
 		16BE6EAE26789E3F7AB23AEC /* Pods_SpeechAITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechAITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		527487F4200AD0840084FB00 /* SpeechAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		527487F7200AD0840084FB00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		527487F9200AD0840084FB00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		527487FC200AD0840084FB00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		527487FE200AD0840084FB00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52748801200AD0840084FB00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				52748839200AEC4C0084FB00 /* Modules */,
 				527487F7200AD0840084FB00 /* AppDelegate.swift */,
 				D027B171200B656800E3F896 /* FeedsViewController.swift */,
-				527487F9200AD0840084FB00 /* ViewController.swift */,
 				527487FB200AD0840084FB00 /* Main.storyboard */,
 				C25FCBFB200B614300D411BA /* CustomTableViewCell.swift */,
 				52748848200B19E30084FB00 /* ChatViewController.swift */,
@@ -627,7 +624,6 @@
 				5274884F200B4D780084FB00 /* ChatTextTableCell.swift in Sources */,
 				5274882D200ADAD60084FB00 /* DataManager.swift in Sources */,
 				52748851200B4D870084FB00 /* ChatOptionsTableCell.swift in Sources */,
-				527487FA200AD0840084FB00 /* ViewController.swift in Sources */,
 				D0F82784200B677B00E8E9E3 /* PostView.swift in Sources */,
 				D027B172200B656900E3F896 /* FeedsViewController.swift in Sources */,
 				52748833200ADB240084FB00 /* User.swift in Sources */,
