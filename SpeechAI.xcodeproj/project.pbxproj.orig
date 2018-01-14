@@ -34,8 +34,11 @@
 		D027B16B200B36E400E3F896 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16A200B36E400E3F896 /* Feedback.swift */; };
 		D027B170200B584400E3F896 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16F200B584400E3F896 /* Post.swift */; };
 		D027B172200B656900E3F896 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B171200B656800E3F896 /* FeedsViewController.swift */; };
+<<<<<<< HEAD
+=======
 		D0624380200B7F2C001A4379 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = D062437F200B7F2C001A4379 /* stop.png */; };
 		D0624383200B858C001A4379 /* ChatViewRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0624382200B858C001A4379 /* ChatViewRecordCell.swift */; };
+>>>>>>> 7c27ad30d9e743caf2bb4a6cca1ab3ca30f3b790
 		D0F82782200B674400E8E9E3 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82781200B674400E8E9E3 /* PostView.xib */; };
 		D0F82784200B677B00E8E9E3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F82783200B677B00E8E9E3 /* PostView.swift */; };
 		D0F82787200B68B200E8E9E3 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82786200B68B200E8E9E3 /* PostViewCell.xib */; };

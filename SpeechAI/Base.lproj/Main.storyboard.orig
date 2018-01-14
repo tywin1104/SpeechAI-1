@@ -379,6 +379,7 @@
                                     <constraint firstAttribute="width" constant="62" id="eVr-GL-3zm"/>
                                 </constraints>
                             </imageView>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8A-eA-7go">
                                 <rect key="frame" x="282" y="46" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -386,6 +387,9 @@
                                     <constraint firstAttribute="width" constant="40" id="KTn-zw-96Z"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="users"/>
+                                <connections>
+                                    <segue destination="2ua-El-jks" kind="show" id="QQs-Nb-60W"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,6 +400,14 @@
                             <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="c8A-eA-7go" secondAttribute="bottom" constant="34" id="Ei3-cu-117"/>
                             <constraint firstItem="EGh-Lx-ZA3" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="15" id="F4X-Eb-RYa"/>
                             <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="EGh-Lx-ZA3" secondAttribute="bottom" constant="23" id="GAC-6Z-mHP"/>
+=======
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EGh-Lx-ZA3" firstAttribute="centerX" secondItem="2Gx-qp-vyA" secondAttribute="centerX" id="3Wr-vR-371"/>
+                            <constraint firstItem="EGh-Lx-ZA3" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="18" id="F4X-Eb-RYa"/>
+                            <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="EGh-Lx-ZA3" secondAttribute="bottom" constant="20" id="GAC-6Z-mHP"/>
+>>>>>>> 7c27ad30d9e743caf2bb4a6cca1ab3ca30f3b790
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="bottom" secondItem="mfW-up-elA" secondAttribute="bottom" id="MK4-YK-Bpz"/>
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" secondItem="nPe-jo-kDg" secondAttribute="trailing" constant="30" id="ao0-du-jB9"/>
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" secondItem="mfW-up-elA" secondAttribute="trailing" id="ddv-Zw-biq"/>
@@ -421,8 +433,11 @@
         <image name="avatar" width="256" height="256"/>
         <image name="ellipses" width="52" height="10"/>
         <image name="microphone.png" width="256" height="256"/>
+<<<<<<< HEAD
+        <image name="users" width="256" height="256"/>
+=======
         <image name="random" width="512" height="512"/>
         <image name="start" width="225" height="225"/>
-        <image name="users" width="256" height="256"/>
+>>>>>>> 7c27ad30d9e743caf2bb4a6cca1ab3ca30f3b790
     </resources>
 </document>
