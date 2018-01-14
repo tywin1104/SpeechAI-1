@@ -22,6 +22,8 @@ final class ChatViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var avatarTopImage: UIImageView!
 
+  let dataManager = DataManager.default
+
   enum ChatState: Int {
     case empty, intro, record, doneRecording, feedback
   }
@@ -43,7 +45,7 @@ final class ChatViewController: UIViewController {
       case .greeting:
         return "ChatTextTableCell"
       case .name:
-        return "ChatTextTableCell"
+        return "ChatInputTableCell"
       }
     }
 
@@ -72,7 +74,17 @@ final class ChatViewController: UIViewController {
       default:
         return []
       }
-    
+    }
+
+    var identifier: String {
+      switch self {
+      case .options:
+        return "ChatOptionsTableCell"
+      case .speechInput:
+        return "ChatInputTableCell"
+      case .recording:
+        return "ChatOptionsTableCell"
+      }
     }
 
     static var totalCells: Int = 3
@@ -109,6 +121,8 @@ final class ChatViewController: UIViewController {
   var currentState: ChatState = .empty
   var currentRow: Int = 0
 
+  var selectedRecordingOption: Int?
+
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
@@ -138,9 +152,6 @@ final class ChatViewController: UIViewController {
           self.advance()
           DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
             self.advance()
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-              self.advance()
-            })
           })
         })
       })
@@ -228,21 +239,31 @@ extension ChatViewController: UITableViewDataSource {
         cell.configure(text: introState.message)
         return cell
       case .name:
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: introState.identifier) as? ChatTextTableCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: introState.identifier) as? ChatInputTableCell else { fatalError() }
         cell.configure(text: introState.message)
+        cell.delegate = self
         return cell
       }
     case .record:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: IntroState.greeting.identifier) as? ChatTextTableCell else { fatalError() }
-      switch PreRecordingState {
+      guard let preRecordingState: PreRecordingState = PreRecordingState(rawValue: indexPath.row) else { fatalError() }
+      switch preRecordingState {
       case .options:
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: , for: <#T##IndexPath#>)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: preRecordingState.identifier) as? ChatOptionsTableCell else { fatalError() }
+        cell.configure(text: preRecordingState.message, options: preRecordingState.options)
+        cell.delegate = self
+        return cell
+      case .speechInput:
+        return UITableViewCell()
+
+      case .recording:
+        return UITableViewCell()
+
+
       }
-      cell.configure(text: IntroState.greeting.message)
-      return cell
 
     case .doneRecording:
       return UITableViewCell()
+
     case .feedback:
       return UITableViewCell()
     }
@@ -253,3 +274,17 @@ extension ChatViewController: UITableViewDataSource {
   }
 }
 
+extension ChatViewController: ChatInputTableCellDelegate {
+  func didPressSubmit(name: String) {
+    dataManager.createUser(name: name)
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+      self.advance()
+    })
+  }
+}
+
+extension ChatViewController: ChatOptionsTableCellDelegate {
+  func optionPressed(optionNumber: Int) {
+    selectedRecordingOption = optionNumber
+  }
+}

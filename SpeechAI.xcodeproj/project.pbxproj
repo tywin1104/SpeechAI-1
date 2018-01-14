@@ -36,8 +36,6 @@
 		D027B16B200B36E400E3F896 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16A200B36E400E3F896 /* Feedback.swift */; };
 		D027B170200B584400E3F896 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16F200B584400E3F896 /* Post.swift */; };
 		D99D08766D5CD75DCC573EFD /* Pods_SpeechAITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BE6EAE26789E3F7AB23AEC /* Pods_SpeechAITests.framework */; };
-		E1A18D87200B6FDA007B8A32 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A18D86200B6FDA007B8A32 /* microphone.png */; };
-		E1A18D89200B731C007B8A32 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A18D88200B731C007B8A32 /* stop.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +95,6 @@
 		9A8E998FD375854665E3FAAB /* Pods-SpeechAITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAITests/Pods-SpeechAITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D027B16A200B36E400E3F896 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		D027B16F200B584400E3F896 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		E1A18D86200B6FDA007B8A32 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = microphone.png; path = ../../../../Downloads/microphone.png; sourceTree = "<group>"; };
-		E1A18D88200B731C007B8A32 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop.png; path = ../../../../Downloads/stop.png; sourceTree = "<group>"; };
 		E4745B37130922834AF78067 /* Pods-SpeechAI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAI/Pods-SpeechAI.debug.xcconfig"; sourceTree = "<group>"; };
 		F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechAIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -168,8 +164,6 @@
 				52748834200ADB280084FB00 /* Models */,
 				52748831200ADB170084FB00 /* Services */,
 				527487FE200AD0840084FB00 /* Assets.xcassets */,
-				E1A18D88200B731C007B8A32 /* stop.png */,
-				E1A18D86200B6FDA007B8A32 /* microphone.png */,
 				52748800200AD0840084FB00 /* LaunchScreen.storyboard */,
 				52748803200AD0840084FB00 /* Info.plist */,
 				52748837200AE1FF0084FB00 /* GoogleService-Info.plist */,
@@ -385,9 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52748802200AD0840084FB00 /* LaunchScreen.storyboard in Resources */,
-				E1A18D89200B731C007B8A32 /* stop.png in Resources */,
 				527487FF200AD0840084FB00 /* Assets.xcassets in Resources */,
-				E1A18D87200B6FDA007B8A32 /* microphone.png in Resources */,
 				52748838200AE1FF0084FB00 /* GoogleService-Info.plist in Resources */,
 				527487FD200AD0840084FB00 /* Main.storyboard in Resources */,
 				52748826200AD2550084FB00 /* Record.storyboard in Resources */,

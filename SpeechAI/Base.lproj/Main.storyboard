@@ -98,7 +98,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTextTableCell" rowHeight="126" id="shz-wT-4uD" customClass="ChatTextTableCell" customModule="SpeechAI" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTextTableCell" rowHeight="126" id="shz-wT-4uD" customClass="ChatTextTableCell" customModule="SpeechAI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="shz-wT-4uD" id="OcM-yX-aFE">
@@ -137,27 +137,27 @@
                                             <outlet property="messageLabel" destination="TmW-If-C84" id="IHq-YK-Ls9"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="192" id="wU4-B9-eSe">
-                                        <rect key="frame" x="0.0" y="154" width="375" height="192"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatInputTableCell" rowHeight="180" id="wU4-B9-eSe" customClass="ChatInputTableCell" customModule="SpeechAI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="154" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wU4-B9-eSe" id="EZD-3o-vGi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="191.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HF-DC-qp0">
-                                                    <rect key="frame" x="30" y="11" width="305" height="170"/>
+                                                    <rect key="frame" x="30" y="11" width="305" height="158"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to our app, we can help you with becoming a better person!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W12-RG-vXW">
-                                                            <rect key="frame" x="20" y="16" width="265" height="61"/>
+                                                            <rect key="frame" x="20" y="16" width="265" height="76"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nJT-4G-EOQ">
-                                                            <rect key="frame" x="20" y="87" width="265" height="68"/>
+                                                            <rect key="frame" x="20" y="102" width="265" height="41"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name here." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVJ-IN-Mjc">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="221" height="68"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="221" height="41"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="68" id="M4D-k4-HGK"/>
                                                                         <constraint firstAttribute="width" constant="221" id="j04-hv-P5C"/>
@@ -167,10 +167,16 @@
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsk-cq-iaF">
-                                                                    <rect key="frame" x="231" y="0.0" width="34" height="68"/>
+                                                                    <rect key="frame" x="231" y="0.0" width="34" height="41"/>
                                                                     <state key="normal" image="arrow"/>
+                                                                    <connections>
+                                                                        <action selector="submitPressed" destination="wU4-B9-eSe" eventType="touchUpInside" id="J3W-uM-a6x"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="41" id="YvK-mc-Hkg"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,9 +199,14 @@
                                                 <constraint firstItem="9HF-DC-qp0" firstAttribute="leading" secondItem="EZD-3o-vGi" secondAttribute="leading" constant="30" id="nqG-KZ-VaC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bubbleView" destination="9HF-DC-qp0" id="qjM-b7-TXa"/>
+                                            <outlet property="messageLabel" destination="W12-RG-vXW" id="m7W-FG-sNe"/>
+                                            <outlet property="textField" destination="aVJ-IN-Mjc" id="eD5-rG-rWA"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="record" rowHeight="192" id="L3U-h3-Bso" customClass="RecordTableViewCell" customModule="SpeechAI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="346" width="375" height="192"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="record" rowHeight="192" id="L3U-h3-Bso" customClass="RecordTableViewCell" customModule="SpeechAI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="334" width="375" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L3U-h3-Bso" id="fRI-zd-vAp">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="191.5"/>
@@ -248,8 +259,8 @@
                                             <outlet property="recordButton" destination="xuy-vc-fbX" id="r7R-w9-hWG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="options" rowHeight="192" id="rBE-7P-QIE" customClass="ChatOptionsTableCell" customModule="SpeechAI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="538" width="375" height="192"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatOptionsTableCell" rowHeight="192" id="rBE-7P-QIE" customClass="ChatOptionsTableCell" customModule="SpeechAI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="526" width="375" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBE-7P-QIE" id="ts8-u2-xfd">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="191.5"/>
@@ -265,29 +276,37 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5SH-ze-wVI">
-                                                            <rect key="frame" x="20" y="122" width="265" height="33"/>
+                                                            <rect key="frame" x="20" y="114" width="265" height="41"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXx-UG-YUu">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="33"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                                    <state key="normal" title="Button">
-                                                                        <color key="titleColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </state>
-                                                                    <connections>
-                                                                        <action selector="buttonOnePress:" destination="rBE-7P-QIE" eventType="touchUpInside" id="LfH-aW-tHp"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gw-e9-HYE">
-                                                                    <rect key="frame" x="140" y="0.0" width="125" height="33"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="128.5" height="41"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="125" id="LMv-fc-W06"/>
+                                                                        <constraint firstAttribute="height" constant="41" id="mJh-3p-HR0"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <state key="normal" title="Button">
                                                                         <color key="titleColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="buttonOnePress" destination="rBE-7P-QIE" eventType="touchUpInside" id="6eb-hC-ZB6"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gw-e9-HYE">
+                                                                    <rect key="frame" x="136.5" y="0.0" width="128.5" height="41"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                    <state key="normal" title="Button">
+                                                                        <color key="titleColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="buttonTwoPress" destination="rBE-7P-QIE" eventType="touchUpInside" id="SFH-eB-9hj"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="5Gw-e9-HYE" firstAttribute="width" secondItem="gXx-UG-YUu" secondAttribute="width" id="Oxu-0I-PuE"/>
+                                                                <constraint firstAttribute="height" constant="41" id="juE-tP-Bg9"/>
+                                                                <constraint firstItem="5Gw-e9-HYE" firstAttribute="height" secondItem="gXx-UG-YUu" secondAttribute="height" id="sX4-Kv-I0M"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -311,12 +330,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="buttonTwoPress" destination="5Gw-e9-HYE" id="G7m-Mh-8uu"/>
+                                            <outlet property="bubbleView" destination="Eak-SU-poT" id="OYe-Tv-4JZ"/>
+                                            <outlet property="option1Button" destination="gXx-UG-YUu" id="pVP-uR-UbI"/>
+                                            <outlet property="option2Button" destination="5Gw-e9-HYE" id="ZNE-g5-lRG"/>
                                             <outlet property="optionsLabel" destination="YiL-8v-dsC" id="yFW-Yx-MhY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="126" id="6VN-gp-d6k">
-                                        <rect key="frame" x="0.0" y="730" width="375" height="126"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="126" id="6VN-gp-d6k">
+                                        <rect key="frame" x="0.0" y="718" width="375" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6VN-gp-d6k" id="fJl-2Q-dLR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
