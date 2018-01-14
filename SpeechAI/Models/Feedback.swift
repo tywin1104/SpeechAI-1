@@ -9,13 +9,14 @@
 import Foundation
 
 
-struct Feedback {
+class Feedback {
 
     var wpm = 0.0
     var similarity = 0.0
     var pausing = ""
     var loudness = ""
-
+    var score = 0.0
+    var pastData = PastFeedback()
     init(){
 
     }

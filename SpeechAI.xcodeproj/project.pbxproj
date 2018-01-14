@@ -35,6 +35,7 @@
 		D027B170200B584400E3F896 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B16F200B584400E3F896 /* Post.swift */; };
 		D027B172200B656900E3F896 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B171200B656800E3F896 /* FeedsViewController.swift */; };
 		D0624383200B858C001A4379 /* ChatViewRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0624382200B858C001A4379 /* ChatViewRecordCell.swift */; };
+		D0624385200BC3E5001A4379 /* PastFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0624384200BC3E5001A4379 /* PastFeedback.swift */; };
 		D0F82782200B674400E8E9E3 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82781200B674400E8E9E3 /* PostView.xib */; };
 		D0F82784200B677B00E8E9E3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F82783200B677B00E8E9E3 /* PostView.swift */; };
 		D0F82787200B68B200E8E9E3 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82786200B68B200E8E9E3 /* PostViewCell.xib */; };
@@ -101,6 +102,7 @@
 		D062437E200B7F16001A4379 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
 		D0624381200B7F2F001A4379 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		D0624382200B858C001A4379 /* ChatViewRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewRecordCell.swift; sourceTree = "<group>"; };
+		D0624384200BC3E5001A4379 /* PastFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastFeedback.swift; sourceTree = "<group>"; };
 		D0F82781200B674400E8E9E3 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		D0F82783200B677B00E8E9E3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		D0F82786200B68B200E8E9E3 /* PostViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				52748842200AFC630084FB00 /* Speech.swift */,
 				D027B16A200B36E400E3F896 /* Feedback.swift */,
 				D027B16F200B584400E3F896 /* Post.swift */,
+				D0624384200BC3E5001A4379 /* PastFeedback.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0624385200BC3E5001A4379 /* PastFeedback.swift in Sources */,
 				D0F82789200B695300E8E9E3 /* PostViewCell.swift in Sources */,
 				52748843200AFC630084FB00 /* Speech.swift in Sources */,
 				5274884D200B4D630084FB00 /* ChatInputTableCell.swift in Sources */,
@@ -779,11 +783,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AX2D84BZ47;
+				DEVELOPMENT_TEAM = L822HFXC5L;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAIII;
+				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAIII2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -796,11 +800,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AX2D84BZ47;
+				DEVELOPMENT_TEAM = L822HFXC5L;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAIII;
+				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAIII2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
