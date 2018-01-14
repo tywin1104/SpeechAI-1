@@ -33,8 +33,19 @@ class FeedsViewController: UIViewController{
         // Do any additional setup after loading the view.
     }
 
+    private func updatePost (with newPost: Post) {
+        for i in 0..<(self.container?.listOfPosts.count)! {
+            if self.container?.listOfPosts[i].userName == newPost.userName {
+                self.container?.listOfPosts[i].numOfLikes = newPost.numOfLikes
+            }
+        }
+         self.container?.tableview.reloadData()
+
+    }
+
     func addContainerToViewController() {
         container = PostView.instanceFromNib(frame: CGRect(x:0,y:0,  width:view.bounds.width, height:view.bounds.height))
+        container?.delegate = self
         self.view.addSubview(container!)
     }
 
@@ -54,5 +65,12 @@ class FeedsViewController: UIViewController{
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension FeedsViewController: PostViewDelegate{
+    func segueBackToViews() {
+        self.performSegue(withIdentifier: "gobacksegue", sender: nil)
+    }
 
 }

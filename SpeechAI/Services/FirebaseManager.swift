@@ -91,6 +91,19 @@ internal class FirebaseManager {
 
     }
 
+    func observeChangedLikes (from speedID:String, completion: @escaping ((Result<Int>) -> Void)) {
+        self.ref.child("posts").child(speedID).child("likes").observe(DataEventType.value) { (snapshot) in
+            guard let likes = snapshot.value as? Int else {
+                completion(.failure(message: "sdfadsf"))
+                return
+            }
+
+             completion(.success(likes))
+
+        }
+
+    }
+
     func retrievePosts (completion: @escaping ((Result<Post>) -> Void)) {
         self.ref.child("posts").observe(DataEventType.childAdded) { snapshot in
 

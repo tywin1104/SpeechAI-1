@@ -473,6 +473,9 @@
                                     <constraint firstAttribute="width" constant="40" id="KTn-zw-96Z"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="users"/>
+                                <connections>
+                                    <segue destination="Gw7-1O-kLs" kind="show" id="lLM-nU-yO6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -502,6 +505,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qqn-yV-xUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="941.60000000000002" y="135.38230884557723"/>
+        </scene>
+        <!--Feeds View Controller-->
+        <scene sceneID="qg5-tD-r21">
+            <objects>
+                <viewController id="Gw7-1O-kLs" customClass="FeedsViewController" customModule="SpeechAI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pBI-gT-G6w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="LxM-rg-A1K"/>
+                    </view>
+                    <connections>
+                        <segue destination="KTn-uH-D9S" kind="show" identifier="gobacksegue" id="B8t-qk-adu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HnW-ST-TKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="142"/>
         </scene>
     </scenes>
     <resources>
