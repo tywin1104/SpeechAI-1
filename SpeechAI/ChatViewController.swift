@@ -35,7 +35,7 @@ final class ChatViewController: UIViewController {
     var message: String {
       switch self {
       case .greeting:
-        return "Welcome to SpeechAI! I'm Talky and my mission is to make you a better public speaker!"
+        return "I'm Talky and my mission is to make you a better public speaker!"
       case .name:
         return "Before we get started, what is your name?"
       }
@@ -112,13 +112,27 @@ final class ChatViewController: UIViewController {
   }
 
   enum FeedbackState: Int {
-    case starting, wpm, accuracy, volume, pauses, overall
+    case starting, wpm, accuracy, volume, pauses, overall, again
 
     var identifier: String {
-      return "ChatTextTableCell"
+      switch self {
+      case .again:
+        return "ChatOptionsTableCell"
+      default:
+        return "ChatTextTableCell"
+      }
     }
 
-    static var totalCells: Int = 6
+    var options: [String] {
+      switch self {
+      case .again:
+        return ["Yes", "No"]
+      default:
+        return []
+      }
+    }
+
+    static var totalCells: Int = 7
   }
 
   var currentState: ChatState = .empty
@@ -138,6 +152,8 @@ final class ChatViewController: UIViewController {
     welcomeView.alpha = 0
     avatarTopImage.alpha = 0
     communityButton.alpha = 0
+
+    self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
 
     self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [#colorLiteral(red: 0.1647058824, green: 0.9607843137, blue: 0.5960784314, alpha: 1), #colorLiteral(red: 0.03137254902, green: 0.6823529412, blue: 0.9176470588, alpha: 1)])
   }
@@ -236,6 +252,11 @@ final class ChatViewController: UIViewController {
         self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.overall.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
         self.tableView.endUpdates()
       } else if self.currentRow == 5 {
+        self.currentRow = 6
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: FeedbackState.again.rawValue, section: ChatState.feedback.rawValue)], with: .automatic)
+        self.tableView.endUpdates()
+      } else if self.currentRow == 6 {
 
       }
     case .empty:
@@ -245,6 +266,11 @@ final class ChatViewController: UIViewController {
       self.tableView.insertSections(IndexSet(integer: ChatState.intro.rawValue), with: .bottom)
       self.tableView.insertRows(at: [IndexPath.init(row: IntroState.greeting.rawValue, section: ChatState.intro.rawValue)], with: .automatic)
       self.tableView.endUpdates()
+    }
+
+    DispatchQueue.main.async {
+      let indexPath = IndexPath(row: self.currentRow, section: self.currentState.rawValue)
+      self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
   }
 
@@ -319,26 +345,36 @@ extension ChatViewController: UITableViewDataSource {
     case .feedback:
       guard let feedbackState: FeedbackState = FeedbackState(rawValue: indexPath.row),
         let speechFeedback = feedback else { fatalError() }
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatTextTableCell else { fatalError() }
       switch feedbackState {
       case .starting:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatTextTableCell else { fatalError() }
         cell.configure(text: speechFeedback.StartingSent)
         return cell
       case .wpm:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatTextTableCell else { fatalError() }
         cell.configure(text: speechFeedback.WPMSent)
         return cell
       case .accuracy:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatTextTableCell else { fatalError() }
         cell.configure(text: speechFeedback.SimSent)
         return cell
       case .volume:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatTextTableCell else { fatalError() }
         cell.configure(text: speechFeedback.LoudSent)
         return cell
       case .pauses:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatTextTableCell else { fatalError() }
         cell.configure(text: speechFeedback.PausSent)
         return cell
       case .overall:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatTextTableCell else { fatalError() }
         cell.configure(text: speechFeedback.overallSent)
         return cell
+      case .again:
+          guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatOptionsTableCell else { fatalError() }
+        cell.configure(text: "Would you like to record another speech?", options: feedbackState.options)
+        return cell
+
       }
     }
   }
@@ -359,12 +395,25 @@ extension ChatViewController: ChatInputTableCellDelegate {
 
 extension ChatViewController: ChatOptionsTableCellDelegate {
   func optionPressed(optionNumber: Int) {
-    selectedRecordingOption = optionNumber
-    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-      self.advance()
-    })
+    if currentState == .feedback {
+      if optionNumber == 0 {
+        currentState = .intro
+        currentRow = 1
+        tableView.reloadData()
+        self.advance()
+      } else {
+
+      }
+    } else {
+      selectedRecordingOption = optionNumber
+
+      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+        self.advance()
+      })
+    }
   }
 }
+
 
 extension ChatViewController: ChatViewRecordCellDelegate {
   func uploadDidStart() {
@@ -378,18 +427,21 @@ extension ChatViewController: ChatViewRecordCellDelegate {
 
   func responseReceived(feedback: Feedback) {
     self.feedback = feedback
-    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
       self.advance()
-      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
         self.advance()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
           self.advance()
-          DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+          DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
             self.advance()
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
               self.advance()
-              DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+              DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                 self.advance()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                  self.advance()
+                })
               })
             })
           })

@@ -32,7 +32,10 @@ final class ChatInputTableCell: UITableViewCell {
   }
 
   @IBAction func submitPressed() {
+    textField.resignFirstResponder()
+
     guard let name = textField.text else { return }
+
     delegate?.didPressSubmit(name: name)
   }
 }

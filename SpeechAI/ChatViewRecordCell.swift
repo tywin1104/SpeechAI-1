@@ -52,11 +52,12 @@ class ChatViewRecordCell: UITableViewCell {
   @IBAction func record() {
 
     requestAudioPermission()
+    textView.resignFirstResponder()
 
     if audioRecorder != nil {
       finishRecording(success: true)
       delegate?.uploadDidStart()
-      textView.resignFirstResponder()
+      
       if let audioURL = audioFileURL,
         let audioName = audioFileName {
         dataManager.uploadAudio(audioURL: audioURL, audioName: audioName, speechText: textView.text ?? "") { result in

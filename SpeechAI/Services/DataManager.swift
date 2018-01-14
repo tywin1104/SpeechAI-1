@@ -157,13 +157,15 @@ extension DataManager {
       WPMSent = "Your Words Per Minute (WPM) was \(feedback.wpm). I would suggest talking faster and increasing your pace!"
     } else if (feedback.wpm > 180) {
       WPMSent = "Your Words Per Minute (WPM) was \(feedback.wpm). I would suggest talking slower in your speech."
+    } else {
+      WPMSent = "Your Words Per Minute (WPM) was \(feedback.wpm). You maintained a great pace throughout your speech!"
     }
 
     if (feedback.similarity) > 0.85 {
       let randomIndex = Int(arc4random_uniform(UInt32(positiveWords.count)))
-      SimSent = "I was able to understand \(feedback.similarity*100)% of the words you spoke. You were extremely clear. \(positiveWords[randomIndex]) job!"
+      SimSent = "I was able to understand \(String(format: "%.2f", feedback.similarity*100))% of the words you spoke. You were extremely clear. \(positiveWords[randomIndex]) job!"
     } else {
-      SimSent = "It seems that you were either talking too fast or slurring words. I was only able to understand \(feedback.similarity*100)%. I would suggest talking slower and focusing on pronunciation."
+      SimSent = "It seems that you were either talking too fast or slurring words. I was only able to understand \(String(format: "%.2f", feedback.similarity*100))%. I would suggest talking slower and focusing on pronunciation."
     }
 
     if (feedback.loudness == "loud") {
@@ -183,7 +185,7 @@ extension DataManager {
       PausSent = "In your speech, there were too many pauses! You need to talk a bit faster and convey more information in the time given to better engage your audience."
     }
 
-    overallSent = "Overall, the final score I give your speech is \(feedback.score). Good job! "
+    overallSent = "Overall, the final score I give your speech is \(String(format: "%.2f", feedback.score * 100)). Good job! "
 
     if feedback.pastData.wpm == true {
       overallSent.append("You increased your WPM from your last speech! ")
