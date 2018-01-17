@@ -216,6 +216,10 @@
                                     <color key="titleColor" red="0.28344750400000002" green="0.69443136449999998" blue="0.95240861180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginUser:" destination="ML4-Pa-gxm" eventType="touchUpInside" id="7tx-uR-Q0z"/>
+                                    <action selector="pressedSignIn:" destination="ML4-Pa-gxm" eventType="touchUpInside" id="4dW-cx-ksG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZt-te-ZG6">
                                 <rect key="frame" x="0.0" y="199" width="375" height="99"/>
@@ -274,6 +278,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42101126909999997" green="0.74160355330000005" blue="0.99996477370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="aZt-te-ZG6" firstAttribute="centerX" secondItem="VeA-76-Gmr" secondAttribute="centerX" id="9Da-nY-qGU"/>
                             <constraint firstItem="8Fc-m0-Zyk" firstAttribute="top" secondItem="L8d-91-o0P" secondAttribute="bottom" constant="8" id="ANe-ho-haH"/>
@@ -289,9 +294,22 @@
                             <constraint firstItem="gAo-2n-9sm" firstAttribute="centerX" secondItem="VeA-76-Gmr" secondAttribute="centerX" id="won-Pk-LcI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VeA-76-Gmr"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6xJ-ux-fqm" appends="YES" id="yPu-L5-5XT"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="gAo-2n-9sm" id="fNd-vo-mIq"/>
+                        <outlet property="passwordField" destination="nrf-vT-fKP" id="XES-MC-05P"/>
+                        <segue destination="KTn-uH-D9S" kind="presentation" identifier="login" id="tR6-Jl-xEj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YF7-95-8l9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6xJ-ux-fqm">
+                    <connections>
+                        <action selector="tappedScreen:" destination="ML4-Pa-gxm" id="7Vb-0p-Idz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-338" y="811"/>
         </scene>
@@ -769,6 +787,6 @@
         <image name="users" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yn3-4u-5KN"/>
+        <segue reference="tR6-Jl-xEj"/>
     </inferredMetricsTieBreakers>
 </document>
