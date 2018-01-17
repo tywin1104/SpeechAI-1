@@ -57,6 +57,10 @@ Copyright 2017 Google
 
 Copyright 2017 Google
 
+## FirebaseAuth
+
+Copyright 2017 Google
+
 ## FirebaseCore
 
 Copyright 2017 Google

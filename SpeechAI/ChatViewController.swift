@@ -154,6 +154,8 @@ final class ChatViewController: UIViewController {
     welcomeView.alpha = 0
     avatarTopImage.alpha = 0
     communityButton.alpha = 0
+    
+    User.currentUser.setUpUser()
 
     self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
 

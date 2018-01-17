@@ -7,18 +7,42 @@
 //
 
 import Foundation
+import Firebase
 
-struct User {
-  let id: String
-  let name: String
-  let speeches: [Speech]
+class User {
+    var id: String?
+    var name: String?
+    var speeches = [Speech]()
+    
+    static var currentUser = User()
+    let ref : DatabaseReference = Database.database().reference()
+    private init() {
+    }
+    
+    init(id: String, name: String, speeches: [Speech]) {
+        
+    }
+    
+    func addSpeech(speech: Speech) -> User {
+        self.speeches.append(speech)
+        return User(id: id!, name: name!, speeches: self.speeches)
+    }
+    
+    func setUID() {
+        self.id = (Auth.auth().currentUser?.uid)!
+    }
+    
+    func setUpUser() {
+        id = Auth.auth().currentUser?.uid
+        ref.child("users").child(id!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            self.name = value?["name"] as? String
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
 }
 
-extension User {
-  func addSpeech(speech: Speech) -> User {
-    var totalSpeeches = self.speeches
-    totalSpeeches.append(speech)
-    return User(id: id, name: name, speeches: totalSpeeches)
-  }
-}
 

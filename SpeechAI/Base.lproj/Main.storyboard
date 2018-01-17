@@ -120,6 +120,10 @@
                                     <color key="titleColor" red="0.28344750400000002" green="0.69443136449999998" blue="0.95240861180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpUser:" destination="7uq-lI-rt1" eventType="touchUpInside" id="Szp-m5-hGu"/>
+                                    <segue destination="KTn-uH-D9S" kind="presentation" identifier="signup" id="Yn3-4u-5KN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvv-Df-IAi">
                                 <rect key="frame" x="0.0" y="199" width="375" height="99"/>
@@ -183,6 +187,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SM4-2x-sag"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="ylS-m2-ZGo" id="RfS-5E-rmW"/>
+                        <outlet property="firstNameField" destination="skK-co-LqF" id="AOh-1M-rVD"/>
+                        <outlet property="passwordField" destination="jEt-Zg-027" id="kf9-pA-O6E"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-338.39999999999998" y="134.48275862068968"/>
@@ -760,6 +769,6 @@
         <image name="users" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lLM-nU-yO6"/>
+        <segue reference="Yn3-4u-5KN"/>
     </inferredMetricsTieBreakers>
 </document>

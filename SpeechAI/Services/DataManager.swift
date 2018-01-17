@@ -58,7 +58,7 @@ extension DataManager {
         }
         self.currentUser = newUser
         self.firebaseManager.saveSpeechURL(user: newUser, speech: speech)
-        self.updateToNetwork(userId: newUser.id, speechId: speech.id, completion: { (result) in
+        self.updateToNetwork(userId: newUser.id!, speechId: speech.id, completion: { (result) in
           switch result {
           case .success:
             completion(.success(self.feedback))
@@ -211,7 +211,7 @@ extension DataManager {
     let user = User(id: UUID().uuidString, name: name, speeches: [])
     currentUser = user
     firebaseManager.createUser(user: user)
-    saveUserDefaults(key: "userID", text: user.id)
+    saveUserDefaults(key: "userID", text: user.id!)
   }
 
   func isNewUser() -> Bool {
