@@ -28,10 +28,6 @@ class LogInViewController: UIViewController {
     }
     
     
-    @IBAction func loginUser(_ sender: Any) {
-        
-    }
-    
     @IBAction func dismissView(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

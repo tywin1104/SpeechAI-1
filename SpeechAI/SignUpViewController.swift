@@ -38,6 +38,18 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            
+            User.currentUser.setUpUser()
+            self.performSegue(withIdentifier: "signup", sender: nil)
+            
+        } else {
+            print("user is NOT signed in")
+            // ...
+        }
+        
+    }
     
     @IBAction func signUpUser(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in

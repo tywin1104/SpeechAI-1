@@ -217,7 +217,6 @@
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginUser:" destination="ML4-Pa-gxm" eventType="touchUpInside" id="7tx-uR-Q0z"/>
                                     <action selector="pressedSignIn:" destination="ML4-Pa-gxm" eventType="touchUpInside" id="4dW-cx-ksG"/>
                                 </connections>
                             </button>
@@ -727,10 +726,23 @@
                                     <segue destination="Gw7-1O-kLs" kind="show" id="lLM-nU-yO6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5b-HM-7Fj">
+                                <rect key="frame" x="30" y="46" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Xvm-ij-K7J"/>
+                                    <constraint firstAttribute="width" constant="40" id="tk6-nM-SQw"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="sign-in"/>
+                                <connections>
+                                    <action selector="logout:" destination="KTn-uH-D9S" eventType="touchUpInside" id="6ao-op-SaI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="V5b-HM-7Fj" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="26" id="0Fs-i7-cKM"/>
                             <constraint firstItem="EGh-Lx-ZA3" firstAttribute="centerX" secondItem="2Gx-qp-vyA" secondAttribute="centerX" id="3Wr-vR-371"/>
+                            <constraint firstItem="V5b-HM-7Fj" firstAttribute="leading" secondItem="2Gx-qp-vyA" secondAttribute="leading" constant="30" id="9lc-iW-r25"/>
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" secondItem="c8A-eA-7go" secondAttribute="trailing" constant="20" id="ABT-Rb-miA"/>
                             <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="c8A-eA-7go" secondAttribute="bottom" constant="34" id="Ei3-cu-117"/>
                             <constraint firstItem="EGh-Lx-ZA3" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="15" id="F4X-Eb-RYa"/>
@@ -748,8 +760,10 @@
                     <connections>
                         <outlet property="avatarTopImage" destination="EGh-Lx-ZA3" id="4Oh-rJ-221"/>
                         <outlet property="communityButton" destination="c8A-eA-7go" id="SOk-h3-g8T"/>
+                        <outlet property="logoutButton" destination="V5b-HM-7Fj" id="GJP-RD-hKy"/>
                         <outlet property="tableView" destination="mfW-up-elA" id="2dy-nq-8fu"/>
                         <outlet property="welcomeView" destination="nPe-jo-kDg" id="IgQ-eI-htI"/>
+                        <segue destination="7uq-lI-rt1" kind="presentation" identifier="initial" id="RQY-v9-WM1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qqn-yV-xUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -783,10 +797,12 @@
         <image name="random" width="512" height="512"/>
         <image name="record" width="33" height="33"/>
         <image name="shuffle" width="33" height="33"/>
+        <image name="sign-in" width="256" height="256"/>
         <image name="start" width="225" height="225"/>
         <image name="users" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tR6-Jl-xEj"/>
+        <segue reference="lLM-nU-yO6"/>
+        <segue reference="B8t-qk-adu"/>
     </inferredMetricsTieBreakers>
 </document>
