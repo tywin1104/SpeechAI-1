@@ -10,11 +10,11 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
 
-  static func viewController() -> WelcomeViewController {
+ /* static func viewController() -> WelcomeViewController {
     let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
     guard let vc = storyboard.instantiateInitialViewController() as? WelcomeViewController else { fatalError() }
     return vc
-  }
+  } */
 
   @IBOutlet weak var textField: UITextField!
 

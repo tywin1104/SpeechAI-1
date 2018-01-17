@@ -16,7 +16,9 @@ final class ChatViewController: UIViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     guard let vc = storyboard.instantiateInitialViewController() as? ChatViewController else { fatalError() }
     return vc
+
   }
+
 
   @IBOutlet weak var communityButton: UIButton!
   @IBOutlet weak var welcomeView: UIStackView!
