@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,63 +19,9 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="yGc-oM-QWL">
-            <objects>
-                <viewController id="gfs-Aq-Pts" customClass="ViewController" customModule="SpeechAI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TgH-ns-bR7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y9k-2K-wJS">
-                                <rect key="frame" x="30" y="55" width="315" height="332"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvm-t6-RgV">
-                                <rect key="frame" x="20" y="437" width="335" height="200"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wZ-Hy-CHw">
-                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="200"/>
-                                        <state key="normal" title="Button" image="random"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmU-le-Xc4">
-                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="200"/>
-                                        <state key="normal" title="Button" image="start"/>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="5wZ-Hy-CHw" firstAttribute="width" secondItem="lvm-t6-RgV" secondAttribute="width" multiplier="0.5" id="3g0-iu-K4F"/>
-                                    <constraint firstAttribute="height" constant="200" id="gMg-Jl-ME1"/>
-                                    <constraint firstItem="YmU-le-Xc4" firstAttribute="width" secondItem="lvm-t6-RgV" secondAttribute="width" multiplier="0.5" id="shz-gA-V3u"/>
-                                </constraints>
-                                <viewLayoutGuide key="safeArea" id="kN4-r4-cSL"/>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="lvm-t6-RgV" secondAttribute="trailing" constant="20" id="3JJ-qp-OdS"/>
-                            <constraint firstItem="lvm-t6-RgV" firstAttribute="leading" secondItem="TgH-ns-bR7" secondAttribute="leading" constant="20" id="6k3-qK-0zV"/>
-                            <constraint firstItem="Y9k-2K-wJS" firstAttribute="top" secondItem="KfY-j5-5kc" secondAttribute="top" constant="35" id="7en-4T-565"/>
-                            <constraint firstItem="Y9k-2K-wJS" firstAttribute="leading" secondItem="KfY-j5-5kc" secondAttribute="leading" constant="30" id="IRh-Yk-37j"/>
-                            <constraint firstItem="Y9k-2K-wJS" firstAttribute="centerX" secondItem="KfY-j5-5kc" secondAttribute="centerX" id="JEh-l6-sg6"/>
-                            <constraint firstItem="lvm-t6-RgV" firstAttribute="top" secondItem="Y9k-2K-wJS" secondAttribute="bottom" constant="50" id="RHH-JE-Hyu"/>
-                            <constraint firstItem="KfY-j5-5kc" firstAttribute="bottom" secondItem="lvm-t6-RgV" secondAttribute="bottom" constant="30" id="dOS-vI-VIg"/>
-                            <constraint firstItem="KfY-j5-5kc" firstAttribute="trailing" secondItem="Y9k-2K-wJS" secondAttribute="trailing" constant="30" id="qeY-pc-JEw"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="KfY-j5-5kc"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vty-JD-ggN" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1457" y="135"/>
-        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="27I-ar-hnC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qcc-Dd-fDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7uq-lI-rt1" customClass="SignUpViewController" customModule="SpeechAI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pPk-FV-rUC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -122,7 +67,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpUser:" destination="7uq-lI-rt1" eventType="touchUpInside" id="Szp-m5-hGu"/>
-                                    <segue destination="KTn-uH-D9S" kind="presentation" identifier="signup" id="Yn3-4u-5KN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvv-Df-IAi">
@@ -191,10 +135,28 @@
                         <outlet property="emailField" destination="ylS-m2-ZGo" id="RfS-5E-rmW"/>
                         <outlet property="firstNameField" destination="skK-co-LqF" id="AOh-1M-rVD"/>
                         <outlet property="passwordField" destination="jEt-Zg-027" id="kf9-pA-O6E"/>
+                        <segue destination="EkX-sF-fux" kind="presentation" identifier="signup" id="0No-bU-AG7"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcc-Dd-fDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-338.39999999999998" y="134.48275862068968"/>
+            <point key="canvasLocation" x="-844" y="23"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GnG-P1-i1j">
+            <objects>
+                <navigationController id="EkX-sF-fux" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XEO-gH-hYY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KTn-uH-D9S" kind="relationship" relationship="rootViewController" id="1E8-gT-ULW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yAA-7B-kcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="41" y="437"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="Qzl-HZ-hfp">
@@ -300,7 +262,7 @@
                     <connections>
                         <outlet property="emailField" destination="gAo-2n-9sm" id="fNd-vo-mIq"/>
                         <outlet property="passwordField" destination="nrf-vT-fKP" id="XES-MC-05P"/>
-                        <segue destination="KTn-uH-D9S" kind="presentation" identifier="login" id="tR6-Jl-xEj"/>
+                        <segue destination="EkX-sF-fux" kind="presentation" identifier="login" id="J1Q-r1-noa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YF7-95-8l9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,7 +272,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-338" y="811"/>
+            <point key="canvasLocation" x="-820" y="944"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="9zc-Tt-iss">
@@ -321,7 +283,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nPe-jo-kDg">
-                                <rect key="frame" x="30" y="283" width="315" height="120"/>
+                                <rect key="frame" x="30" y="305.5" width="315" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="NTF-SV-jMM">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="120"/>
@@ -342,7 +304,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mfW-up-elA">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTextTableCell" rowHeight="126" id="shz-wT-4uD" customClass="ChatTextTableCell" customModule="SpeechAI" customModuleProvider="target">
@@ -709,14 +671,14 @@
                                 </prototypes>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="EGh-Lx-ZA3">
-                                <rect key="frame" x="156" y="35" width="62" height="62"/>
+                                <rect key="frame" x="156" y="79" width="62" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="Z7E-lW-ZrI"/>
                                     <constraint firstAttribute="width" constant="62" id="eVr-GL-3zm"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8A-eA-7go">
-                                <rect key="frame" x="315" y="46" width="40" height="40"/>
+                                <rect key="frame" x="315" y="90" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="KTn-zw-96Z"/>
@@ -727,7 +689,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5b-HM-7Fj">
-                                <rect key="frame" x="30" y="46" width="40" height="40"/>
+                                <rect key="frame" x="30" y="90" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xvm-ij-K7J"/>
                                     <constraint firstAttribute="width" constant="40" id="tk6-nM-SQw"/>
@@ -757,6 +719,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Gx-qp-vyA"/>
                     </view>
+                    <navigationItem key="navigationItem" id="feC-y8-kcA"/>
                     <connections>
                         <outlet property="avatarTopImage" destination="EGh-Lx-ZA3" id="4Oh-rJ-221"/>
                         <outlet property="communityButton" destination="c8A-eA-7go" id="SOk-h3-g8T"/>
@@ -794,15 +757,13 @@
         <image name="avatar" width="256" height="256"/>
         <image name="ellipses" width="52" height="10"/>
         <image name="microphone.png" width="256" height="256"/>
-        <image name="random" width="512" height="512"/>
         <image name="record" width="33" height="33"/>
         <image name="shuffle" width="33" height="33"/>
         <image name="sign-in" width="256" height="256"/>
-        <image name="start" width="225" height="225"/>
         <image name="users" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lLM-nU-yO6"/>
-        <segue reference="B8t-qk-adu"/>
+        <segue reference="1E8-gT-ULW"/>
+        <segue reference="J1Q-r1-noa"/>
     </inferredMetricsTieBreakers>
 </document>

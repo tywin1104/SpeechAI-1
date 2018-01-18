@@ -70,7 +70,7 @@ class FeedsViewController: UIViewController{
 
 extension FeedsViewController: PostViewDelegate{
     func segueBackToViews() {
-        self.performSegue(withIdentifier: "gobacksegue", sender: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

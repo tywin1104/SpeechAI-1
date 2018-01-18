@@ -148,6 +148,8 @@ final class ChatViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    self.navigationController?.isNavigationBarHidden = true 
     tableView.dataSource = self
     tableView.separatorStyle = .none
 
@@ -163,30 +165,31 @@ final class ChatViewController: UIViewController {
     self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
 
     self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [#colorLiteral(red: 0.1647058824, green: 0.9607843137, blue: 0.5960784314, alpha: 1), #colorLiteral(red: 0.03137254902, green: 0.6823529412, blue: 0.9176470588, alpha: 1)])
+
+    UIView.animate(withDuration: 0.8, animations: {
+        self.welcomeView.alpha = 1
+    }) { completed in
+        UIView.animate(withDuration: 0.8, delay: 2.0, animations: {
+            self.welcomeView.alpha = 0
+            self.welcomeView.center.y -= 20
+            self.avatarTopImage.alpha = 1
+            self.communityButton.alpha = 1
+            self.logoutButton.alpha = 1
+        }, completion: { _ in
+            self.welcomeView.isHidden = true
+            self.tableView.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.advance()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                    self.advance()
+                })
+            })
+        })
+    }
   }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    UIView.animate(withDuration: 0.8, animations: {
-      self.welcomeView.alpha = 1
-    }) { completed in
-      UIView.animate(withDuration: 0.8, delay: 2.0, animations: {
-        self.welcomeView.alpha = 0
-        self.welcomeView.center.y -= 20
-        self.avatarTopImage.alpha = 1
-        self.communityButton.alpha = 1
-        self.logoutButton.alpha = 1
-      }, completion: { _ in
-        self.welcomeView.isHidden = true
-        self.tableView.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-          self.advance()
-          DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.advance()
-          })
-        })
-      })
-    }
   }
     
     @IBAction func logout(_ sender: Any) {
