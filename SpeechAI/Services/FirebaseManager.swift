@@ -137,8 +137,6 @@ internal class FirebaseManager {
             post.userName = userName
             post.numOfLikes = likes
 
-    
-            
             completion(.success(post))
         }
     }
