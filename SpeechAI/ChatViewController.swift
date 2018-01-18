@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import Firebase
 
 
 
@@ -16,13 +17,16 @@ final class ChatViewController: UIViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     guard let vc = storyboard.instantiateInitialViewController() as? ChatViewController else { fatalError() }
     return vc
+
   }
+
 
   @IBOutlet weak var communityButton: UIButton!
   @IBOutlet weak var welcomeView: UIStackView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var avatarTopImage: UIImageView!
-
+    @IBOutlet weak var logoutButton: UIButton!
+    
   let dataManager = DataManager.default
 
   enum ChatState: Int {
@@ -152,6 +156,9 @@ final class ChatViewController: UIViewController {
     welcomeView.alpha = 0
     avatarTopImage.alpha = 0
     communityButton.alpha = 0
+    logoutButton.alpha = 0
+    
+    User.currentUser.setUpUser()
 
     self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
 
@@ -168,6 +175,7 @@ final class ChatViewController: UIViewController {
         self.welcomeView.center.y -= 20
         self.avatarTopImage.alpha = 1
         self.communityButton.alpha = 1
+        self.logoutButton.alpha = 1
       }, completion: { _ in
         self.welcomeView.isHidden = true
         self.tableView.isHidden = false
@@ -180,6 +188,12 @@ final class ChatViewController: UIViewController {
       })
     }
   }
+    
+    @IBAction func logout(_ sender: Any) {
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "initial", sender: self)
+    }
+    
 
   func advance() {
     switch self.currentState {

@@ -159,7 +159,7 @@ internal class FirebaseManager {
   }
 
   func createUser(user: User) {
-    self.ref.child("users").child(user.id).setValue(["name": user.name])
-    addInitialPastData(userID: user.id)
+    self.ref.child("users").child(user.id!).setValue(["name": user.name])
+    addInitialPastData(userID: user.id!)
   }
 }

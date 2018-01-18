@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //      self.window?.makeKeyAndVisible()
 //      self.window?.rootViewController = welcomeVC
 //    } else {
-      let mainVC = ChatViewController.viewController()
+      let mainVC = SignUpViewController.viewController()
       self.window?.makeKeyAndVisible()
       self.window?.rootViewController = mainVC
 //    }

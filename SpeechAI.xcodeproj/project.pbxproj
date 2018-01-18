@@ -41,6 +41,8 @@
 		D0F82787200B68B200E8E9E3 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82786200B68B200E8E9E3 /* PostViewCell.xib */; };
 		D0F82789200B695300E8E9E3 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F82788200B695300E8E9E3 /* PostViewCell.swift */; };
 		D99D08766D5CD75DCC573EFD /* Pods_SpeechAITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BE6EAE26789E3F7AB23AEC /* Pods_SpeechAITests.framework */; };
+		E1D8B586200F0F1C00C4EEB7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D8B585200F0F1C00C4EEB7 /* SignUpViewController.swift */; };
+		E1D8B588200F180700C4EEB7 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D8B587200F180700C4EEB7 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		D0F82783200B677B00E8E9E3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		D0F82786200B68B200E8E9E3 /* PostViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
 		D0F82788200B695300E8E9E3 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
+		E1D8B585200F0F1C00C4EEB7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E1D8B587200F180700C4EEB7 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		E4745B37130922834AF78067 /* Pods-SpeechAI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechAI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechAI/Pods-SpeechAI.debug.xcconfig"; sourceTree = "<group>"; };
 		F3602F8E6EDDA2CE2660C185 /* Pods_SpeechAIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechAIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -166,8 +170,10 @@
 			children = (
 				52748839200AEC4C0084FB00 /* Modules */,
 				527487F7200AD0840084FB00 /* AppDelegate.swift */,
-				D027B171200B656800E3F896 /* FeedsViewController.swift */,
+				E1D8B585200F0F1C00C4EEB7 /* SignUpViewController.swift */,
+				E1D8B587200F180700C4EEB7 /* LogInViewController.swift */,
 				527487FB200AD0840084FB00 /* Main.storyboard */,
+				D027B171200B656800E3F896 /* FeedsViewController.swift */,
 				C25FCBFB200B614300D411BA /* CustomTableViewCell.swift */,
 				D0624382200B858C001A4379 /* ChatViewRecordCell.swift */,
 				52748848200B19E30084FB00 /* ChatViewController.swift */,
@@ -447,7 +453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		57118206A4CE5631B3E73AE0 /* [CP] Embed Pods Frameworks */ = {
@@ -457,6 +463,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpeechAI/Pods-SpeechAI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -465,6 +472,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -506,7 +514,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9C5548B4213B847F5CD850A9 /* [CP] Copy Pods Resources */ = {
@@ -539,7 +547,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B74C3D1C84D0469C349C6F09 /* [CP] Embed Pods Frameworks */ = {
@@ -600,6 +608,7 @@
 				5274884D200B4D630084FB00 /* ChatInputTableCell.swift in Sources */,
 				52748845200B04780084FB00 /* UserParser.swift in Sources */,
 				D027B16B200B36E400E3F896 /* Feedback.swift in Sources */,
+				E1D8B586200F0F1C00C4EEB7 /* SignUpViewController.swift in Sources */,
 				52748836200ADB470084FB00 /* FirebaseManager.swift in Sources */,
 				D027B170200B584400E3F896 /* Post.swift in Sources */,
 				C25FCBFC200B614300D411BA /* CustomTableViewCell.swift in Sources */,
@@ -613,6 +622,7 @@
 				52748833200ADB240084FB00 /* User.swift in Sources */,
 				527487F8200AD0840084FB00 /* AppDelegate.swift in Sources */,
 				52748853200B4D990084FB00 /* EllipsesTableCell.swift in Sources */,
+				E1D8B588200F180700C4EEB7 /* LogInViewController.swift in Sources */,
 				52748841200AEF0E0084FB00 /* Result.swift in Sources */,
 				52748849200B19E30084FB00 /* ChatViewController.swift in Sources */,
 				5274883C200AEC6A0084FB00 /* WelcomeViewController.swift in Sources */,
