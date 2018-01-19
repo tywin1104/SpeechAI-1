@@ -25,8 +25,8 @@ final class ChatViewController: UIViewController {
   @IBOutlet weak var welcomeView: UIStackView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var avatarTopImage: UIImageView!
-    @IBOutlet weak var logoutButton: UIButton!
-    
+  @IBOutlet weak var logoutButton: UIButton!
+
   let dataManager = DataManager.default
 
   enum ChatState: Int {
@@ -34,14 +34,12 @@ final class ChatViewController: UIViewController {
   }
 
   enum IntroState: Int {
-    case greeting, name
+    case greeting
 
     var message: String {
       switch self {
       case .greeting:
         return "I'm Talky and my mission is to make you a better public speaker!"
-      case .name:
-        return "Before we get started, what is your name?"
       }
     }
 
@@ -49,12 +47,10 @@ final class ChatViewController: UIViewController {
       switch self {
       case .greeting:
         return "ChatTextTableCell"
-      case .name:
-        return "ChatInputTableCell"
       }
     }
 
-    static var totalCells: Int = 2
+    static var totalCells: Int = 1
   }
 
   enum PreRecordingState: Int {
@@ -167,53 +163,46 @@ final class ChatViewController: UIViewController {
     self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [#colorLiteral(red: 0.1647058824, green: 0.9607843137, blue: 0.5960784314, alpha: 1), #colorLiteral(red: 0.03137254902, green: 0.6823529412, blue: 0.9176470588, alpha: 1)])
 
     UIView.animate(withDuration: 0.8, animations: {
-        self.welcomeView.alpha = 1
+      self.welcomeView.alpha = 1
     }) { completed in
-        UIView.animate(withDuration: 0.8, delay: 2.0, animations: {
-            self.welcomeView.alpha = 0
-            self.welcomeView.center.y -= 20
-            self.avatarTopImage.alpha = 1
-            self.communityButton.alpha = 1
-            self.logoutButton.alpha = 1
-        }, completion: { _ in
-            self.welcomeView.isHidden = true
-            self.tableView.isHidden = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                self.advance()
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                    self.advance()
-                })
-            })
+      UIView.animate(withDuration: 0.8, delay: 2.0, animations: {
+        self.welcomeView.alpha = 0
+        self.welcomeView.center.y -= 20
+        self.avatarTopImage.alpha = 1
+        self.communityButton.alpha = 1
+        self.logoutButton.alpha = 1
+      }, completion: { _ in
+        self.welcomeView.isHidden = true
+        self.tableView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+          self.advance()
+          DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.advance()
+          })
         })
+      })
     }
   }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
   }
-    
-    @IBAction func logout(_ sender: Any) {
-        try! Auth.auth().signOut()
-        performSegue(withIdentifier: "initial", sender: self)
-    }
-    
+
+  @IBAction func logout(_ sender: Any) {
+    try! Auth.auth().signOut()
+    performSegue(withIdentifier: "initial", sender: self)
+  }
+
 
   func advance() {
     switch self.currentState {
     case .intro:
-      if self.currentRow == 0 {
-        self.currentRow = 1
-        self.tableView.beginUpdates()
-        self.tableView.insertRows(at: [IndexPath.init(row: IntroState.name.rawValue, section: ChatState.intro.rawValue)], with: .bottom)
-        self.tableView.endUpdates()
-      } else if self.currentRow == 1 {
-        self.currentState = .record
-        self.currentRow = 0
-        self.tableView.beginUpdates()
-        self.tableView.insertSections(IndexSet(integer: ChatState.record.rawValue), with: .bottom)
-        self.tableView.insertRows(at: [IndexPath.init(row: PreRecordingState.options.rawValue, section: ChatState.record.rawValue)], with: .bottom)
-        self.tableView.endUpdates()
-      }
+      self.currentState = .record
+      self.currentRow = 0
+      self.tableView.beginUpdates()
+      self.tableView.insertSections(IndexSet(integer: ChatState.record.rawValue), with: .bottom)
+      self.tableView.insertRows(at: [IndexPath.init(row: PreRecordingState.options.rawValue, section: ChatState.record.rawValue)], with: .bottom)
+      self.tableView.endUpdates()
     case .record:
       if self.currentRow == 0 {
         self.currentRow = 1
@@ -322,18 +311,13 @@ extension ChatViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: introState.identifier) as? ChatTextTableCell else { fatalError() }
         cell.configure(text: introState.message)
         return cell
-      case .name:
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: introState.identifier) as? ChatInputTableCell else { fatalError() }
-        cell.configure(text: introState.message)
-        cell.delegate = self
-        return cell
       }
     case .record:
       guard let preRecordingState: PreRecordingState = PreRecordingState(rawValue: indexPath.row) else { fatalError() }
       switch preRecordingState {
       case .options:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: preRecordingState.identifier) as? ChatOptionsTableCell,
-          let currentUserName = dataManager.currentUser?.name else { fatalError() }
+          let currentUserName = User.currentUser.name else { fatalError() }
 
         cell.configure(text: preRecordingState.message(name: currentUserName), options: preRecordingState.options)
         cell.delegate = self
@@ -388,7 +372,7 @@ extension ChatViewController: UITableViewDataSource {
         cell.configure(text: speechFeedback.overallSent)
         return cell
       case .again:
-          guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatOptionsTableCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: feedbackState.identifier) as? ChatOptionsTableCell else { fatalError() }
         cell.configure(text: "Would you like to record another speech?", options: feedbackState.options)
         return cell
 
@@ -398,15 +382,6 @@ extension ChatViewController: UITableViewDataSource {
 
   func numberOfSections(in tableView: UITableView) -> Int {
     return currentState.rawValue + 1
-  }
-}
-
-extension ChatViewController: ChatInputTableCellDelegate {
-  func didPressSubmit(name: String) {
-    dataManager.createUser(name: name)
-    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-      self.advance()
-    })
   }
 }
 
