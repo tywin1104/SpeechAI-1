@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="useraudiocell" rowHeight="150" id="Sai-Gv-DGu" customClass="UserAudioCell" customModule="SpeechAI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sai-Gv-DGu" id="aYc-LO-0Or">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-Sc-L6F">
+                        <rect key="frame" x="336" y="105" width="35" height="35"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likefill" translatesAutoresizingMaskIntoConstraints="NO" id="q2J-GO-wq4">
+                        <rect key="frame" x="303" y="110" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="FbV-ln-pIU"/>
+                            <constraint firstAttribute="height" constant="25" id="k6p-WG-fJx"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kp-v0-3tm">
+                        <rect key="frame" x="162" y="49" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="j2f-zQ-iGY"/>
+                        </constraints>
+                        <state key="normal" title="Button" backgroundImage="whiteplay"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RD-lt-KuP">
+                        <rect key="frame" x="8" y="9" width="331" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="oj1-X9-Pm4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="q2J-GO-wq4" firstAttribute="top" secondItem="3RD-lt-KuP" secondAttribute="bottom" constant="77" id="DLC-no-8Lh"/>
+                    <constraint firstItem="7Kp-v0-3tm" firstAttribute="top" secondItem="3RD-lt-KuP" secondAttribute="bottom" constant="16" id="FEf-1j-b0r"/>
+                    <constraint firstItem="q2J-GO-wq4" firstAttribute="centerY" secondItem="R1c-Sc-L6F" secondAttribute="centerY" id="Ri8-d2-aHV"/>
+                    <constraint firstItem="R1c-Sc-L6F" firstAttribute="top" secondItem="7Kp-v0-3tm" secondAttribute="bottom" constant="6" id="UNd-Of-phL"/>
+                    <constraint firstAttribute="trailing" secondItem="q2J-GO-wq4" secondAttribute="trailing" constant="47" id="aqJ-fb-jYx"/>
+                    <constraint firstItem="3RD-lt-KuP" firstAttribute="leading" secondItem="aYc-LO-0Or" secondAttribute="leading" constant="8" id="cnp-bb-Yf8"/>
+                    <constraint firstItem="7Kp-v0-3tm" firstAttribute="centerY" secondItem="aYc-LO-0Or" secondAttribute="centerY" id="dWy-Zv-f1S"/>
+                    <constraint firstItem="R1c-Sc-L6F" firstAttribute="leading" secondItem="q2J-GO-wq4" secondAttribute="trailing" constant="8" symbolic="YES" id="gOH-VE-z5N"/>
+                    <constraint firstItem="7Kp-v0-3tm" firstAttribute="centerX" secondItem="aYc-LO-0Or" secondAttribute="centerX" id="lWb-q8-pAW"/>
+                    <constraint firstAttribute="trailing" secondItem="R1c-Sc-L6F" secondAttribute="trailing" constant="4" id="rL8-HI-yDT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3RD-lt-KuP" secondAttribute="trailing" constant="20" id="u9Y-dz-DOu"/>
+                    <constraint firstItem="3RD-lt-KuP" firstAttribute="top" secondItem="aYc-LO-0Or" secondAttribute="topMargin" constant="-2" id="xK6-8U-6Fv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="audioName" destination="3RD-lt-KuP" id="SXC-5e-sdf"/>
+                <outlet property="numOfLikes" destination="R1c-Sc-L6F" id="7oA-Xk-tqM"/>
+                <outlet property="playStopButton" destination="7Kp-v0-3tm" id="WJH-cY-bpV"/>
+            </connections>
+            <point key="canvasLocation" x="60.5" y="-3"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="likefill" width="256" height="256"/>
+        <image name="whiteplay" width="256" height="256"/>
+    </resources>
+</document>
