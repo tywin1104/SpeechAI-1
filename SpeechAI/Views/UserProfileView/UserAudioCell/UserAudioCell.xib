@@ -35,19 +35,12 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="whiteplay"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-Sc-L6F">
-                                <rect key="frame" x="317" y="89" width="19" height="39"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-Sc-L6F">
+                                <rect key="frame" x="297" y="89" width="39" height="39"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likefill" translatesAutoresizingMaskIntoConstraints="NO" id="q2J-GO-wq4">
-                                <rect key="frame" x="284" y="96" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="FbV-ln-pIU"/>
-                                    <constraint firstAttribute="height" constant="25" id="k6p-WG-fJx"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RD-lt-KuP">
                                 <rect key="frame" x="10" y="1" width="331" height="24"/>
                                 <constraints>
@@ -57,20 +50,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S08-YB-L9k">
+                                <rect key="frame" x="224" y="92" width="65" height="32.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.25702069259999999" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="126" id="4Kf-rQ-Mvz"/>
                             <constraint firstItem="7Kp-v0-3tm" firstAttribute="centerX" secondItem="AUo-9q-c0h" secondAttribute="centerX" id="6hl-Xo-tGq"/>
                             <constraint firstItem="7Kp-v0-3tm" firstAttribute="top" secondItem="3RD-lt-KuP" secondAttribute="bottom" constant="13" id="71X-CP-aJN"/>
-                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="centerY" secondItem="q2J-GO-wq4" secondAttribute="centerY" id="NQW-dH-7pR"/>
+                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="leading" secondItem="S08-YB-L9k" secondAttribute="trailing" constant="8" symbolic="YES" id="GWd-Vw-LF5"/>
+                            <constraint firstAttribute="bottom" secondItem="R1c-Sc-L6F" secondAttribute="bottom" constant="-2" id="PWg-7Z-jNu"/>
                             <constraint firstItem="7Kp-v0-3tm" firstAttribute="centerY" secondItem="AUo-9q-c0h" secondAttribute="centerY" id="fGW-XF-pTx"/>
-                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="leading" secondItem="q2J-GO-wq4" secondAttribute="trailing" constant="8" id="mhK-l3-OuK"/>
+                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="top" secondItem="3RD-lt-KuP" secondAttribute="bottom" constant="64" id="itw-UJ-zRj"/>
                             <constraint firstAttribute="width" constant="343" id="nX6-a1-ASO"/>
                             <constraint firstAttribute="trailing" secondItem="3RD-lt-KuP" secondAttribute="trailing" constant="2" id="pxp-yW-yYz"/>
                             <constraint firstAttribute="trailing" secondItem="R1c-Sc-L6F" secondAttribute="trailing" constant="7" id="tpu-wy-v5p"/>
-                            <constraint firstAttribute="bottom" secondItem="q2J-GO-wq4" secondAttribute="bottom" constant="5" id="ttu-wq-wNx"/>
                             <constraint firstItem="3RD-lt-KuP" firstAttribute="leading" secondItem="AUo-9q-c0h" secondAttribute="leading" constant="10" id="vX4-Sb-Do4"/>
+                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="centerY" secondItem="S08-YB-L9k" secondAttribute="centerY" id="xHt-zk-dB3"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -93,7 +93,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="likefill" width="256" height="256"/>
         <image name="whiteplay" width="256" height="256"/>
     </resources>
 </document>
