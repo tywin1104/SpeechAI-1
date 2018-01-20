@@ -11,9 +11,27 @@ import Firebase
 
 class UserProfileViewController: UIViewController {
     var container: UserProfileView?
+    let fm = FirebaseManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        addContainerToViewController()
+
+        fm.fetchUserAudios(with: User.currentUser.id!) { (result) in
+            switch result {
+            case .success(let audios):
+                self.container?.listOfAudios = audios
+                self.container?.tableview.reloadData()
+                self.container?.loadingIndicator.isHidden = true
+                return
+            case .failure(let message):
+                print(message)
+                return
+            }
+        }
+
+
         addContainerToViewController()
         // Do any additional setup after loading the view.
     }

@@ -39,6 +39,7 @@
 		D0B7616F201319AA00CB7D40 /* UserAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B7616E201319AA00CB7D40 /* UserAudioCell.xib */; };
 		D0B761712013205200CB7D40 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B761702013205200CB7D40 /* UserProfileView.swift */; };
 		D0D58759201323EC0096CF66 /* UserAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D58758201323EC0096CF66 /* UserAudioCell.swift */; };
+		D0D5875B20133B720096CF66 /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5875A20133B720096CF66 /* RecordedAudio.swift */; };
 		D0F82782200B674400E8E9E3 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82781200B674400E8E9E3 /* PostView.xib */; };
 		D0F82784200B677B00E8E9E3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F82783200B677B00E8E9E3 /* PostView.swift */; };
 		D0F82787200B68B200E8E9E3 /* PostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F82786200B68B200E8E9E3 /* PostViewCell.xib */; };
@@ -111,6 +112,7 @@
 		D0B7616E201319AA00CB7D40 /* UserAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAudioCell.xib; sourceTree = "<group>"; };
 		D0B761702013205200CB7D40 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		D0D58758201323EC0096CF66 /* UserAudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAudioCell.swift; sourceTree = "<group>"; };
+		D0D5875A20133B720096CF66 /* RecordedAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
 		D0F82781200B674400E8E9E3 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		D0F82783200B677B00E8E9E3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		D0F82786200B68B200E8E9E3 /* PostViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewCell.xib; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				D027B16A200B36E400E3F896 /* Feedback.swift */,
 				D027B16F200B584400E3F896 /* Post.swift */,
 				D0624384200BC3E5001A4379 /* PastFeedback.swift */,
+				D0D5875A20133B720096CF66 /* RecordedAudio.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				D027B172200B656900E3F896 /* FeedsViewController.swift in Sources */,
 				52748833200ADB240084FB00 /* User.swift in Sources */,
 				527487F8200AD0840084FB00 /* AppDelegate.swift in Sources */,
+				D0D5875B20133B720096CF66 /* RecordedAudio.swift in Sources */,
 				52748853200B4D990084FB00 /* EllipsesTableCell.swift in Sources */,
 				E1D8B588200F180700C4EEB7 /* LogInViewController.swift in Sources */,
 				52748841200AEF0E0084FB00 /* Result.swift in Sources */,
@@ -813,11 +817,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AX2D84BZ47;
+				DEVELOPMENT_TEAM = L822HFXC5L;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAIII3;
+				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -830,11 +834,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AX2D84BZ47;
+				DEVELOPMENT_TEAM = L822HFXC5L;
 				INFOPLIST_FILE = SpeechAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAIII3;
+				PRODUCT_BUNDLE_IDENTIFIER = speak.SpeechAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

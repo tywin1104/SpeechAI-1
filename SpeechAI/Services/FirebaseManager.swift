@@ -41,7 +41,7 @@ internal class FirebaseManager {
   }
 
   func saveSpeechURL(user: User, speech: Speech) {
-    self.ref.child("users/\(user.id)/speeches").child(speech.id).setValue(
+    self.ref.child("users/\(user.id!)/speeches").child(speech.id).setValue(
       [
         "url": speech.urlString,
         "text": speech.text
@@ -50,7 +50,7 @@ internal class FirebaseManager {
 
     self.ref.child("posts").child(speech.id).setValue(
     [
-        "user": user.name,
+        "user": user.name!,
         "url": speech.urlString,
         "text": speech.text,
         "likes": 0
@@ -111,8 +111,8 @@ internal class FirebaseManager {
                 completion(.failure(message: "sdfadsf"))
                 return
             }
-            var post = Post()
 
+            let post = Post()
 
             guard let userName = dicData["user"] as? String  else {
                 completion(.failure(message: "sdfadsf"))
@@ -139,6 +139,48 @@ internal class FirebaseManager {
 
             completion(.success(post))
         }
+    }
+
+
+    func fetchUserAudios(with userID: String, completion: @escaping ((Result<[RecordedAudio]>) -> Void)) {
+        self.ref.child("users").child(userID).child("speeches").observeSingleEvent(of: .value) { snapshot in
+
+            guard snapshot.exists() else {
+                 completion(.success([RecordedAudio]()))
+                return
+            }
+            guard let json = snapshot.value as? JSON else {
+                completion(.failure(message: "Parsing error"))
+                return
+            }
+
+
+            var listOfRecordedAudio = [RecordedAudio]()
+            for (_, value) in json {
+                let tmpRecordedAudio = RecordedAudio()
+                guard let subJson = value as? JSON else {
+                    continue
+                }
+
+                guard let audioURL = subJson["url"] as? String else {
+                    continue 
+                }
+
+                tmpRecordedAudio.audioFile = audioURL
+
+                guard let audioData = subJson["data"] as? JSON, let score = audioData["score"] as? Double else {
+                    continue
+                }
+
+                tmpRecordedAudio.score = round(score*100)
+
+                listOfRecordedAudio.append(tmpRecordedAudio)
+            }
+
+            completion(.success(listOfRecordedAudio))
+
+        }
+
     }
 
   func fetchUser(with userID: String, completion: @escaping ((Result<User>) -> Void)) {

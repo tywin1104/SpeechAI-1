@@ -20,7 +20,9 @@ class User {
     }
     
     init(id: String, name: String, speeches: [Speech]) {
-        
+        self.id = id
+        self.name = name
+        self.speeches = speeches
     }
     
     func addSpeech(speech: Speech) -> User {

@@ -36,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdO-U1-0KQ">
-                    <rect key="frame" x="347" y="25" width="40" height="40"/>
+                    <rect key="frame" x="327" y="25" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="jc4-xR-QTn"/>
                         <constraint firstAttribute="width" constant="40" id="xHg-Ke-k0W"/>
@@ -53,13 +53,18 @@
                         <action selector="goBack:" destination="iN0-l3-epB" eventType="touchUpInside" id="aMH-uZ-0rL"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sQD-4R-ta6">
+                    <rect key="frame" x="177" y="436" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="i3c-kB-0du" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="1Ya-qP-1aq"/>
-                <constraint firstItem="ZdO-U1-0KQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="347" id="GBY-sC-Iy3"/>
+                <constraint firstItem="ZdO-U1-0KQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="327" id="GBY-sC-Iy3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZZC-NZ-QDE" secondAttribute="trailing" constant="16" id="Iap-DY-baz"/>
+                <constraint firstItem="sQD-4R-ta6" firstAttribute="centerY" secondItem="yoI-4o-cUk" secondAttribute="centerY" id="MaZ-y1-42u"/>
                 <constraint firstItem="yoI-4o-cUk" firstAttribute="top" secondItem="ZZC-NZ-QDE" secondAttribute="bottom" constant="54" id="MxQ-9L-jkI"/>
+                <constraint firstItem="sQD-4R-ta6" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="RJT-15-t5d"/>
                 <constraint firstItem="ZZC-NZ-QDE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="SzD-La-Qt3"/>
                 <constraint firstItem="ZZC-NZ-QDE" firstAttribute="top" secondItem="ZdO-U1-0KQ" secondAttribute="bottom" constant="68" id="Tzn-aL-IFb"/>
                 <constraint firstItem="yoI-4o-cUk" firstAttribute="centerX" secondItem="ZZC-NZ-QDE" secondAttribute="centerX" id="jhg-c2-cxS"/>
@@ -69,6 +74,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="loadingIndicator" destination="sQD-4R-ta6" id="aAt-RG-NGK"/>
                 <outlet property="tableview" destination="yoI-4o-cUk" id="MaN-iQ-P6C"/>
                 <outlet property="userName" destination="ZZC-NZ-QDE" id="aJg-mV-ouq"/>
             </connections>

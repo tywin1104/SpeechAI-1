@@ -27,15 +27,23 @@
                     <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUo-9q-c0h" userLabel="posterbackground">
                         <rect key="frame" x="16" y="12" width="343" height="126"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kp-v0-3tm">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ts2-e2-qq1">
+                                <rect key="frame" x="161" y="53" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kp-v0-3tm">
                                 <rect key="frame" x="146" y="38" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Pyb-5c-3Bn"/>
                                     <constraint firstAttribute="width" constant="50" id="j2f-zQ-iGY"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="whiteplay"/>
+                                <state key="normal" backgroundImage="whiteplay">
+                                    <color key="titleColor" red="0.99805566020000003" green="0.97632280770000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAudio:" destination="Sai-Gv-DGu" eventType="touchUpInside" id="AiB-23-Xs1"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-Sc-L6F">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-Sc-L6F">
                                 <rect key="frame" x="297" y="89" width="39" height="39"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -50,8 +58,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S08-YB-L9k">
-                                <rect key="frame" x="224" y="92" width="65" height="32.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S08-YB-L9k">
+                                <rect key="frame" x="214" y="92" width="65" height="33"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,9 +68,12 @@
                         <color key="backgroundColor" white="1" alpha="0.25702069259999999" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="126" id="4Kf-rQ-Mvz"/>
+                            <constraint firstItem="ts2-e2-qq1" firstAttribute="centerX" secondItem="AUo-9q-c0h" secondAttribute="centerX" id="4x8-ea-qWO"/>
                             <constraint firstItem="7Kp-v0-3tm" firstAttribute="centerX" secondItem="AUo-9q-c0h" secondAttribute="centerX" id="6hl-Xo-tGq"/>
                             <constraint firstItem="7Kp-v0-3tm" firstAttribute="top" secondItem="3RD-lt-KuP" secondAttribute="bottom" constant="13" id="71X-CP-aJN"/>
-                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="leading" secondItem="S08-YB-L9k" secondAttribute="trailing" constant="8" symbolic="YES" id="GWd-Vw-LF5"/>
+                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="leading" secondItem="S08-YB-L9k" secondAttribute="trailing" constant="18" id="GWd-Vw-LF5"/>
+                            <constraint firstItem="ts2-e2-qq1" firstAttribute="centerX" secondItem="AUo-9q-c0h" secondAttribute="centerX" id="LxJ-QY-Ps4"/>
+                            <constraint firstItem="ts2-e2-qq1" firstAttribute="centerY" secondItem="AUo-9q-c0h" secondAttribute="centerY" id="MaL-Aj-4Ti"/>
                             <constraint firstAttribute="bottom" secondItem="R1c-Sc-L6F" secondAttribute="bottom" constant="-2" id="PWg-7Z-jNu"/>
                             <constraint firstItem="7Kp-v0-3tm" firstAttribute="centerY" secondItem="AUo-9q-c0h" secondAttribute="centerY" id="fGW-XF-pTx"/>
                             <constraint firstItem="R1c-Sc-L6F" firstAttribute="top" secondItem="3RD-lt-KuP" secondAttribute="bottom" constant="64" id="itw-UJ-zRj"/>
@@ -85,9 +96,11 @@
             <color key="backgroundColor" white="1" alpha="0.25702069259999999" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="audioName" destination="3RD-lt-KuP" id="SXC-5e-sdf"/>
-                <outlet property="numOfLikes" destination="R1c-Sc-L6F" id="7oA-Xk-tqM"/>
-                <outlet property="playStopButton" destination="7Kp-v0-3tm" id="WJH-cY-bpV"/>
+                <outlet property="loadingForInfo" destination="ts2-e2-qq1" id="5hv-1i-cYH"/>
+                <outlet property="playButton" destination="7Kp-v0-3tm" id="Mby-Dt-wYG"/>
                 <outlet property="posterBackground" destination="AUo-9q-c0h" id="acX-ZY-Qzo"/>
+                <outlet property="score" destination="R1c-Sc-L6F" id="Gac-MD-3u6"/>
+                <outlet property="scoreLabel" destination="S08-YB-L9k" id="Eqi-hk-ImE"/>
             </connections>
             <point key="canvasLocation" x="60.5" y="-3"/>
         </tableViewCell>

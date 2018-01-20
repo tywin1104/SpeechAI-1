@@ -52,10 +52,7 @@ extension DataManager {
       switch result {
       case .success(let url):
         let speech = Speech(id: UUID().uuidString, urlString: url, text: speechText)
-        guard let newUser = self.currentUser?.addSpeech(speech: speech) else {
-          completion(.failure(message: "No current user"))
-          return
-        }
+        let newUser = User.currentUser.addSpeech(speech: speech) 
         self.currentUser = newUser
         self.firebaseManager.saveSpeechURL(user: newUser, speech: speech)
         self.updateToNetwork(userId: newUser.id!, speechId: speech.id, completion: { (result) in

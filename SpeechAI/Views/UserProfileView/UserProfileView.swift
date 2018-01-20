@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import AVFoundation
 
 
 protocol UserProfileViewDelegate {
@@ -18,6 +19,10 @@ protocol UserProfileViewDelegate {
 class UserProfileView: UIView, UITableViewDelegate, UITableViewDataSource {
 
     var delegate:UserProfileViewDelegate?
+
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    var listOfAudios = [RecordedAudio]()
 
     class func instanceFromNib(frame: CGRect) -> UserProfileView {
         let view = UINib(nibName: "UserProfileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UserProfileView
@@ -45,7 +50,7 @@ class UserProfileView: UIView, UITableViewDelegate, UITableViewDataSource {
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 28
+        return listOfAudios.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,6 +58,31 @@ class UserProfileView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.register(nib_name, forCellReuseIdentifier: "UserAudioCell")
         let cell = self.tableview.dequeueReusableCell(withIdentifier: "UserAudioCell", for: indexPath) as! UserAudioCell
         cell.posterBackground.layer.cornerRadius = 10.0
+        let url = URL.init(string: listOfAudios[indexPath.row].audioFile)
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if let err = error {
+                print("\(err)")
+                return
+            }
+
+            DispatchQueue.main.async {
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    cell.player = try AVAudioPlayer(data: data!)
+                    cell.player?.delegate = cell
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+
+                cell.score.text = String(self.listOfAudios[indexPath.row].score)+"%"
+                cell.loadingForInfo.isHidden = true
+                cell.playButton.isHidden = false
+                cell.score.isHidden = false
+                cell.scoreLabel.isHidden = false
+            }
+
+            }.resume()
 
         return cell
     }
