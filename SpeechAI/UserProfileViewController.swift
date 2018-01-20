@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import Firebase
 
 class UserProfileViewController: UIViewController {
+    var container: UserProfileView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addContainerToViewController()
         // Do any additional setup after loading the view.
+    }
+
+    private func addContainerToViewController() {
+        container = UserProfileView.instanceFromNib(frame: CGRect(x:0,y:0,  width:view.bounds.width, height:view.bounds.height))
+
+        if let userName = User.currentUser.name  {
+            container?.userName.text = userName
+        }
+        container?.delegate = self
+        self.view.addSubview(container!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,4 +33,16 @@ class UserProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+
+extension UserProfileViewController: UserProfileViewDelegate {
+    func goBackToChatView() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    func logout() {
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "initial", sender: self)
+    }
 }

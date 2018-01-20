@@ -21,22 +21,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-4o-cUk">
+                    <rect key="frame" x="0.0" y="225" width="375" height="442"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="442" id="P6j-KY-pKr"/>
+                        <constraint firstAttribute="width" constant="375" id="SJW-h5-15q"/>
+                    </constraints>
+                </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZC-NZ-QDE">
                     <rect key="frame" x="16" y="133" width="343" height="38"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="29"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-4o-cUk">
-                    <rect key="frame" x="0.0" y="296" width="375" height="371"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="371" id="P6j-KY-pKr"/>
-                        <constraint firstAttribute="width" constant="375" id="SJW-h5-15q"/>
-                    </constraints>
-                </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdO-U1-0KQ">
-                    <rect key="frame" x="317" y="25" width="40" height="40"/>
+                    <rect key="frame" x="347" y="25" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="jc4-xR-QTn"/>
                         <constraint firstAttribute="width" constant="40" id="xHg-Ke-k0W"/>
@@ -54,12 +54,12 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="i3c-kB-0du" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="1Ya-qP-1aq"/>
-                <constraint firstItem="ZdO-U1-0KQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="317" id="GBY-sC-Iy3"/>
+                <constraint firstItem="ZdO-U1-0KQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="347" id="GBY-sC-Iy3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZZC-NZ-QDE" secondAttribute="trailing" constant="16" id="Iap-DY-baz"/>
-                <constraint firstItem="yoI-4o-cUk" firstAttribute="top" secondItem="ZZC-NZ-QDE" secondAttribute="bottom" constant="125" id="MxQ-9L-jkI"/>
+                <constraint firstItem="yoI-4o-cUk" firstAttribute="top" secondItem="ZZC-NZ-QDE" secondAttribute="bottom" constant="54" id="MxQ-9L-jkI"/>
                 <constraint firstItem="ZZC-NZ-QDE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="SzD-La-Qt3"/>
                 <constraint firstItem="ZZC-NZ-QDE" firstAttribute="top" secondItem="ZdO-U1-0KQ" secondAttribute="bottom" constant="68" id="Tzn-aL-IFb"/>
                 <constraint firstItem="yoI-4o-cUk" firstAttribute="centerX" secondItem="ZZC-NZ-QDE" secondAttribute="centerX" id="jhg-c2-cxS"/>

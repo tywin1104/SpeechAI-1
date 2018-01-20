@@ -9,7 +9,15 @@
 import UIKit
 import ChameleonFramework
 
+
+protocol UserProfileViewDelegate {
+    func goBackToChatView()
+    func logout()
+}
+
 class UserProfileView: UIView, UITableViewDelegate, UITableViewDataSource {
+
+    var delegate:UserProfileViewDelegate?
 
     class func instanceFromNib(frame: CGRect) -> UserProfileView {
         let view = UINib(nibName: "UserProfileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UserProfileView
@@ -27,10 +35,12 @@ class UserProfileView: UIView, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBAction func goBack(_ sender: Any) {
+        delegate?.goBackToChatView()
     }
 
 
     @IBAction func logout(_ sender: Any) {
+        delegate?.logout()
     }
 
 
@@ -39,10 +49,11 @@ class UserProfileView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let nib_name = UINib(nibName: "useraudiocell", bundle:nil)
-        tableView.register(nib_name, forCellReuseIdentifier: "useraudiocell")
-        let cell = self.tableview.dequeueReusableCell(withIdentifier: "useraudiocell", for: indexPath) as! UserAudioCell
-        
+        let nib_name = UINib(nibName: "UserAudioCell", bundle:nil)
+        tableView.register(nib_name, forCellReuseIdentifier: "UserAudioCell")
+        let cell = self.tableview.dequeueReusableCell(withIdentifier: "UserAudioCell", for: indexPath) as! UserAudioCell
+        cell.posterBackground.layer.cornerRadius = 10.0
+
         return cell
     }
 }

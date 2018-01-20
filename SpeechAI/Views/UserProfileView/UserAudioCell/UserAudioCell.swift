@@ -11,6 +11,7 @@ import UIKit
 class UserAudioCell: UITableViewCell {
 
 
+    @IBOutlet weak var posterBackground: UIView!
     @IBOutlet weak var audioName: UILabel!
 
     @IBOutlet weak var playStopButton: UIButton!
