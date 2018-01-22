@@ -107,30 +107,18 @@ internal class FirebaseManager {
     func retrievePosts (completion: @escaping ((Result<Post>) -> Void)) {
         self.ref.child("posts").observe(DataEventType.childAdded) { snapshot in
 
-            guard let dicData = snapshot.value as? NSDictionary else {
-                completion(.failure(message: "sdfadsf"))
+            guard
+                let dicData = snapshot.value as? NSDictionary,
+                let userName = dicData["user"] as? String,
+                let audioURL = dicData["url"] as? String,
+                let likes = dicData["likes"] as? Int else {
+
+                completion(.failure(message: "Unable to get post"))
                 return
             }
+
 
             let post = Post()
-
-            guard let userName = dicData["user"] as? String  else {
-                completion(.failure(message: "sdfadsf"))
-
-                return
-            }
-
-            guard let audioURL = dicData["url"] as? String else {
-                completion(.failure(message: "sdfadsf"))
-
-                return
-            }
-
-            guard let likes = dicData["likes"] as? Int else {
-                completion(.failure(message: "sdfadsf"))
-
-                return
-            }
 
             post.speechID = snapshot.key
             post.audioURL = audioURL
@@ -157,21 +145,18 @@ internal class FirebaseManager {
 
             var listOfRecordedAudio = [RecordedAudio]()
             for (_, value) in json {
-                let tmpRecordedAudio = RecordedAudio()
-                guard let subJson = value as? JSON else {
-                    continue
-                }
 
-                guard let audioURL = subJson["url"] as? String else {
+                guard
+                    let subJson = value as? JSON,
+                    let audioURL = subJson["url"] as? String,
+                    let audioData = subJson["data"] as? JSON,
+                    let score = audioData["score"] as? Double else {
                     continue 
                 }
 
+                var tmpRecordedAudio = RecordedAudio()
+
                 tmpRecordedAudio.audioFile = audioURL
-
-                guard let audioData = subJson["data"] as? JSON, let score = audioData["score"] as? Double else {
-                    continue
-                }
-
                 tmpRecordedAudio.score = round(score*100)
 
                 listOfRecordedAudio.append(tmpRecordedAudio)

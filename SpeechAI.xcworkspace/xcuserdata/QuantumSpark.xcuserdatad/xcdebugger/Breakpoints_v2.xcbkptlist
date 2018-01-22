@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SpeechAI/Services/DataManager.swift"
-            timestampString = "538136197.992412"
+            filePath = "SpeechAI/UserProfileViewController.swift"
+            timestampString = "538137245.694894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "updateToNetwork(userId:speechId:completion:)"
-            landmarkType = "7">
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +25,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SpeechAI/UserProfileViewController.swift"
-            timestampString = "538136197.992479"
+            filePath = "SpeechAI/SignUpViewController.swift"
+            timestampString = "538137245.694952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "signUpUser(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpeechAI.SignUpViewController.signUpUser(Any) -&gt; ()"
+                  moduleName = "SpeechAI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/QuantumSpark/Developer/iOS/SpeechAI/SpeechAI/SignUpViewController.swift"
+                  timestampString = "538137039.782568"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__ObjC.User&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in SpeechAI.SignUpViewController.signUpUser(Any) -&gt; ()"
+                  moduleName = "SpeechAI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/QuantumSpark/Developer/iOS/SpeechAI/SpeechAI/SignUpViewController.swift"
+                  timestampString = "538137039.78458"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpeechAI/SignUpViewController.swift"
+            timestampString = "538137245.695002"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "signUpUser(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

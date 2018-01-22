@@ -9,13 +9,10 @@
 import Foundation
 
 
-class RecordedAudio {
+struct RecordedAudio {
 
     var score = 0.0
 
     var audioFile = ""
 
-    init() {
-        
-    }
 }
