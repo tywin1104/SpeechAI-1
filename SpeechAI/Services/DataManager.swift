@@ -41,6 +41,21 @@ extension DataManager {
     }
   }
 
+
+    func fetchUserAudios(with userID: String, completion: @escaping ((Result<[RecordedAudio]>) -> Void)) {
+
+        self.firebaseManager.fetchUserAudios(with: userID) { (results) in
+            switch results {
+                case .success(let valuesFromFirebase):
+                    let listOfRecordedAudio = RecordedAudioParser.parseListOfRecordedAudios(with: valuesFromFirebase)
+                    completion(.success(listOfRecordedAudio))
+                    return
+                case .failure(let message):
+                    print(message)
+            }
+        }
+    }
+
   func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     let documentsDirectory = paths[0]

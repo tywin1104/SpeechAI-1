@@ -129,43 +129,21 @@ internal class FirebaseManager {
         }
     }
 
-
-    func fetchUserAudios(with userID: String, completion: @escaping ((Result<[RecordedAudio]>) -> Void)) {
+    func fetchUserAudios(with userID: String, completion: @escaping ((Result<[JSON]>) -> Void)) {
         self.ref.child("users").child(userID).child("speeches").observeSingleEvent(of: .value) { snapshot in
 
             guard snapshot.exists() else {
-                 completion(.success([RecordedAudio]()))
-                return
-            }
-            guard let json = snapshot.value as? JSON else {
-                completion(.failure(message: "Parsing error"))
+                 completion(.success([JSON]()))
                 return
             }
 
-
-            var listOfRecordedAudio = [RecordedAudio]()
-            for (_, value) in json {
-
-                guard
-                    let subJson = value as? JSON,
-                    let audioURL = subJson["url"] as? String,
-                    let audioData = subJson["data"] as? JSON,
-                    let score = audioData["score"] as? Double else {
-                    continue 
-                }
-
-                var tmpRecordedAudio = RecordedAudio()
-
-                tmpRecordedAudio.audioFile = audioURL
-                tmpRecordedAudio.score = round(score*100)
-
-                listOfRecordedAudio.append(tmpRecordedAudio)
+            guard let json = snapshot.value as? JSON, let retrievedValuesJSON = Array(json.values) as? [JSON] else {
+                completion(.failure(message: "Was expecting an array of jsons from the database"))
+                return
             }
 
-            completion(.success(listOfRecordedAudio))
-
+            completion(.success(retrievedValuesJSON))
         }
-
     }
 
   func fetchUser(with userID: String, completion: @escaping ((Result<User>) -> Void)) {

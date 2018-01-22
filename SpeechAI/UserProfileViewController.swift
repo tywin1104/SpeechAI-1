@@ -11,14 +11,13 @@ import Firebase
 
 class UserProfileViewController: UIViewController {
     var container: UserProfileView?
-    let fm = FirebaseManager()
-
+    let dataManager = DataManager.default
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addContainerToViewController()
 
-        fm.fetchUserAudios(with: User.currentUser.id!) { (result) in
+        dataManager.fetchUserAudios(with: User.currentUser.id!) { (result) in
             switch result {
             case .success(let audios):
                 self.container?.listOfAudios = audios

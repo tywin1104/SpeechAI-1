@@ -34,6 +34,7 @@
 		D027B172200B656900E3F896 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027B171200B656800E3F896 /* FeedsViewController.swift */; };
 		D0624383200B858C001A4379 /* ChatViewRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0624382200B858C001A4379 /* ChatViewRecordCell.swift */; };
 		D0624385200BC3E5001A4379 /* PastFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0624384200BC3E5001A4379 /* PastFeedback.swift */; };
+		D089BC11201683D4001830CF /* RecordedAudioParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D089BC10201683D4001830CF /* RecordedAudioParser.swift */; };
 		D0B761672012DA2400CB7D40 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B761662012DA2400CB7D40 /* UserProfileViewController.swift */; };
 		D0B7616C2012DBDD00CB7D40 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B7616B2012DBDD00CB7D40 /* UserProfileView.xib */; };
 		D0B7616F201319AA00CB7D40 /* UserAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B7616E201319AA00CB7D40 /* UserAudioCell.xib */; };
@@ -107,6 +108,7 @@
 		D0624381200B7F2F001A4379 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		D0624382200B858C001A4379 /* ChatViewRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewRecordCell.swift; sourceTree = "<group>"; };
 		D0624384200BC3E5001A4379 /* PastFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastFeedback.swift; sourceTree = "<group>"; };
+		D089BC10201683D4001830CF /* RecordedAudioParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordedAudioParser.swift; sourceTree = "<group>"; };
 		D0B761662012DA2400CB7D40 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		D0B7616B2012DBDD00CB7D40 /* UserProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
 		D0B7616E201319AA00CB7D40 /* UserAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAudioCell.xib; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				52748835200ADB470084FB00 /* FirebaseManager.swift */,
 				52748844200B04780084FB00 /* UserParser.swift */,
 				52748846200B05190084FB00 /* SpeechParser.swift */,
+				D089BC10201683D4001830CF /* RecordedAudioParser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D089BC11201683D4001830CF /* RecordedAudioParser.swift in Sources */,
 				D0624385200BC3E5001A4379 /* PastFeedback.swift in Sources */,
 				D0B761672012DA2400CB7D40 /* UserProfileViewController.swift in Sources */,
 				D0F82789200B695300E8E9E3 /* PostViewCell.swift in Sources */,

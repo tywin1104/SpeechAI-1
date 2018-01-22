@@ -23,6 +23,8 @@ class UserAudioCell: UITableViewCell, AVAudioPlayerDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.posterBackground.layer.cornerRadius = 10.0
+
     }
 
     func stopSound() {

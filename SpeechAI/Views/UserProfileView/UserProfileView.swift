@@ -57,7 +57,6 @@ class UserProfileView: UIView, UITableViewDelegate, UITableViewDataSource {
         let nib_name = UINib(nibName: "UserAudioCell", bundle:nil)
         tableView.register(nib_name, forCellReuseIdentifier: "UserAudioCell")
         let cell = self.tableview.dequeueReusableCell(withIdentifier: "UserAudioCell", for: indexPath) as! UserAudioCell
-        cell.posterBackground.layer.cornerRadius = 10.0
         let url = URL.init(string: listOfAudios[indexPath.row].audioFile)
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if let err = error {
