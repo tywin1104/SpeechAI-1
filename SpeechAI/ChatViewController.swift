@@ -333,7 +333,6 @@ extension ChatViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: postRecordingState.identifier) as? EllipsesTableCell else { fatalError() }
         return cell
       }
-      
     case .feedback:
       guard let feedbackState: FeedbackState = FeedbackState(rawValue: indexPath.row),
         let speechFeedback = feedback else { fatalError() }
@@ -381,11 +380,9 @@ extension ChatViewController: ChatOptionsTableCellDelegate {
     if currentState == .feedback {
       if optionNumber == 0 {
         currentState = .intro
-        currentRow = 1
+        currentRow = 0
         tableView.reloadData()
         self.advance()
-      } else {
-
       }
     } else {
       selectedRecordingOption = optionNumber

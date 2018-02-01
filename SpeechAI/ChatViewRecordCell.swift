@@ -38,7 +38,6 @@ class ChatViewRecordCell: UITableViewCell {
   @IBOutlet weak var messageLabel: UILabel!
   @IBOutlet weak var bubbleView: UIView!
 
-
   override func awakeFromNib() {
     super.awakeFromNib()
     bubbleView.layer.cornerRadius = 21
@@ -80,6 +79,7 @@ class ChatViewRecordCell: UITableViewCell {
   var isShuffle = true
 
   func configure(isShuffle: Bool) {
+    recordButton.setImage(UIImage(named: "record"), for: .normal)
     self.isShuffle = isShuffle
     if isShuffle {
       textView.text = speechGenerator()
