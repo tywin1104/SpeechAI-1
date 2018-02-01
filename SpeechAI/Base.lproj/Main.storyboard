@@ -112,6 +112,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509817" green="0.60392159219999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ylS-m2-ZGo" firstAttribute="top" secondItem="skK-co-LqF" secondAttribute="bottom" constant="8" id="1Rq-2z-OOn"/>
                             <constraint firstItem="ylS-m2-ZGo" firstAttribute="centerX" secondItem="SM4-2x-sag" secondAttribute="centerX" id="7W4-QM-aIF"/>
@@ -130,6 +131,9 @@
                             <constraint firstItem="9Ty-sd-HcM" firstAttribute="leading" secondItem="SM4-2x-sag" secondAttribute="leading" constant="16" id="t4C-7I-89Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SM4-2x-sag"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="YHw-np-Nu0" appends="YES" id="q1F-0t-2QP"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="ylS-m2-ZGo" id="RfS-5E-rmW"/>
@@ -139,6 +143,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcc-Dd-fDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="YHw-np-Nu0">
+                    <connections>
+                        <action selector="tappedScreen:" destination="7uq-lI-rt1" id="ymp-8x-mYz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-844" y="23"/>
         </scene>

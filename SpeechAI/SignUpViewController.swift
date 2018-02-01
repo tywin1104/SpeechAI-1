@@ -9,6 +9,7 @@
 import UIKit
 import ChameleonFramework
 import Firebase
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
@@ -63,7 +64,6 @@ class SignUpViewController: UIViewController {
                         "pausing" : "pass",
                         "similarity": "pass",
                         "loudness": "pass"
-
                     ]
                 )
                 self.performSegue(withIdentifier: "signup", sender: self)
@@ -71,6 +71,13 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func tappedScreen(_ sender: Any) {
+        print("tapped")
+        self.firstNameField.resignFirstResponder()
+        self.emailField.resignFirstResponder()
+        self.passwordField.resignFirstResponder()
+    }
     
     
     @objc func keyboardWillShow(notification: NSNotification) {
