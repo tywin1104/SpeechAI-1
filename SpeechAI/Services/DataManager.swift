@@ -41,6 +41,21 @@ extension DataManager {
     }
   }
 
+
+    func fetchUserAudios(with userID: String, completion: @escaping ((Result<[RecordedAudio]>) -> Void)) {
+
+        self.firebaseManager.fetchUserAudios(with: userID) { (results) in
+            switch results {
+                case .success(let valuesFromFirebase):
+                    let listOfRecordedAudio = RecordedAudioParser.parseListOfRecordedAudios(with: valuesFromFirebase)
+                    completion(.success(listOfRecordedAudio))
+                    return
+                case .failure(let message):
+                    print(message)
+            }
+        }
+    }
+
   func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     let documentsDirectory = paths[0]
@@ -52,10 +67,7 @@ extension DataManager {
       switch result {
       case .success(let url):
         let speech = Speech(id: UUID().uuidString, urlString: url, text: speechText)
-        guard let newUser = self.currentUser?.addSpeech(speech: speech) else {
-          completion(.failure(message: "No current user"))
-          return
-        }
+        let newUser = User.currentUser.addSpeech(speech: speech) 
         self.currentUser = newUser
         self.firebaseManager.saveSpeechURL(user: newUser, speech: speech)
         self.updateToNetwork(userId: newUser.id!, speechId: speech.id, completion: { (result) in

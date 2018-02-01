@@ -25,7 +25,7 @@ final class ChatViewController: UIViewController {
   @IBOutlet weak var welcomeView: UIStackView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var avatarTopImage: UIImageView!
-  @IBOutlet weak var logoutButton: UIButton!
+  @IBOutlet weak var viewProfileButton: UIButton!
 
   let dataManager = DataManager.default
 
@@ -154,7 +154,7 @@ final class ChatViewController: UIViewController {
     welcomeView.alpha = 0
     avatarTopImage.alpha = 0
     communityButton.alpha = 0
-    logoutButton.alpha = 0
+    viewProfileButton.alpha = 0
     
     User.currentUser.setUpUser()
 
@@ -170,7 +170,7 @@ final class ChatViewController: UIViewController {
         self.welcomeView.center.y -= 20
         self.avatarTopImage.alpha = 1
         self.communityButton.alpha = 1
-        self.logoutButton.alpha = 1
+        self.viewProfileButton.alpha = 1
       }, completion: { _ in
         self.welcomeView.isHidden = true
         self.tableView.isHidden = false
@@ -183,16 +183,6 @@ final class ChatViewController: UIViewController {
       })
     }
   }
-
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-  }
-
-  @IBAction func logout(_ sender: Any) {
-    try! Auth.auth().signOut()
-    performSegue(withIdentifier: "initial", sender: self)
-  }
-
 
   func advance() {
     switch self.currentState {

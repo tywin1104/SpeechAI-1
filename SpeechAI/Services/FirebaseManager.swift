@@ -41,7 +41,7 @@ internal class FirebaseManager {
   }
 
   func saveSpeechURL(user: User, speech: Speech) {
-    self.ref.child("users/\(user.id)/speeches").child(speech.id).setValue(
+    self.ref.child("users/\(user.id!)/speeches").child(speech.id).setValue(
       [
         "url": speech.urlString,
         "text": speech.text
@@ -50,7 +50,7 @@ internal class FirebaseManager {
 
     self.ref.child("posts").child(speech.id).setValue(
     [
-        "user": user.name,
+        "user": user.name!,
         "url": speech.urlString,
         "text": speech.text,
         "likes": 0
@@ -107,30 +107,18 @@ internal class FirebaseManager {
     func retrievePosts (completion: @escaping ((Result<Post>) -> Void)) {
         self.ref.child("posts").observe(DataEventType.childAdded) { snapshot in
 
-            guard let dicData = snapshot.value as? NSDictionary else {
-                completion(.failure(message: "sdfadsf"))
-                return
-            }
-            var post = Post()
+            guard
+                let dicData = snapshot.value as? NSDictionary,
+                let userName = dicData["user"] as? String,
+                let audioURL = dicData["url"] as? String,
+                let likes = dicData["likes"] as? Int else {
 
-
-            guard let userName = dicData["user"] as? String  else {
-                completion(.failure(message: "sdfadsf"))
-
+                completion(.failure(message: "Unable to get post"))
                 return
             }
 
-            guard let audioURL = dicData["url"] as? String else {
-                completion(.failure(message: "sdfadsf"))
 
-                return
-            }
-
-            guard let likes = dicData["likes"] as? Int else {
-                completion(.failure(message: "sdfadsf"))
-
-                return
-            }
+            let post = Post()
 
             post.speechID = snapshot.key
             post.audioURL = audioURL
@@ -138,6 +126,23 @@ internal class FirebaseManager {
             post.numOfLikes = likes
 
             completion(.success(post))
+        }
+    }
+
+    func fetchUserAudios(with userID: String, completion: @escaping ((Result<[JSON]>) -> Void)) {
+        self.ref.child("users").child(userID).child("speeches").observeSingleEvent(of: .value) { snapshot in
+
+            guard snapshot.exists() else {
+                 completion(.success([JSON]()))
+                return
+            }
+
+            guard let json = snapshot.value as? JSON, let retrievedValuesJSON = Array(json.values) as? [JSON] else {
+                completion(.failure(message: "Was expecting an array of jsons from the database"))
+                return
+            }
+
+            completion(.success(retrievedValuesJSON))
         }
     }
 

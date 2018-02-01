@@ -57,6 +57,15 @@ class SignUpViewController: UIViewController {
                 User.currentUser.setUID()
                 let ref : DatabaseReference! = Database.database().reference()
                 ref.child("users").child(user!.uid).updateChildValues(["name": self.firstNameField.text!])
+                ref.child("users").child(user!.uid).child("lastData").setValue(
+                    [
+                        "wpm" : "pass",
+                        "pausing" : "pass",
+                        "similarity": "pass",
+                        "loudness": "pass"
+
+                    ]
+                )
                 self.performSegue(withIdentifier: "signup", sender: self)
             }
         }

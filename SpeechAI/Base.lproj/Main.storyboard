@@ -274,6 +274,24 @@
             </objects>
             <point key="canvasLocation" x="-820" y="944"/>
         </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="Ue6-eO-oAV">
+            <objects>
+                <viewController id="uUA-rg-nCW" customClass="UserProfileViewController" customModule="SpeechAI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z6n-E3-cEY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="WCZ-mM-f6R"/>
+                    </view>
+                    <connections>
+                        <segue destination="7uq-lI-rt1" kind="presentation" identifier="initial" id="1c6-gR-81z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4cm-is-Qbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="-300"/>
+        </scene>
         <!--Chat View Controller-->
         <scene sceneID="9zc-Tt-iss">
             <objects>
@@ -283,7 +301,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nPe-jo-kDg">
-                                <rect key="frame" x="30" y="305.5" width="315" height="120"/>
+                                <rect key="frame" x="30" y="283.5" width="315" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="NTF-SV-jMM">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="120"/>
@@ -304,7 +322,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mfW-up-elA">
-                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTextTableCell" rowHeight="126" id="shz-wT-4uD" customClass="ChatTextTableCell" customModule="SpeechAI" customModuleProvider="target">
@@ -671,14 +689,14 @@
                                 </prototypes>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="EGh-Lx-ZA3">
-                                <rect key="frame" x="156" y="79" width="62" height="62"/>
+                                <rect key="frame" x="156" y="35" width="62" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="Z7E-lW-ZrI"/>
                                     <constraint firstAttribute="width" constant="62" id="eVr-GL-3zm"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8A-eA-7go">
-                                <rect key="frame" x="315" y="90" width="40" height="40"/>
+                                <rect key="frame" x="315" y="46" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="KTn-zw-96Z"/>
@@ -688,23 +706,26 @@
                                     <segue destination="Gw7-1O-kLs" kind="show" id="lLM-nU-yO6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5b-HM-7Fj">
-                                <rect key="frame" x="30" y="90" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5b-HM-7Fj" userLabel="ViewProfile">
+                                <rect key="frame" x="0.0" y="41" width="112" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xvm-ij-K7J"/>
-                                    <constraint firstAttribute="width" constant="40" id="tk6-nM-SQw"/>
+                                    <constraint firstAttribute="width" constant="112" id="tk6-nM-SQw"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="sign-in"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="View Profile">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="logout:" destination="KTn-uH-D9S" eventType="touchUpInside" id="6ao-op-SaI"/>
+                                    <segue destination="uUA-rg-nCW" kind="show" id="hwP-9V-WIK"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="V5b-HM-7Fj" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="26" id="0Fs-i7-cKM"/>
+                            <constraint firstItem="V5b-HM-7Fj" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="21" id="0Fs-i7-cKM"/>
                             <constraint firstItem="EGh-Lx-ZA3" firstAttribute="centerX" secondItem="2Gx-qp-vyA" secondAttribute="centerX" id="3Wr-vR-371"/>
-                            <constraint firstItem="V5b-HM-7Fj" firstAttribute="leading" secondItem="2Gx-qp-vyA" secondAttribute="leading" constant="30" id="9lc-iW-r25"/>
+                            <constraint firstItem="V5b-HM-7Fj" firstAttribute="leading" secondItem="2Gx-qp-vyA" secondAttribute="leading" id="9lc-iW-r25"/>
                             <constraint firstItem="2Gx-qp-vyA" firstAttribute="trailing" secondItem="c8A-eA-7go" secondAttribute="trailing" constant="20" id="ABT-Rb-miA"/>
                             <constraint firstItem="mfW-up-elA" firstAttribute="top" secondItem="c8A-eA-7go" secondAttribute="bottom" constant="34" id="Ei3-cu-117"/>
                             <constraint firstItem="EGh-Lx-ZA3" firstAttribute="top" secondItem="2Gx-qp-vyA" secondAttribute="top" constant="15" id="F4X-Eb-RYa"/>
@@ -723,10 +744,9 @@
                     <connections>
                         <outlet property="avatarTopImage" destination="EGh-Lx-ZA3" id="4Oh-rJ-221"/>
                         <outlet property="communityButton" destination="c8A-eA-7go" id="SOk-h3-g8T"/>
-                        <outlet property="logoutButton" destination="V5b-HM-7Fj" id="GJP-RD-hKy"/>
                         <outlet property="tableView" destination="mfW-up-elA" id="2dy-nq-8fu"/>
+                        <outlet property="viewProfileButton" destination="V5b-HM-7Fj" id="4bN-uS-8PZ"/>
                         <outlet property="welcomeView" destination="nPe-jo-kDg" id="IgQ-eI-htI"/>
-                        <segue destination="7uq-lI-rt1" kind="presentation" identifier="initial" id="RQY-v9-WM1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qqn-yV-xUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -759,11 +779,10 @@
         <image name="microphone.png" width="256" height="256"/>
         <image name="record" width="33" height="33"/>
         <image name="shuffle" width="33" height="33"/>
-        <image name="sign-in" width="256" height="256"/>
         <image name="users" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1E8-gT-ULW"/>
-        <segue reference="J1Q-r1-noa"/>
+        <segue reference="B8t-qk-adu"/>
+        <segue reference="0No-bU-AG7"/>
     </inferredMetricsTieBreakers>
 </document>

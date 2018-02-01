@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserAudioCell" rowHeight="150" id="Sai-Gv-DGu" customClass="UserAudioCell" customModule="SpeechAI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sai-Gv-DGu" id="aYc-LO-0Or">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUo-9q-c0h" userLabel="posterbackground">
+                        <rect key="frame" x="16" y="12" width="343" height="126"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ts2-e2-qq1">
+                                <rect key="frame" x="161" y="53" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kp-v0-3tm">
+                                <rect key="frame" x="146" y="38" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Pyb-5c-3Bn"/>
+                                    <constraint firstAttribute="width" constant="50" id="j2f-zQ-iGY"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="whiteplay">
+                                    <color key="titleColor" red="0.99805566020000003" green="0.97632280770000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAudio:" destination="Sai-Gv-DGu" eventType="touchUpInside" id="AiB-23-Xs1"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-Sc-L6F">
+                                <rect key="frame" x="297" y="89" width="39" height="39"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RD-lt-KuP">
+                                <rect key="frame" x="10" y="1" width="331" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="oj1-X9-Pm4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S08-YB-L9k">
+                                <rect key="frame" x="214" y="92" width="65" height="33"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.25702069259999999" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="126" id="4Kf-rQ-Mvz"/>
+                            <constraint firstItem="ts2-e2-qq1" firstAttribute="centerX" secondItem="AUo-9q-c0h" secondAttribute="centerX" id="4x8-ea-qWO"/>
+                            <constraint firstItem="7Kp-v0-3tm" firstAttribute="centerX" secondItem="AUo-9q-c0h" secondAttribute="centerX" id="6hl-Xo-tGq"/>
+                            <constraint firstItem="7Kp-v0-3tm" firstAttribute="top" secondItem="3RD-lt-KuP" secondAttribute="bottom" constant="13" id="71X-CP-aJN"/>
+                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="leading" secondItem="S08-YB-L9k" secondAttribute="trailing" constant="18" id="GWd-Vw-LF5"/>
+                            <constraint firstItem="ts2-e2-qq1" firstAttribute="centerX" secondItem="AUo-9q-c0h" secondAttribute="centerX" id="LxJ-QY-Ps4"/>
+                            <constraint firstItem="ts2-e2-qq1" firstAttribute="centerY" secondItem="AUo-9q-c0h" secondAttribute="centerY" id="MaL-Aj-4Ti"/>
+                            <constraint firstAttribute="bottom" secondItem="R1c-Sc-L6F" secondAttribute="bottom" constant="-2" id="PWg-7Z-jNu"/>
+                            <constraint firstItem="7Kp-v0-3tm" firstAttribute="centerY" secondItem="AUo-9q-c0h" secondAttribute="centerY" id="fGW-XF-pTx"/>
+                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="top" secondItem="3RD-lt-KuP" secondAttribute="bottom" constant="64" id="itw-UJ-zRj"/>
+                            <constraint firstAttribute="width" constant="343" id="nX6-a1-ASO"/>
+                            <constraint firstAttribute="trailing" secondItem="3RD-lt-KuP" secondAttribute="trailing" constant="2" id="pxp-yW-yYz"/>
+                            <constraint firstAttribute="trailing" secondItem="R1c-Sc-L6F" secondAttribute="trailing" constant="7" id="tpu-wy-v5p"/>
+                            <constraint firstItem="3RD-lt-KuP" firstAttribute="leading" secondItem="AUo-9q-c0h" secondAttribute="leading" constant="10" id="vX4-Sb-Do4"/>
+                            <constraint firstItem="R1c-Sc-L6F" firstAttribute="centerY" secondItem="S08-YB-L9k" secondAttribute="centerY" id="xHt-zk-dB3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="AUo-9q-c0h" firstAttribute="centerY" secondItem="aYc-LO-0Or" secondAttribute="centerY" id="6ST-9v-s2S"/>
+                    <constraint firstItem="AUo-9q-c0h" firstAttribute="centerX" secondItem="aYc-LO-0Or" secondAttribute="centerX" id="DMP-zc-tYu"/>
+                    <constraint firstItem="AUo-9q-c0h" firstAttribute="top" secondItem="aYc-LO-0Or" secondAttribute="topMargin" constant="1" id="o0w-r6-zv7"/>
+                    <constraint firstItem="AUo-9q-c0h" firstAttribute="leading" secondItem="aYc-LO-0Or" secondAttribute="leadingMargin" id="yz3-3A-6lo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="0.25702069259999999" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="audioName" destination="3RD-lt-KuP" id="SXC-5e-sdf"/>
+                <outlet property="loadingForInfo" destination="ts2-e2-qq1" id="5hv-1i-cYH"/>
+                <outlet property="playButton" destination="7Kp-v0-3tm" id="Mby-Dt-wYG"/>
+                <outlet property="posterBackground" destination="AUo-9q-c0h" id="acX-ZY-Qzo"/>
+                <outlet property="score" destination="R1c-Sc-L6F" id="Gac-MD-3u6"/>
+                <outlet property="scoreLabel" destination="S08-YB-L9k" id="Eqi-hk-ImE"/>
+            </connections>
+            <point key="canvasLocation" x="60.5" y="-3"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="whiteplay" width="256" height="256"/>
+    </resources>
+</document>
